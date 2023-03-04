@@ -42,15 +42,16 @@ const LoginForm = () => {
     }
 
     return (
-        <form onSubmit={loginHandler} className="flex flex-col w-7/12">
+        <form onSubmit={loginHandler} className="flex flex-col w-6/12">
             <div>
-                <p className={`${fontType["h1"]} mb-7`}>Login</p>
+                <p className={`${fontType["h1"]} mb-7`}>Masuk</p>
             </div>
             <div className="flex flex-col mb-4">
-                <label htmlFor="email" className="mb-2 font-semibold">Email</label>
+                <label htmlFor="email" className={`${fontType["h4"]} mb-5`}>Email</label>
                 <input
-                    className="bg-slate-400 rounded-full px-3 py-2"
+                    className="rounded-full px-3 py-2"
                     type="email"
+                    placeholder="Email"
                     name="email"
                     value={email}
                     onChange={(e) => {
@@ -60,24 +61,27 @@ const LoginForm = () => {
                 />
             </div>
             <div className="flex flex-col mb-4">
-                <label htmlFor="passwd" className="mb-2 font-semibold">Password</label>
+                <label htmlFor="passwd" className={`${fontType["h4"]} mb-5`}>Password</label>
                 <input
+                    className="rounded-full px-3 py-2"
+                    placeholder="Password"
                     type="password"
                     name="passwd"
                     value={passwd}
                     onChange={(e) => {
                         setPasswd(e.target.value);
                     }}
-                    className="bg-slate-400 rounded-full px-3 py-2"
                     required
                 />
                 <div className="self-end">
-                    <Link to="/forgot-password" className="font-semibold ">Forgot Password</Link>
+                    <Link to="/forgot-password" className={`${fontType["p1"]} text-[#2753BD]`}>Lupa Kata Sandi?</Link>
                 </div>
             </div>
             <div className="flex flex-col items-center">
-                <button type="submit" className="w-full bg-slate-500 text-white font-bold py-2 px-4 rounded-full">LOGIN</button>
-                <p className="mt-2">Don't have an account? <Link to="/signup" className="font-semibold">Sign Up</Link></p>
+                <button type="submit" className="w-full bg-[#2753BD] text-white py-2 px-4 rounded-full">Masuk</button>
+                <p className="mt-2 text-[#2753BD]">Tidak Punya Akun?
+                    <Link to="/signup" className="font-bold"> Daftar</Link>
+                </p>
             </div>
         </form>
     )
