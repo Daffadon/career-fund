@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { Link } from "react-router-dom";
 import { login } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
+import openEye from "../../assets/icons/openeye.svg"
+import { Modal } from "flowbite-react";
+import ForgetPassword from "../PopUp/ForgetPassword";
 
 
 const LoginForm = () => {
@@ -12,6 +15,8 @@ const LoginForm = () => {
     const [message, setMessage] = useState("");
     const [emailErr, setEmailErr] = useState(false);
     const [passwdErr, setPasswdErr] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isShow, setIsShow] = useState(false);
 
     useEffect(() => {
         if (!email.match(EMAIL_REGEX)) {
@@ -40,16 +45,19 @@ const LoginForm = () => {
         setLoading(false)
         setMessage(response.massage)
     }
+    const showModalHandler = useCallback((value) => {
+        setIsShow(value)
+    }, [setIsShow])
 
     return (
-        <form onSubmit={loginHandler} className="flex flex-col w-6/12">
+        <form onSubmit={loginHandler} className="flex flex-col w-5/12">
             <div>
                 <p className={`${fontType["h1"]} mb-7`}>Masuk</p>
             </div>
             <div className="flex flex-col mb-4">
                 <label htmlFor="email" className={`${fontType["h4"]} mb-5`}>Email</label>
                 <input
-                    className="rounded-full px-3 py-2"
+                    className="rounded-full px-3 py-2 border-none"
                     type="email"
                     placeholder="Email"
                     name="email"
@@ -62,27 +70,35 @@ const LoginForm = () => {
             </div>
             <div className="flex flex-col mb-4">
                 <label htmlFor="passwd" className={`${fontType["h4"]} mb-5`}>Password</label>
-                <input
-                    className="rounded-full px-3 py-2"
-                    placeholder="Password"
-                    type="password"
-                    name="passwd"
-                    value={passwd}
-                    onChange={(e) => {
-                        setPasswd(e.target.value);
-                    }}
-                    required
-                />
+                <div className="relative">
+                    <input
+                        className="rounded-full px-3 py-2 w-11/12 border-none"
+                        placeholder="Password"
+                        type={isOpen ? "text" : "password"}
+                        name="passwd"
+                        value={passwd}
+                        onChange={(e) => {
+                            setPasswd(e.target.value);
+                        }}
+                        required
+                    />
+                    {isOpen ?
+                        <img src={openEye} className="absolute -right-1 top-3 " onClick={() => setIsOpen(false)} />
+                        :
+                        <img src={openEye} className="absolute -right-1 top-3 cursor-pointer" onClick={() => setIsOpen(true)} />
+                    }
+                </div>
                 <div className="self-end">
-                    <Link to="/forgot-password" className={`${fontType["p1"]} text-[#2753BD]`}>Lupa Kata Sandi?</Link>
+                    <p className={`${fontType["p2"]} text-primary50 cursor-pointer`} onClick={showModalHandler}>lupa Kata Sandi?</p>
                 </div>
             </div>
             <div className="flex flex-col items-center">
-                <button type="submit" className="w-full bg-[#2753BD] text-white py-2 px-4 rounded-full">Masuk</button>
-                <p className="mt-2 text-[#2753BD]">Tidak Punya Akun?
+                <button type="submit" className={`${fontType["button"]} w-10/12 bg-primary50 text-white py-2 px-4 rounded-full`}>Masuk</button>
+                <p className={`${fontType["p2"]} mt-2 text-primary50`} >Tidak Punya Akun?
                     <Link to="/signup" className="font-bold"> Daftar</Link>
                 </p>
             </div>
+            <ForgetPassword isShow={isShow} />
         </form>
     )
 }

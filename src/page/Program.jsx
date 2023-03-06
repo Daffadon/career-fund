@@ -2,7 +2,7 @@ import { cardSize } from "../components/Cards/cards"
 import Layout from "../components/Layout/Layout"
 import { fontType } from "../components/Text/Text"
 
-const Job = () => {
+const Program = () => {
     return (
         <Layout>
             <div className="ml-10 h-[120vh] gap-10 flex mt-10">
@@ -29,4 +29,4 @@ const Job = () => {
     )
 }
 
-export default Job
+export default Program

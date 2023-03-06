@@ -1,22 +1,31 @@
 import { Link } from "react-router-dom"
 import { fontType } from "../Text/Text"
-import { landingTitle } from "./NavigationTitle"
 import logo from "/logo.svg"
 const NavBar = () => {
+    const goToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
+    }
+    const goToBottom = () => {
+        window.scrollTo({
+            top: document.documentElement.scrollHeight,
+            behavior: "smooth"
+        })
+    }
     return (
-        <div className="flex items-center justify-between h-[15vh]">
+        <div className="flex items-center justify-between h-[13vh] sticky top-0 bg-white z-10">
             <img src={logo} alt="CareerFund" className="ml-10" />
             <nav className="flex gap-4">
-                {landingTitle.map(item => {
-                    return (
-                        <Link className={`${fontType["link"]}`} key={item.key} to={`${item.path}`}>{item.title}</Link>
-                    )
-                })}
+                <Link className={`${fontType["link"]}`} onClick={goToTop}>Beranda</Link>
+                <Link className={`${fontType["link"]}`} onClick={goToBottom}>Tentang Kami</Link>
+                <Link className={`${fontType["link"]}`} to="/program">Program</Link>
+                <Link className={`${fontType["link"]}`} to="/help">Bantuan</Link>
             </nav>
-            <div className="w-44 h-10 bg-[#b0fb49] rounded-full mr-10 py-2 px-8">
-                Masuk / Daftar
-            </div>
-        </div>
+            <Link className={`${fontType["button"]} bg-secondary50 mr-10 py-2 px-8 rounded-full`} to="/login">Masuk / Daftar
+            </Link>
+        </div >
     )
 }
 

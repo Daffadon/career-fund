@@ -1,10 +1,12 @@
+import Footer from "../Footer/Footer"
 import NavBar from "../NavigationBar/NavBar"
 
 const Layout = ({ children }) => {
     return (
-        <div className="min-h[100vh]">
+        <div>
             <NavBar />
             {children}
+            <Footer/>
         </div>
     )
 }

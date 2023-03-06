@@ -1,37 +1,43 @@
-import facebook from "../../../../assets/LandingPage/facebook.svg"
-import twitter from "../../../../assets/LandingPage/twitter.svg"
-import spotify from "../../../../assets/LandingPage/spotify.svg"
-import google from "../../../../assets/LandingPage/google inc.svg"
+import facebook from "../../../../assets/LandingPage/Facebook WC.svg"
+import twitter from "../../../../assets/LandingPage/Twitter WC.svg"
+import spotify from "../../../../assets/LandingPage/Spotify WC.svg"
+import google from "../../../../assets/LandingPage/Google WC.svg"
+import paypal from "../../../../assets/LandingPage/PayPal 1 WC.svg"
 
 export const listCompany = [
     {
-        header : facebook,
+        logo: facebook,
+        name: "Facebook",
         job: "Graphic Designer",
         loc: "Malang, Indonesia",
-        tag:["SMA","SMK","D3/S1"]
+        tag: ["SMA", "SMK", "D3/S1"]
     },
     {
-        header : twitter,
+        logo: twitter,
+        name: "Twitter",
         job: "Data Science",
         loc: "Surabaya, Indonesia",
-        tag:["D3/S1"]
+        tag: ["D3/S1"]
     },
     {
-        header : spotify,
+        logo: spotify,
+        name: "Spotify",
         job: "Product Manager",
         loc: "Jakarta, Indonesia",
-        tag:["SMA","SMK","D3/S1"]
+        tag: ["SMA", "SMK", "D3/S1"]
     },
     {
-        header : google,
+        logo: google,
+        name: "Google",
         job: "Back End Developer",
         loc: "Bandung, Indonesia",
-        tag:["D3/S1"]
+        tag: ["D3/S1"]
     },
     {
-        header : facebook,
+        logo: paypal,
+        name: "Paypal",
         job: "Graphic Designer",
         loc: "Malang, Indonesia",
-        tag:["SMA","SMK","D3/S1"]
+        tag: ["SMA", "SMK", "D3/S1"]
     }
 ]

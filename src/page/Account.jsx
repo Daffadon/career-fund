@@ -1,8 +1,8 @@
 
-const Profile = () => {
+const Account = () => {
     return (
         <div>Profile</div>
     )
 }
 
-export default Profile
+export default Account

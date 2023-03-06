@@ -30,25 +30,3 @@ export const homeTitle = [
         path: ""
     }
 ]
-export const landingTitle = [
-    {
-        key: 1,
-        title: "Beranda",
-        path: ""
-    },
-    {
-        key: 2,
-        title: "Tentang Kami",
-        path: ""
-    },
-    {
-        key: 3,
-        title: "Program",
-        path: ""
-    },
-    {
-        key: 4,
-        title: "Bantuan",
-        path: ""
-    }
-]
