@@ -1,5 +1,5 @@
-import { fontType } from "../../../../components/Text/Text"
-import gambar from "../../../../assets/LandingPage/contentSec1Landing.svg"
+import { fontType } from "../../../components/Text/Text"
+import gambar from "../../../assets/LandingPage/contentSec1Landing.svg"
 
 const Section1 = () => {
     return (

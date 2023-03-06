@@ -1,5 +1,5 @@
 import { Accordion } from "flowbite-react"
-import { fontType } from "../../../components/Text/Text"
+import { fontType } from "../../components/Text/Text"
 import { faq } from "./faq"
 const AccordionFaq = () => {
     return (
@@ -7,7 +7,7 @@ const AccordionFaq = () => {
             <div className="w-6/12">
                 <p className={`${fontType["h1"]} text-center`}>Pertanyaan Umum</p>
             </div>
-            <div className="w-6/12">
+            <div className="w-5/12">
                 <Accordion flush={true} alwaysOpen={true}>
                     {faq.map(item => {
                         return (

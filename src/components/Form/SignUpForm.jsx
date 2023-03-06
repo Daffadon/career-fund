@@ -13,7 +13,6 @@ const SignUpForm = () => {
         phone: '',
         password: ''
     })
-    const [loading, setLoading] = useState(false);
     const [emailErr, setEmailErr] = useState(false);
     const [passwdErr, setPasswdErr] = useState(false);
     const [isPasswdOpen, setIsPasswdOpen] = useState(false)

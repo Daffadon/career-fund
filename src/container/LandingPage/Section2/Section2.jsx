@@ -1,4 +1,4 @@
-import { fontType } from "../../../../components/Text/Text"
+import { fontType } from "../../../components/Text/Text"
 import { row1,row2 } from "./image"
 const Section2 = () => {
     return (

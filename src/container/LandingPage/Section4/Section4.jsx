@@ -1,4 +1,4 @@
-import { fontType } from "../../../../components/Text/text"
+import { fontType } from "../../../components/Text/text"
 import { listCompany } from "./listCompany"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Scrollbar, Mousewheel, FreeMode } from "swiper"

@@ -1,5 +1,5 @@
-import sec3 from "../../../../assets/LandingPage/dummysec3.svg"
-import { fontType } from "../../../../components/Text/Text"
+import sec3 from "../../../assets/LandingPage/dummysec3.svg"
+import { fontType } from "../../../components/Text/Text"
 import { layanan } from "./layanan"
 
 

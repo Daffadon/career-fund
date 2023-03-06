@@ -1,6 +1,6 @@
-import dana from "../../../../assets/LandingPage/Dana.svg"
-import kerja from "../../../../assets/LandingPage/Kerja.svg"
-import karyawan from "../../../../assets/LandingPage/Karyawan.svg"
+import dana from "../../../assets/LandingPage/Dana.svg"
+import kerja from "../../../assets/LandingPage/Kerja.svg"
+import karyawan from "../../../assets/LandingPage/Karyawan.svg"
 
 export const layanan = [
     {

@@ -2,12 +2,6 @@ import { Link } from "react-router-dom"
 import { fontType } from "../Text/Text"
 import logo from "/logo.svg"
 const NavBar = () => {
-    const goToTop = () => {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        })
-    }
     const goToBottom = () => {
         window.scrollTo({
             top: document.documentElement.scrollHeight,
@@ -18,7 +12,7 @@ const NavBar = () => {
         <div className="flex items-center justify-between h-[13vh] sticky top-0 bg-white z-10">
             <img src={logo} alt="CareerFund" className="ml-10" />
             <nav className="flex gap-4">
-                <Link className={`${fontType["link"]}`} onClick={goToTop}>Beranda</Link>
+                <Link className={`${fontType["link"]}`} to="/">Beranda</Link>
                 <Link className={`${fontType["link"]}`} onClick={goToBottom}>Tentang Kami</Link>
                 <Link className={`${fontType["link"]}`} to="/program">Program</Link>
                 <Link className={`${fontType["link"]}`} to="/help">Bantuan</Link>

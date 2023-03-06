@@ -12,8 +12,8 @@ const ForgetPassword = ({ isShow }) => {
                 popup={true}
                 show={isShow}
                 size="md"
-                position="center"
-                className="py-12"
+                position="top-center"
+                className="py-11"
             >
                 <Modal.Body>
                     <div className="flex justify-center items-center flex-col gap-4 pt-6 pb-2">

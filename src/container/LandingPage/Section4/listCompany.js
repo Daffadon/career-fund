@@ -1,8 +1,8 @@
-import facebook from "../../../../assets/LandingPage/Facebook WC.svg"
-import twitter from "../../../../assets/LandingPage/Twitter WC.svg"
-import spotify from "../../../../assets/LandingPage/Spotify WC.svg"
-import google from "../../../../assets/LandingPage/Google WC.svg"
-import paypal from "../../../../assets/LandingPage/PayPal 1 WC.svg"
+import facebook from "../../../assets/LandingPage/Facebook WC.svg"
+import twitter from "../../../assets/LandingPage/Twitter WC.svg"
+import spotify from "../../../assets/LandingPage/Spotify WC.svg"
+import google from "../../../assets/LandingPage/Google WC.svg"
+import paypal from "../../../assets/LandingPage/PayPal 1 WC.svg"
 
 export const listCompany = [
     {

@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom"
 import ForgotPassword from "../page/ForgotPassword"
 import Home from "../page/Home"
-import LandingPage from "../page/LandingPage/LandingPage"
+import LandingPage from "../page/LandingPage"
 import Login from "../page/Login"
 import SignUp from "../page/SignUp"
 import PrivateRoutes from "./PrivateRoutes"
 import PublicRoutes from "./PublicRoutes"
 import Program from "../page/Program"
 import Account from "../page/Account"
-import Help from "../page/Help/Help"
+import Help from "../page/Help"
 import History from "../page/History"
 
 const AppRoutes = () => {
