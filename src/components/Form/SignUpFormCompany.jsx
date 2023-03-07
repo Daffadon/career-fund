@@ -6,7 +6,7 @@ import openEye from "../../assets/icons/openeye.svg";
 import ConfirmSignUp from "../PopUp/ConfirmSignUp";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 
-const SignUpForm = () => {
+const SignUpFormCompany = () => {
       const [user, setUser] = useState({
             name: "",
             email: "",
@@ -65,7 +65,7 @@ const SignUpForm = () => {
                               htmlFor="name"
                               className={`${fontType["h4"]} mb-5`}
                         >
-                              Nama
+                              Nama Perusahaan
                         </label>
                         <input
                               className=" rounded-full px-3 py-2 border-none bg-[#F9F9F9]"
@@ -138,7 +138,7 @@ const SignUpForm = () => {
                               {isPasswdOpen ? (
                                     <img
                                           src={openEye}
-                                          className="absolute -right-1 top-3  cursor-pointer"
+                                          className="absolute -right-1 top-3 cursor-pointer "
                                           onClick={() => setIsPasswdOpen(false)}
                                     />
                               ) : (
@@ -209,4 +209,4 @@ const SignUpForm = () => {
       );
 };
 
-export default SignUpForm;
+export default SignUpFormCompany;

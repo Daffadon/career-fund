@@ -8,7 +8,7 @@ import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import ForgetPassword from "../PopUp/ForgetPassword";
 import EmailSent from "../PopUp/EmailSent";
 
-const LoginForm = () => {
+const LoginFormCompany = () => {
       const [email, setEmail] = useState("");
       const [passwd, setPasswd] = useState("");
       const [loading, setLoading] = useState(false);
@@ -98,7 +98,7 @@ const LoginForm = () => {
                               {isOpen ? (
                                     <img
                                           src={openEye}
-                                          className="absolute -right-1 top-3 cursor-pointer"
+                                          className="absolute -right-1 top-3 cursor-pointer "
                                           onClick={() => setIsOpen(false)}
                                     />
                               ) : (
@@ -127,17 +127,23 @@ const LoginForm = () => {
                         </button>
                         <p className={`${fontType["p3"]} mt-2 text-primary50`}>
                               Tidak Punya Akun?
-                              <Link to="/signup" className="font-bold">
+                              <Link to="/companysignup" className="font-bold">
                                     {" "}
                                     Daftar
                               </Link>
                         </p>
-                              <Link className={`${fontType["h5"]} text-primary50 mt-2`} to="/companylogin">Masuk Untuk Perusahaan</Link>
+
+                        <Link className={`${fontType["h5"]} text-primary50 mt-2`} to="/login">Masuk Untuk User</Link>
                   </div>
-                  {isShow && <ForgetPassword setIsShow={setIsShow}  setIsSentRec={setIsSentRec}/>}
-                  {isSentRec && <EmailSent/>}
+                  {isShow && (
+                        <ForgetPassword
+                              setIsShow={setIsShow}
+                              setIsSentRec={setIsSentRec}
+                        />
+                  )}
+                  {isSentRec && <EmailSent />}
             </form>
       );
 };
 
-export default LoginForm;
+export default LoginFormCompany;

@@ -1,4 +1,4 @@
-import { fontType } from "../../../components/Text/Text"
+import { fontType } from "../../../components/Text/text"
 
 const Section5 = () => {
     return (

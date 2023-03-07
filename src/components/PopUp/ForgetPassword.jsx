@@ -1,31 +1,63 @@
-import { Modal } from "flowbite-react"
-import checkEmail from "../../assets/SignUp-Login/Hands Point.svg"
-import { fontType } from "../Text/Text"
+import { useState } from "react";
+import { sendEmailPasswordRecovery } from "../../api/api";
+import checkEmail from "../../assets/SignUp-Login/Hands Point.svg";
+import { fontType } from "../Text/text";
+import { EMAIL_REGEX } from "../../constants/regex";
 
-const ForgetPassword = ({ isShow }) => {
-    const reload = () => {
-        location.reload()
-    }
-    return (
-        <div>
-            <Modal
-                popup={true}
-                show={isShow}
-                size="md"
-                position="top-center"
-                className="py-11"
-            >
-                <Modal.Body>
-                    <div className="flex justify-center items-center flex-col gap-4 pt-6 pb-2">
-                        <img src={checkEmail} alt="" className="w-10/12" />
-                        <p className={`${fontType["h1"]}`}>Email Terkirim</p>
-                        <p className={`${fontType["p1"]} text-neutral50 text-center`}>Cek kotak masuk email Anda untuk instruksi pemulihan dan dapatkan kembali akses ke akun Anda dalam hitungan menit!</p>
-                        <p className={`${fontType["button"]} text-white text-center w-full bg-primary50 rounded-full py-2 cursor-pointer`} onClick={reload}>Kembali</p>
-                    </div>
-                </Modal.Body>
-            </Modal>
-        </div>
-    )
-}
+const ForgetPassword = ({ setIsShow, setIsSentRec }) => {
+      const [email, setEmail] = useState("");
 
-export default ForgetPassword
+      const sendEmail = () => {
+            if (email.match(EMAIL_REGEX)) {
+                  // sendEmailPasswordRecovery(email);
+                  setIsShow(false);
+                  setIsSentRec(true);
+            }else{
+                  // console.log("err")
+            }
+      };
+
+      return (
+            <div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
+                  <div className="bg-white rounded-2xl w-4/12 py-10">
+                        <div className="flex justify-center items-center flex-col gap-4 pt ">
+                              <img src={checkEmail} className="w-8/12" />
+                              <p className={`${fontType["h1"]}`}>
+                                    Email Terkirim
+                              </p>
+                              <p
+                                    className={`${fontType["p1"]} text-neutral50 text-center w-7/12`}
+                              >
+                                    Masukkan email Anda dan jangan lewatkan
+                                    kesempatan untuk mendapatkan update terbaru
+                                    dari kami
+                              </p>
+                              <label
+                                    htmlFor="email"
+                                    className={`${fontType["h4"]}  self-start ml-14`}
+                              >
+                                    Email
+                              </label>
+                              <input
+                                    className="rounded-full border-none bg-[#F9F9F9] w-9/12 "
+                                    type="email"
+                                    placeholder="Email"
+                                    name="email"
+                                    value={email}
+                                    onChange={(e) => {
+                                          setEmail(e.target.value);
+                                    }}
+                              />
+                              <p
+                                    className={`${fontType["button"]} w-9/12 bg-primary50 text-white py-2 px-4 rounded-full text-center cursor-pointer`}
+                                    onClick={sendEmail}
+                              >
+                                    Kirim
+                              </p>
+                        </div>
+                  </div>
+            </div>
+      );
+};
+
+export default ForgetPassword;

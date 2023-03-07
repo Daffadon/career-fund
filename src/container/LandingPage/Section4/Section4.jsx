@@ -8,7 +8,7 @@ import "swiper/css/scrollbar"
 
 const Section4 = () => {
     return (
-        <div className="max-h-[70vh] mt-[10em] ml-10">
+        <div className="max-h-[75vh] mt-[10em] ml-10">
             <div className="flex">
                 <p className={`${fontType["h1"]} w-4/12 mb-20`}>Perusahaan Paling Diminati</p>
             </div>
@@ -22,7 +22,7 @@ const Section4 = () => {
                 freeMode={true}
                 mousewheel={true}
                 modules={[Scrollbar, FreeMode, Mousewheel]}
-                className="max-h-[56vh] w-full"
+                className="h-[35vh] w-full"
                 breakpoints={{
                     780:{
                         slidesPerView : 3

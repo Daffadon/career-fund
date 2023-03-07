@@ -1,4 +1,4 @@
-import { fontType } from "../Text/Text"
+import { fontType } from "../Text/text"
 import { nav } from "./footerAssets"
 import footerlogo from "../../assets/LandingPage/footerLogo.svg"
 import { desc } from "./footerAssets"

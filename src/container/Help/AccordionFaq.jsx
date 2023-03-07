@@ -1,5 +1,5 @@
 import { Accordion } from "flowbite-react"
-import { fontType } from "../../components/Text/Text"
+import { fontType } from "../../components/Text/text"
 import { faq } from "./faq"
 const AccordionFaq = () => {
     return (
