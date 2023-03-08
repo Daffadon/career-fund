@@ -5,7 +5,7 @@ import { layanan } from "./layanan"
 
 const Section3 = () => {
     return (
-        <div className="flex w-full h-[50vh] mt-[10em] justify-center items-center">
+        <div className="flex w-full h-[50vh] mt-[10em] justify-center items-center" id="serves">
             <div className="w-6/12 flex justify-end">
                 <img src={sec3} alt="" />
             </div>

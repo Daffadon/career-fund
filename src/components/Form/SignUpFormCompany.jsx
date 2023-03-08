@@ -1,9 +1,8 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";
-import ConfirmSignUp from "../PopUp/ConfirmSignUp";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 
 const SignUpFormCompany = () => {
@@ -18,7 +17,6 @@ const SignUpFormCompany = () => {
       const [passwdErr, setPasswdErr] = useState(false);
       const [isPasswdOpen, setIsPasswdOpen] = useState(false);
       const [isRePasswdOpen, setIsRePasswdOpen] = useState(false);
-      const [isShow, setIsShow] = useState(false);
 
       useEffect(() => {
             if (!user.email.match(EMAIL_REGEX)) {
@@ -43,19 +41,14 @@ const SignUpFormCompany = () => {
                   ("not match");
             }
       }, [repasswd]);
-
-      const showModalHandler = useCallback(
-            (value) => {
-                  setIsShow(value);
-            },
-            [setIsShow]
-      );
+      const signUpHandler = (e)=>{
+            e.preventDefault()
+            // signupCompany
+      }
       return (
             <form
                   className="flex flex-col w-5/12"
-                  onSubmit={(e) => {
-                        e.preventDefault();
-                  }}
+                  onSubmit={signUpHandler}
             >
                   <div>
                         <p className={`${fontType["h1"]} mb-7`}>Daftar</p>
@@ -189,8 +182,7 @@ const SignUpFormCompany = () => {
                   </div>
                   <div className="flex flex-col items-center">
                         <button
-                              className={`${fontType["button"]} w-10/12 bg-primary50 text-white py-2 px-4 rounded-full`}
-                              onClick={showModalHandler}
+                              className={`${fontType["button"]} w-10/12 bg-primary50 text-white py-2 px-4 rounded-full`} type="submit"
                         >
                               Daftar
                         </button>
@@ -202,9 +194,6 @@ const SignUpFormCompany = () => {
                               </Link>
                         </p>
                   </div>
-                  {isShow && (
-                        <ConfirmSignUp user={user} setIsShow={setIsShow} />
-                  )}
             </form>
       );
 };
