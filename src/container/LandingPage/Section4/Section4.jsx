@@ -4,8 +4,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, Mousewheel, FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/scrollbar";
+import { useNavigate } from "react-router";
 
 const Section4 = () => {
+      const navigate = useNavigate();
       return (
             <div className="max-h-[75vh] mt-[15em] ml-10">
                   <div className="flex">
@@ -72,7 +74,14 @@ const Section4 = () => {
                                                             );
                                                       })}
                                                 </div>
-                                                <p className="text-center bg-primary50 text-white rounded-full py-2 mt-8 cursor-pointer hover:bg-white hover:border-primary50 border-2 hover:text-primary50">
+                                                <p
+                                                      className="text-center bg-primary50 text-white rounded-full py-2 mt-8 cursor-pointer hover:bg-white hover:border-primary50 border-2 hover:text-primary50"
+                                                      onClick={() => {
+                                                            navigate(
+                                                                  "/program"
+                                                            );
+                                                      }}
+                                                >
                                                       Lihat Detail
                                                 </p>
                                           </div>

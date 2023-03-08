@@ -4,27 +4,36 @@ import changePic from "../assets/Account/changePic.svg";
 import { fontType } from "../components/Text/text";
 import dana from "../assets/LandingPage/Dana.svg";
 import DropdownCustom from "../components/Dropdown/DropdownCustom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { countries } from "../container/account/account";
 import { school } from "../container/account/account";
 import ConfirmChangeBio from "../components/PopUp/ConfirmChangeBio";
 const Account = () => {
-        const [pendidikan, setPendidikan] =useState("SMA"); 
-        const [country, setCountry] = useState("Zimbabwe")
+        const [country, setCountry] = useState("Indonesia")
         const [isShow,setIsShow] = useState(false);
+        const [user,setUser] = useState({
+                namaDepan:"",
+                namaBelakang:"",
+                pendidikan:"SMA",
+                email:"",
+                telepon:"",
+                kota:"",
+                pos:"",
+                negara:country
+
+        })
         const saveBio = () => {
                 // saveBio
         };
         return (
                 <Layout>
-                        <div className="flex h-[90vh] mt-24">
-                                <div className="w-4/12  rounded-xl  gap-4 flex justify-center items-start h-11/12">
+                        <div className="flex min-h-[70vh] mt-24 mb-20">
+                                <div className="w-4/12  rounded-xl  gap-4 flex justify-center items-start h-11/12 ">
                                         <div className="w-3/4  bg-white flex flex-col justify-start items-center gap-16 rounded-2xl py-10 ">
                                                 <div className="relative">
                                                         <img src={foto} />
                                                         <img
                                                                 src={changePic}
-                                                                alt=""
                                                                 className="absolute left-12 -bottom-4"
                                                         />
                                                 </div>
@@ -72,6 +81,9 @@ const Account = () => {
                                                                 type="text"
                                                                 placeholder="Nama Depan"
                                                                 className="w-10/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
+                                                                onChange={(e)=>{
+                                                                        setUser({...user,namaDepan:e.target.value})
+                                                                }}
                                                         />
                                                 </div>
                                                 <div>
@@ -79,7 +91,7 @@ const Account = () => {
                                                                 Pendidikan
                                                                 Terakhir
                                                         </p>
-                                                        <DropdownCustom options={school} selectedOption={pendidikan} onOptionSelect={setPendidikan} />
+                                                        <DropdownCustom options={school} selectedOption={"SMA"} onOptionSelect={setUser} />
                                                 </div>
                                                 <div>
                                                         <p>No. Telepon</p>

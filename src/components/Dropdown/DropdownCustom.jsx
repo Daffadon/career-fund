@@ -5,6 +5,7 @@ const DropdownCustom = ({ options, selectedOption, onOptionSelect }) => {
         const handleOptionChange = (event) => {
                 const option = event.target.value;
                 setSelected(option);
+                onOptionSelect()
                 onOptionSelect(option);
         };
         return (
