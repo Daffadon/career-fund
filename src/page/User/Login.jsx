@@ -1,7 +1,7 @@
-import LoginForm from "../components/Form/LoginForm";
-import picture from "../assets/SignUp-Login/signUpPic.svg";
-import back from "../assets/SignUp-Login/back.svg";
-import { fontType } from "../components/Text/text";
+import LoginForm from "../../components/Form/LoginForm";
+import picture from "../../assets/SignUp-Login/signUpPic.svg";
+import back from "../../assets/SignUp-Login/back.svg";
+import { fontType } from "../../components/Text/text";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {

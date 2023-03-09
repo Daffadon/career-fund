@@ -1,6 +1,6 @@
 // import { cardSize } from "../components/Cards/cards";
-import Layout from "../components/Layout/Layout";
-import { fontType } from "../components/Text/text";
+import Layout from "../../components/Layout/Layout";
+import { fontType } from "../../components/Text/text";
 
 const Program = () => {
         return (

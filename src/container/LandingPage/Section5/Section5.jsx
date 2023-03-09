@@ -3,6 +3,8 @@ import { fontType } from "../../../components/Text/text"
 import { comments } from "./comment"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation } from "swiper";
+import back from "../../../assets/icons/backslide.svg"
+import next from "../../../assets/icons/nextslide.svg"
 import "swiper/css";
 import "swiper/css/navigation";
 
@@ -14,10 +16,13 @@ const Section5 = () => {
                 <Swiper
                     slidesPerView={3}
                     spaceBetween={10}
-                    initialSlide={1}
-                    navigation={true}
+                    navigation={{
+                        prevEl: '.swiper-button-prev',
+                        nextEl: '.swiper-button-next',
+                        renderBullet: () => 'null',
+                    }}
                     modules={[Navigation]}
-                    className=" h-[50vh] max-h-[50vh] w-full px-5"
+                    className=" h-[50vh] max-h-[50vh] w-full px-10"
                 >
                     {comments.map((item) => {
                         return (
@@ -33,7 +38,6 @@ const Section5 = () => {
                                                 {item.job}
                                             </p>
                                         </div>
-
                                     </div>
                                     <p className={`${fontType["h5"]} text-neutral50 text-justify`}>
                                         {item.comment}
@@ -42,6 +46,12 @@ const Section5 = () => {
                             </SwiperSlide>
                         )
                     })}
+                    <div className="swiper-button-prev w-24 h-24">
+                        <img src={back} alt="Prev" className="absolute rounded-full " />
+                    </div>
+                    <div className="swiper-button-next w-24 h-24">
+                        <img src={next} alt="Next" className="absolute " />
+                    </div>
                 </Swiper>
             </div >
         </div >

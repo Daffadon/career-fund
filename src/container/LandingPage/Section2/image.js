@@ -10,11 +10,11 @@ import uber from "../../../assets/LandingPage/Uber.svg"
 export const row1 = [
     {
         key: 1,
-        img:  apple 
+        img: apple
     },
     {
         key: 2,
-        img: amazon 
+        img: amazon
     },
     {
         key: 3,
@@ -28,18 +28,18 @@ export const row1 = [
 export const row2 = [
     {
         key: 5,
-        img:  tesla 
+        img: tesla
     },
     {
         key: 6,
-        img:  samsung 
+        img: samsung
     },
     {
         key: 7,
-        img: meta 
+        img: meta
     },
     {
         key: 8,
-        img:  uber 
+        img: uber
     }
 ]

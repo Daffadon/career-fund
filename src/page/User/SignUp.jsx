@@ -1,10 +1,9 @@
-import SignUpFormCompany from "../components/Form/SignUpFormCompany";
-import picture from "../assets/SignUp-Login/signUpPic.svg";
+import SignUpForm from "../../components/Form/SignUpForm";
+import picture from "../../assets/SignUp-Login/signUpPic.svg";
+import back from "../../assets/SignUp-Login/back.svg";
+import { fontType } from "../../components/Text/text";
 import { useNavigate } from "react-router-dom";
-import back from "../assets/SignUp-Login/back.svg";
-import { fontType } from "../components/Text/text";
-
-const SignUpCompany = () => {
+const SignUp = () => {
       const navigate = useNavigate();
       const toHome = () => {
             navigate("/");
@@ -25,11 +24,11 @@ const SignUpCompany = () => {
                               <img src={picture} alt="" className="w-8/12" />
                         </div>
                         <div className="w-6/12 flex justify-center">
-                              <SignUpFormCompany />
+                              <SignUpForm />
                         </div>
                   </div>
             </>
       );
 };
 
-export default SignUpCompany;
+export default SignUp;
