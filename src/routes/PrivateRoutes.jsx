@@ -2,7 +2,7 @@ import {useState, useEffect } from "react"
 import { Navigate, Outlet } from "react-router-dom";
 import { isAuthenticated } from "../authentication/AuthService"
 const PrivateRoutes = () => {
-    const [isLogin, setIsLogin] = useState();
+    const [isLogin, setIsLogin] = useState(false);
 
     useEffect(()=>{
         const isLoggedIn = async () => {
