@@ -7,41 +7,24 @@ import openEye from "../../assets/icons/openeye.svg";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import ForgetPassword from "../PopUp/ForgetPassword";
 import EmailSent from "../PopUp/EmailSent";
+import AlertCustom from "../Alerts/AlertCustom";
 
 const LoginFormCompany = () => {
       const [email, setEmail] = useState("");
       const [passwd, setPasswd] = useState("");
       const [loading, setLoading] = useState(false);
-      const [message, setMessage] = useState("");
-      const [emailErr, setEmailErr] = useState(false);
-      const [passwdErr, setPasswdErr] = useState(false);
+      const [error,setError] = useState(false)
       const [isOpen, setIsOpen] = useState(false);
       const [isShow, setIsShow] = useState(false);
       const [isSentRec, setIsSentRec] = useState(false);
-      useEffect(() => {
-            if (!email.match(EMAIL_REGEX)) {
-                  setEmailErr(true);
-            } else {
-                  setEmailErr(false);
-            }
-      }, [email]);
-
-      useEffect(() => {
-            if (!passwd.match(PASSWORD_REGEX)) {
-                  setPasswdErr(true);
-            } else {
-                  setPasswdErr(false);
-            }
-      }, [passwd]);
 
       const loginHandler = async (e) => {
             e.preventDefault();
-            if (passwdErr || emailErr) {
-                  return;
+            if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+                  return setError(true)
             }
             setLoading(true);
             const response = await login(email, passwd);
-
             setLoading(false);
             setMessage(response.massage);
       };
@@ -135,13 +118,9 @@ const LoginFormCompany = () => {
 
                         <Link className={`${fontType["h5"]} text-primary50 mt-2`} to="/login">Masuk Untuk User</Link>
                   </div>
-                  {isShow && (
-                        <ForgetPassword
-                              setIsShow={setIsShow}
-                              setIsSentRec={setIsSentRec}
-                        />
-                  )}
+                  {isShow && ( <ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} />)}
                   {isSentRec && <EmailSent />}
+			{error && <AlertCustom setError={setError} errorMessage= {"Password atau Email Anda Salah! Pastikan Password dan Email benar"}/> }
             </form>
       );
 };

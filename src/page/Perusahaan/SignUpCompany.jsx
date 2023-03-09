@@ -13,8 +13,7 @@ const SignUpCompany = () => {
 		<>
 			<div
 				className="fixed left-28  top-16 w-full flex items-center cursor-pointer"
-				onClick={toHome}
-			>
+				onClick={toHome} >
 				<img src={back} className="inline-block" />
 				<p className={`${fontType["h4"]} ml-4 inline`}>
 					Kembali

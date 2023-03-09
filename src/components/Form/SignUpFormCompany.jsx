@@ -4,6 +4,7 @@ import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
+import AlertCustom from "../Alerts/AlertCustom";
 
 const SignUpFormCompany = () => {
       const [user, setUser] = useState({
@@ -13,36 +14,24 @@ const SignUpFormCompany = () => {
             password: "",
       });
       const [repasswd, setRePasswd] = useState("");
-      const [emailErr, setEmailErr] = useState(false);
-      const [passwdErr, setPasswdErr] = useState(false);
       const [isPasswdOpen, setIsPasswdOpen] = useState(false);
       const [isRePasswdOpen, setIsRePasswdOpen] = useState(false);
+      const [msg, setMsg] = useState("");
+      const [error, setError] = useState(false)
 
       useEffect(() => {
-            if (!user.email.match(EMAIL_REGEX)) {
-                  setEmailErr(true);
-            } else {
-                  setEmailErr(false);
-            }
-      }, [user.email]);
-
-      useEffect(() => {
-            if (!user.password.match(PASSWORD_REGEX)) {
-                  setPasswdErr(true);
-            } else {
-                  setPasswdErr(false);
-            }
-      }, [user.password]);
-
-      useEffect(() => {
-            if (user.password === repasswd) {
-                  ("password match");
-            } else {
-                  ("not match");
+            if (user.password !== repasswd) {
+                  setError(true)
+                  setMsg("not match");
             }
       }, [repasswd]);
-      const signUpHandler = (e)=>{
+
+      const signUpHandler = (e) => {
             e.preventDefault()
+            if (!user.password.match(PASSWORD_REGEX) || !user.email.match(EMAIL_REGEX)) {
+                  setError(true)
+                  setMsg("Pastikan format email benar/password benar")
+            }
             // signupCompany
       }
       return (
@@ -181,19 +170,14 @@ const SignUpFormCompany = () => {
                         </div>
                   </div>
                   <div className="flex flex-col items-center">
-                        <button
-                              className={`${fontType["button"]} w-10/12 bg-primary50 text-white py-2 px-4 rounded-full`} type="submit"
-                        >
+                        <button className={`${fontType["button"]} w-10/12 bg-primary50 text-white py-2 px-4 rounded-full`} type="submit">
                               Daftar
                         </button>
-                        <p className={`${fontType["p2"]} mt-2 text-primary50`}>
-                              Sudah Punya Akun?
-                              <Link to="/login" className="font-bold">
-                                    {" "}
-                                    Masuk
-                              </Link>
+                        <p className={`${fontType["p2"]} mt-2 text-primary50`}>Sudah Punya Akun?
+                              <Link to="/login" className="font-bold"> {" "} Masuk</Link>
                         </p>
                   </div>
+                  {error && <AlertCustom setError={setError} errorMessage={msg} />}
             </form>
       );
 };

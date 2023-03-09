@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
@@ -7,43 +7,25 @@ import openEye from "../../assets/icons/openeye.svg";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import ForgetPassword from "../PopUp/ForgetPassword";
 import EmailSent from "../PopUp/EmailSent";
+import AlertCustom from "../Alerts/AlertCustom";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
 	const [passwd, setPasswd] = useState("");
 	const [loading, setLoading] = useState(false);
-	const [message, setMessage] = useState("");
-	const [emailErr, setEmailErr] = useState(false);
-	const [passwdErr, setPasswdErr] = useState(false);
+	const [error, setError] = useState(false)
 	const [isOpen, setIsOpen] = useState(false);
 	const [isShow, setIsShow] = useState(false);
 	const [isSentRec, setIsSentRec] = useState(false);
-	useEffect(() => {
-		if (!email.match(EMAIL_REGEX)) {
-			setEmailErr(true);
-		} else {
-			setEmailErr(false);
-		}
-	}, [email]);
-
-	useEffect(() => {
-		if (!passwd.match(PASSWORD_REGEX)) {
-			setPasswdErr(true);
-		} else {
-			setPasswdErr(false);
-		}
-	}, [passwd]);
 
 	const loginHandler = async (e) => {
 		e.preventDefault();
-		if (passwdErr || emailErr) {
-			return;
+		if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+			return setError(true)
 		}
 		setLoading(true);
 		const response = await login(email, passwd);
-
 		setLoading(false);
-		setMessage(response.massage);
 	};
 	const showModalHandler = useCallback(
 		(value) => {
@@ -78,10 +60,7 @@ const LoginForm = () => {
 					/>
 				</div>
 				<div className="flex flex-col mb-4">
-					<label
-						htmlFor="passwd"
-						className={`${fontType["h4"]} mb-5`}
-					>
+					<label htmlFor="passwd" className={`${fontType["h4"]} mb-5`}>
 						Password
 					</label>
 					<div className="relative">
@@ -97,33 +76,24 @@ const LoginForm = () => {
 							required
 						/>
 						{isOpen ? (
-							<img
-								src={openEye}
-								className="absolute -right-1 top-3 cursor-pointer"
+							<img src={openEye} className="absolute -right-1 top-3 cursor-pointer"
 								onClick={() => setIsOpen(false)}
-							/>
-						) : (
-							<img
-								src={closeEye}
-								className="absolute -right-1 top-3 cursor-pointer"
+							/>) 
+							: 
+							(<img src={closeEye} className="absolute -right-1 top-3 cursor-pointer"
 								onClick={() => setIsOpen(true)}
 							/>
 						)}
 					</div>
 					<div className="self-end">
-						<p
-							className={`${fontType["p2"]} text-primary50 cursor-pointer mt-3`}
-							onClick={showModalHandler}
-						>
+						<p className={`${fontType["p2"]} text-primary50 cursor-pointer mt-3`}
+						onClick={showModalHandler} >
 							Lupa Kata Sandi?
 						</p>
 					</div>
 				</div>
 				<div className="flex flex-col items-center">
-					<button
-						type="submit"
-						className={`${fontType["button"]} w-10/12 bg-primary50 text-white py-2 px-4 rounded-full`}
-					>
+					<button type="submit" className={`${fontType["button"]} w-10/12 bg-primary50 text-white py-2 px-4 rounded-full`}>
 						Masuk
 					</button>
 					<p className={`${fontType["p3"]} mt-2 text-primary50`}>
@@ -138,6 +108,7 @@ const LoginForm = () => {
 			</form>
 			{isShow && <ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} />}
 			{isSentRec && <EmailSent />}
+			{error && <AlertCustom setError={setError} errorMessage= {"Password atau Email Anda Salah! Silakan Coba Lagi"}/> }
 		</>
 	);
 };
