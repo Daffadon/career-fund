@@ -11,14 +11,32 @@ import "swiper/css/navigation";
 const Section5 = () => {
     return (
         <div className=" min-h-[100vh] flex items-center justify-center">
-            <div className="w-11/12  ml-10 bg-primary50 flex flex-col items-center justify-center rounded-[50px] py-10">
+            <div className="w-11/12  ml-10 bg-primary50 flex flex-col items-center justify-center rounded-[50px] py-10 overflow-hidden">
                 <p className={`${fontType["h1"]} text-white`}>Apa Kata Mereka Tentang Program Kami?</p>
                 <Swiper
-                    slidesPerView={4}
+                    slidesPerView={1}
                     navigation={{
                         prevEl: '.swiper-button-prev',
                         nextEl: '.swiper-button-next',
                         renderBullet: () => 'null',
+                    }}
+                    breakpoints={{
+                        750: {
+                            slidesPerView: 1.5
+                        },
+                        1000: {
+                            slidesPerView: 2
+                        },
+                        1190: {
+                            slidesPerView:2.5
+                        },
+                        
+                        1480: {
+                            slidesPerView:2.8
+                        },
+                        1600: {
+                            slidesPerView:3.5
+                        }
                     }}
                     modules={[Navigation]}
                     className=" h-[50vh] max-h-[50vh] w-full px-10"
