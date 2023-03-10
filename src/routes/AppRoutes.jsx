@@ -19,6 +19,7 @@ import AccountCompany from "../page/Perusahaan/AccountCompany"
 import Fund from "../page/Perusahaan/Fund"
 import ProgramCompany from "../page/Perusahaan/ProgramCompany"
 import HomeCompany from "../page/Perusahaan/HomeCompany"
+import DetailProgramCompany from "../page/Perusahaan/DetailProgramCompany"
 
 const AppRoutes = () => {
     return (
@@ -35,16 +36,17 @@ const AppRoutes = () => {
                 <Route path="/about" element={<AboutUs />} />
             </Route>
             <Route element={<PrivateRoutes />}>
-                <Route path="/program" element={<Program />} />
-                <Route path='/history' element={<History />} />
-                <Route path='/home' element={<Home />} />
             </Route>
+            <Route path='/history' element={<History />} />
+            <Route path='/home' element={<Home />} />
+            <Route path="/program" element={<Program />} />
             <Route path="/home-company" element={<HomeCompany />} />
             <Route path="/program-company" element={<ProgramCompany />} />
             <Route path="/registrar" element={<Registrar />} />
             <Route path="/fund" element={< Fund />} />
             <Route path="/account-company" element={<AccountCompany />} />
             <Route path='/account' element={<Account />} />
+            <Route path="/detail-program-company" element={<DetailProgramCompany />} />
         </Routes>
     )
 }

@@ -21,16 +21,16 @@ const ForgetPassword = ({ setIsShow, setIsSentRec }) => {
 	return (
 		<form onSubmit={sendEmail} >
 			<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
-				<div className="bg-white rounded-2xl w-4/12 py-10 flex flex-col">
+				<div className="bg-white rounded-2xl w-[22rem] sm:w-[26rem] py-10 flex flex-col">
 					<img src={exit} className="w-5 self-end mr-10 cursor-pointer" onClick={() => {
 						setIsShow(false)
 					}} />
 					<div className="flex justify-center items-center flex-col gap-4 pt ">
 						<img src={checkEmail} className="w-8/12" />
-						<p className={`${fontType["h1"]}`}>
+						<p className={`${fontType["h3"]} sm:text-4xl`}>
 							Lupa Kata Sandi
 						</p>
-						<p className={`${fontType["p1"]} text-neutral50 text-center w-7/12`}>
+						<p className={`${fontType["p1"]} text-neutral50 text-center w-8/12 sm:w-7/12`}>
 							Jangan khawatir ini terjadi. Masukkan email Anda yang tersambung dengan Akunmu
 						</p>
 						<label htmlFor="email" className={`${fontType["h4"]}  self-start ml-14`}>

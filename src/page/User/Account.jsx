@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Layout from "../../components/Layout/Layout";
 import foto from "../../assets/Account/foto.svg";
 import changePic from "../../assets/Account/changePic.svg";
@@ -10,8 +10,9 @@ import { school } from "../../container/account/account";
 import ConfirmChangeBio from "../../components/PopUp/ConfirmChangeBio";
 import DropdownCountries from "../../components/Dropdown/DropdownCountries";
 const Account = () => {
-	const [country, setCountry] = useState("Indonesia");
+	const [country,] = useState("Indonesia");
 	const [isShow, setIsShow] = useState(false);
+	const fotoUploading = useRef()
 	const [user, setUser] = useState({
 		namaDepan: "",
 		namaBelakang: "",
@@ -22,9 +23,16 @@ const Account = () => {
 		pos: "",
 		negara: country,
 	});
-	const saveBio = () => {
-		// saveBio
-	};
+	const uploadFoto = () => {
+		fotoUploading.current.click()
+	}
+	const handleChange = e => {
+		const fotoToUpload = e.target.files[0];
+		uploadFotoToDatabase(fotoToUpload)
+	}
+	const uploadFotoToDatabase = fotoToUpload => {
+		// api upload foto
+	}
 	return (
 		<Layout>
 			<div className="flex min-h-[70vh] mt-24 mb-20">
@@ -32,7 +40,13 @@ const Account = () => {
 					<div className="w-3/4  bg-white flex flex-col justify-start items-center gap-16 rounded-2xl py-10 ">
 						<div className="relative">
 							<img src={foto} />
-							<img src={changePic} className="absolute left-12 -bottom-4" />
+							<img src={changePic} className="absolute left-12 -bottom-4 cursor-pointer" onClick={uploadFoto} />
+							<input
+								type="file"
+								accept="image/*"
+								className="hidden"
+								onChange={handleChange}
+								ref={fotoUploading} />
 						</div>
 						<div>
 							<p className={`${fontType["h1"]} text-center`}>
@@ -61,9 +75,7 @@ const Account = () => {
 								placeholder="Nama Depan"
 								className="w-10/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
 								onChange={(e) => {
-									setUser({
-										...user, namaDepan: e.target.value
-									})
+									setUser({ ...user, namaDepan: e.target.value })
 								}}
 							/>
 						</div>
@@ -83,9 +95,7 @@ const Account = () => {
 								value={user.telepon}
 								className="w-10/12  rounded-full  border-none bg-[#F9F9F9] px-4 py-3 mt-4"
 								onChange={(e) => {
-									setUser({
-										...user, telepon: e.target.value
-									})
+									setUser({ ...user, telepon: e.target.value })
 								}}
 							/>
 						</div>
@@ -97,16 +107,12 @@ const Account = () => {
 								placeholder="432412"
 								className="w-10/12 rounded-full  border-none bg-[#F9F9F9] px-4 py-3 mt-4"
 								onChange={(e) => {
-									setUser({
-										...user, pos: e.target.value
-									})
+									setUser({ ...user, pos: e.target.value })
 								}}
 							/>
 						</div>
 					</div>
-					<div
-						className={`${fontType["h4"]}  w-1/2 flex flex-col gap-10 mt-5`}
-					>
+					<div className={`${fontType["h4"]}  w-1/2 flex flex-col gap-10 mt-5`}>
 						<div>
 							<p>Nama Belakang</p>
 							<input
@@ -115,9 +121,7 @@ const Account = () => {
 								placeholder="Nama Belakang"
 								className="w-10/12 rounded-full  border-none bg-[#F9F9F9] px-4 py-3 mt-4"
 								onChange={(e) => {
-									setUser({
-										...user, namaBelakang: e.target.value
-									})
+									setUser({ ...user, namaBelakang: e.target.value })
 								}}
 							/>
 						</div>
@@ -129,9 +133,7 @@ const Account = () => {
 								placeholder="Email"
 								className="w-10/12 rounded-full  border-none bg-[#F9F9F9] px-4 py-3 mt-4"
 								onChange={(e) => {
-									setUser({
-										...user, email: e.target.value
-									})
+									setUser({ ...user, email: e.target.value })
 								}}
 							/>
 						</div>
@@ -143,35 +145,22 @@ const Account = () => {
 								placeholder="Jakarta"
 								className="w-10/12 rounded-full  border-none bg-[#F9F9F9] px-4 py-3 mt-4"
 								onChange={(e) => {
-									setUser({
-										...user, kota: e.target.value
-									})
+									setUser({ ...user, kota: e.target.value })
 								}}
 							/>
 						</div>
 						<div>
 							<p>Negara </p>
-							<DropdownCountries
-								options={countries}
-								selectedOption={user.negara}
-								setUser={setUser} user={user}
-							/>
+							<DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser} user={user} />
 						</div>
-						<p
-							className={`${fontType["button"]} bg-primary50 w-4/12 self-end mr-24 text-center text-white py-2 rounded-full cursor-pointer`}
+						<p className={`${fontType["button"]} bg-primary50 w-4/12 self-end mr-24 text-center text-white py-2 rounded-full cursor-pointer`}
 							onClick={() => {
 								setIsShow(true);
-							}}
-						>
+							}}>
 							Simpan
 						</p>
 						{isShow && (
-							<ConfirmChangeBio
-								user={user}
-								setIsShow={
-									setIsShow
-								}
-							/>
+							<ConfirmChangeBio user={user} setIsShow={setIsShow} />
 						)}
 					</div>
 				</div>

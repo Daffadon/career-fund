@@ -36,11 +36,11 @@ const LoginForm = () => {
 
 	return (
 		<>
-			<form onSubmit={loginHandler} className="flex flex-col w-5/12">
+			<form onSubmit={loginHandler} className="flex flex-col w-full md:w-[20rem]">
 				<div>
-					<p className={`${fontType["h1"]} mb-7`}>Masuk</p>
+					<p className={`${fontType["h1"]} mb-7 text-center md:text-left`}>Masuk</p>
 				</div>
-				<div className="flex flex-col mb-4">
+				<div className="flex flex-col mb-4 ">
 					<label
 						htmlFor="email"
 						className={`${fontType["h4"]} mb-5`}
@@ -76,11 +76,11 @@ const LoginForm = () => {
 							required
 						/>
 						{isOpen ? (
-							<img src={openEye} className="absolute -right-1 top-3 cursor-pointer"
+							<img src={openEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer"
 								onClick={() => setIsOpen(false)}
 							/>) 
 							: 
-							(<img src={closeEye} className="absolute -right-1 top-3 cursor-pointer"
+							(<img src={closeEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer"
 								onClick={() => setIsOpen(true)}
 							/>
 						)}
