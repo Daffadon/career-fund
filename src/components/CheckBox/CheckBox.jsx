@@ -12,8 +12,7 @@ const CheckBox = ({ item }) => {
                                 className="w-6 h-6 text-blue-600 bg-white border-gray-300 rounded dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
                             <label
                                 className={`${fontType["h4"]} text-neutral50 ml-4`}
-                            >
-                                {name}</label>
+                            >{name}</label>
                         </div>
                     )
                 })}

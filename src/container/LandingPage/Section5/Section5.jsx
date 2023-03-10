@@ -14,8 +14,7 @@ const Section5 = () => {
             <div className="w-11/12  ml-10 bg-primary50 flex flex-col items-center justify-center rounded-[50px] py-10">
                 <p className={`${fontType["h1"]} text-white`}>Apa Kata Mereka Tentang Program Kami?</p>
                 <Swiper
-                    slidesPerView={3}
-                    spaceBetween={10}
+                    slidesPerView={4}
                     navigation={{
                         prevEl: '.swiper-button-prev',
                         nextEl: '.swiper-button-next',

@@ -36,17 +36,17 @@ const AppRoutes = () => {
                 <Route path="/about" element={<AboutUs />} />
             </Route>
             <Route element={<PrivateRoutes />}>
-                <Route path='/history' element={<History />} />
-                <Route path='/home' element={<Home />} />
             </Route>
-                <Route path="/program" element={<Program />} />
+            <Route path='/history' element={<History />} />
+            <Route path='/home' element={<Home />} />
+            <Route path="/program" element={<Program />} />
             <Route path="/home-company" element={<HomeCompany />} />
             <Route path="/program-company" element={<ProgramCompany />} />
             <Route path="/registrar" element={<Registrar />} />
             <Route path="/fund" element={< Fund />} />
             <Route path="/account-company" element={<AccountCompany />} />
             <Route path='/account' element={<Account />} />
-            <Route path="/detail-program-company" element={<DetailProgramCompany/>}/>
+            <Route path="/detail-program-company" element={<DetailProgramCompany />} />
         </Routes>
     )
 }

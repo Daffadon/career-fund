@@ -37,9 +37,9 @@ const SignUpForm = () => {
 		const response = await signUp(user);
 	};
 	return (
-		<form className="flex flex-col w-5/12" onSubmit={signUpHandler}>
+		<form className="flex flex-col w-full md:w-[20rem]" onSubmit={signUpHandler}>
 			<div>
-				<p className={`${fontType["h1"]} mb-7`}>Daftar</p>
+				<p className={`${fontType["h1"]} mb-7 text-center md:text-left`}>Daftar</p>
 			</div>
 			<div className="flex flex-col mb-3">
 				<label
@@ -112,11 +112,11 @@ const SignUpForm = () => {
 						required
 					/>
 					{isPasswdOpen ? (
-						<img src={openEye} className="absolute -right-1 top-3  cursor-pointer"
+						<img src={openEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer"
 							onClick={() => setIsPasswdOpen(false)}
 						/>
 					) : (
-						<img src={closeEye} className="absolute -right-1 top-3 cursor-pointer"
+						<img src={closeEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer"
 							onClick={() => setIsPasswdOpen(true)}
 						/>
 					)}
@@ -142,13 +142,13 @@ const SignUpForm = () => {
 						required
 					/>
 					{isRePasswdOpen ? (
-						<img src={openEye} className="absolute -right-1 top-3 cursor-pointer "
+						<img src={openEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer "
 							onClick={() =>
 								setIsRePasswdOpen(false)
 							}
 						/>
 					) : (
-						<img src={closeEye} className="absolute -right-1 top-3 cursor-pointer"
+						<img src={closeEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer"
 							onClick={() =>
 								setIsRePasswdOpen(true)
 							} />

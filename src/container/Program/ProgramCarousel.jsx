@@ -17,7 +17,7 @@ const ProgramCarousel = ({ slide }) => {
       freeMode={true}
       mousewheel={true}
       modules={[Scrollbar, FreeMode, Mousewheel]}
-      className="h-[40vh] max-h-[45vh] w-full"
+      className="h-[40vh] max-h-[45vh] w-[90rem]"
       breakpoints={{
         780: {
           slidesPerView: 4,

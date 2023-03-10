@@ -39,11 +39,13 @@ const Program = () => {
 							className="w-full rounded-full px-16 border-none"
 							placeholder="Search" />
 					</div>
-					<div className="mt-10 pl-10">
-						<p className={`${fontType["h1"]} mb-5`}>Teknologi</p>
-						<ProgramCarousel slide={listCompany} />
-						<p className={`${fontType["h1"]} mb-5`}>Kesehatan</p>
-						<ProgramCarousel slide={listCompany} />
+					<div className="mt-10 ml-10">
+						<div className="overflow-x-hidden">
+							<p className={`${fontType["h1"]} mb-5`}>Teknologi</p>
+							<ProgramCarousel slide={listCompany} />
+							<p className={`${fontType["h1"]} mb-5`}>Kesehatan</p>
+							<ProgramCarousel slide={listCompany} />
+						</div>
 					</div>
 				</div>
 			</div>

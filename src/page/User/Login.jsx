@@ -3,28 +3,43 @@ import picture from "../../assets/SignUp-Login/signUpPic.svg";
 import back from "../../assets/SignUp-Login/back.svg";
 import { fontType } from "../../components/Text/text";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Login = () => {
 	const navigate = useNavigate();
+	const [width, setWidth] = useState(window.innerWidth);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setWidth(window.innerWidth);
+		};
+
+		window.addEventListener('resize', handleResize);
+
+		return () => {
+			window.removeEventListener('resize', handleResize);
+		};
+	}, []);
+
 	const toHome = () => {
 		navigate("/");
 	};
 	return (
 		<>
-			<div
-				className="fixed left-28  top-16 w-full flex items-center cursor-pointer"
-				onClick={toHome}
-			>
+			<div className="fixed left-28 top-16 w-full flex items-center cursor-pointer"
+				onClick={toHome}>
 				<img src={back} className="inline-block" />
 				<p className={`${fontType["h4"]} ml-4 inline`}>
 					Kembali
 				</p>
 			</div>
-			<div className="flex h-[100vh] items-center">
-				<div className="w-6/12 h-full flex justify-center">
-					<img src={picture} alt="" className="w-8/12" />
-				</div>
-				<div className="w-6/12 flex justify-center">
+			<div className="flex flex-col justify-center md:flex-row h-screen items-center">
+				{width <= 768 ? "" :
+					<div className="w-6/12 h-full flex justify-center">
+						<img src={picture} className="w-[20rem] lg:w-[28rem]" />
+					</div>
+				}
+				<div className="w-8/12 md:w-6/12 flex justify-center">
 					<LoginForm />
 				</div>
 			</div>

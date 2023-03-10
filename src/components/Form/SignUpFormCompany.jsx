@@ -36,11 +36,11 @@ const SignUpFormCompany = () => {
       }
       return (
             <form
-                  className="flex flex-col w-5/12"
+                  className="flex flex-col w-full md:w-[20rem]"
                   onSubmit={signUpHandler}
             >
                   <div>
-                        <p className={`${fontType["h1"]} mb-7`}>Daftar</p>
+                        <p className={`${fontType["h1"]} mb-7 text-center md:text-left`}>Daftar</p>
                   </div>
                   <div className="flex flex-col mb-3">
                         <label

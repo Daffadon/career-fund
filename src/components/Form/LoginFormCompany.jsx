@@ -36,9 +36,9 @@ const LoginFormCompany = () => {
 	);
 
 	return (
-		<form onSubmit={loginHandler} className="flex flex-col w-5/12">
+		<form onSubmit={loginHandler} className="flex flex-col w-full md:w-[20rem]">
 			<div>
-				<p className={`${fontType["h1"]} mb-7`}>Masuk</p>
+				<p className={`${fontType["h1"]} mb-7 text-center md:text-left`}>Masuk</p>
 			</div>
 			<div className="flex flex-col mb-4">
 				<label
