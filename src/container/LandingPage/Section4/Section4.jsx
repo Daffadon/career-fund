@@ -51,11 +51,11 @@ const Section4 = () => {
 			>
 				{listCompany.map((item) => {
 					return (
-						<SwiperSlide key={item.name} className="bg-white max-h-[23rem] flex flex-initial rounded-xl pt-10 pb-5">
+						<SwiperSlide key={item.name} className="bg-white max-h-[23rem] flex flex-initial rounded-xl pt-10">
 							<div className={`${card["program"]} `}>
 								<div className="flex items-center flex-1 mb-6">
 									<img src={item.logo} alt="" />
-									<p className={`${fontType["h2"]}`}>
+									<p className={`${fontType["h2"]} ml-2`}>
 										{item.name}
 									</p>
 								</div>

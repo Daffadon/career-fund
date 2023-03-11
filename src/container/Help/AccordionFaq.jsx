@@ -3,11 +3,11 @@ import { fontType } from "../../components/Text/text"
 import { faq } from "./faq"
 const AccordionFaq = () => {
     return (
-        <div className="flex mt-20 mb-20">
-            <div className="w-6/12">
+        <div className="flex flex-col lg:flex-row items-center lg:items-start mt-20 mb-20">
+            <div className="w-full lg:w-6/12">
                 <p className={`${fontType["h1"]} text-center`}>Pertanyaan Umum</p>
             </div>
-            <div className="w-5/12">
+            <div className="w-full md:w-10/12 lg:w-5/12 mt-10">
                 <Accordion flush={true} alwaysOpen={true}>
                     {faq.map(item => {
                         return (

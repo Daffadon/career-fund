@@ -6,7 +6,7 @@ const Section1 = () => {
     return (
         <div className="flex flex-col md:flex-row h-max items-center justify-center  md:pl-10 pt-[3em] pb-[5em] md:py-0 bg-primary70">
             <div className="w-full order-2 md:order-1 md:w-6/12">
-                <div className="flex flex-col justify-evenly items-center md:items-start md:w-8/12 h-full gap-10 sm:gap-5 md:gap-6 lg:gap-8 xl:gap-12">
+                <div className="flex flex-col justify-evenly items-center md:items-start md:w-8/12 h-full gap-10 sm:gap-3 lg:gap-8 xl:gap-12">
                     <p className={`${fontType["h3"]} text-white text-center w-10/12 xl:w-10/12 md:text-left md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl mt-[2em]`}>
                         Jembatani impianmu untuk masa depan yang lebih cerah
                     </p>

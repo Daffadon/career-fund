@@ -1,9 +1,23 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { fontType } from "../Text/text";
 import logo from "/logo.svg";
 import fotoProfile from "../../assets/Account/fotoProfile.svg"
+import { useState, useEffect } from "react";
 
 const NavBarCompany = () => {
+    const [width, setWidth] = useState(window.innerWidth);
+    const [isShowMenu, setIsShowMenu] = useState(false)
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     return (
         <div className="flex items-center justify-between h-[13vh] sticky top-0 bg-[#F5F5F5] z-10">
             <img src={logo} alt="CareerFund" className="ml-10" />
