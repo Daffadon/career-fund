@@ -10,9 +10,9 @@ import "swiper/css/navigation";
 
 const Section5 = () => {
     return (
-        <div className=" min-h-[100vh] flex items-center justify-center">
-            <div className="w-11/12  ml-10 bg-primary50 flex flex-col items-center justify-center rounded-[50px] py-10 overflow-hidden">
-                <p className={`${fontType["h1"]} text-white`}>Apa Kata Mereka Tentang Program Kami?</p>
+        <div className=" my-[10em] flex items-center justify-center">
+            <div className="w-11/12 ml-10 bg-primary50 flex flex-col items-center justify-center rounded-[50px] py-10 overflow-hidden">
+                <p className={`${fontType["h1"]} text-white text-center`}>Apa Kata Mereka Tentang Program Kami?</p>
                 <Swiper
                     slidesPerView={1}
                     navigation={{
@@ -21,30 +21,32 @@ const Section5 = () => {
                         renderBullet: () => 'null',
                     }}
                     breakpoints={{
-                        750: {
-                            slidesPerView: 1.5
+                        670: {
+                            slidesPerView: 1.5,
                         },
-                        1000: {
+                        850: {
                             slidesPerView: 2
                         },
-                        1190: {
-                            slidesPerView:2.5
+                        1050: {
+                            slidesPerView: 2.5
                         },
-                        
-                        1480: {
-                            slidesPerView:2.8
+                        1200: {
+                            slidesPerView: 3
                         },
-                        1600: {
-                            slidesPerView:3.5
+                        1490: {
+                            slidesPerView: 3.5
+                        },
+                        1680: {
+                            slidesPerView: 4
                         }
                     }}
                     modules={[Navigation]}
-                    className=" h-[50vh] max-h-[50vh] w-full px-10"
+                    className=" max-h-[50vh] w-full"
                 >
                     {comments.map((item) => {
                         return (
-                            <SwiperSlide key={item.name}>
-                                <div className={`${card["landing-page"]} mt-16`}>
+                            <SwiperSlide key={item.name} className="mt-[5em]">
+                                <div className={`${card["landing-page"]} ml-20 sm:ml-16 md:ml-10 lg:ml-0`}>
                                     <div className="flex items-center mb-6">
                                         <img src={item.logo} alt="" />
                                         <div className="ml-3">
@@ -56,7 +58,7 @@ const Section5 = () => {
                                             </p>
                                         </div>
                                     </div>
-                                    <p className={`${fontType["h5"]} text-neutral50 text-justify`}>
+                                    <p className={`${fontType["h5"]} text-neutral50 text-center`}>
                                         {item.comment}
                                     </p>
                                 </div>

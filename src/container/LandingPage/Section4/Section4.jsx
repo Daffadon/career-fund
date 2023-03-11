@@ -10,12 +10,10 @@ import { card } from "../../../components/Card/card";
 const Section4 = () => {
 	const navigate = useNavigate();
 	return (
-		<div className="max-h-[75vh] mt-[15em] ml-10">
-			<div className="flex">
-				<p className={`${fontType["h1"]} w-6/12  md:w-4/12 mb-20`}>
-					Perusahaan Paling Diminati
-				</p>
-			</div>
+		<div className="max-h-[75vh] mt-[10em] ml-10">
+			<p className={`${fontType["h1"]} w-6/12  md:w-4/12 mb-20`}>
+				Perusahaan Paling Diminati
+			</p>
 			<Swiper
 				slidesPerView={1}
 				spaceBetween={30}
@@ -26,7 +24,7 @@ const Section4 = () => {
 				freeMode={true}
 				mousewheel={true}
 				modules={[Scrollbar, FreeMode, Mousewheel]}
-				className="h-[40vh] max-h-[45vh] w-full"
+				className="h-[35vh] max-h-[45vh] w-full"
 				breakpoints={{
 					590: {
 						slidesPerView: 1.5,
@@ -48,14 +46,14 @@ const Section4 = () => {
 					},
 					1500: {
 						slidesPerView: 4.5,
-					},
+					}
 				}}
 			>
 				{listCompany.map((item) => {
 					return (
-						<SwiperSlide key={item.name} className="bg-white rounded-xl h-max pt-10 pb-5">
+						<SwiperSlide key={item.name} className="bg-white max-h-[23rem] flex flex-initial rounded-xl pt-10 pb-5">
 							<div className={`${card["program"]} `}>
-								<div className="flex items-center mb-6">
+								<div className="flex items-center flex-1 mb-6">
 									<img src={item.logo} alt="" />
 									<p className={`${fontType["h2"]}`}>
 										{item.name}
