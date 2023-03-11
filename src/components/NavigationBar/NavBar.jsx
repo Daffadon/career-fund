@@ -34,7 +34,7 @@ const NavBar = () => {
 								<svg className="w-10 h-10 right-10 fixed" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
 							</button>
 							{isShowMenu &&
-								<div className="fixed top-20 right-5 bg-white w-[16rem] h-[20vh] rounded-xl" >
+								<div className="fixed top-24 right-5 bg-white w-[16rem] h-[20vh] rounded-xl" >
 									<div className="h-full flex flex-col items-center justify-evenly">
 										<NavLink
 											className={`${fontType["h4"]} text-neutral50`}
