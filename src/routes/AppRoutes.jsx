@@ -20,6 +20,7 @@ import Fund from "../page/Perusahaan/Fund"
 import ProgramCompany from "../page/Perusahaan/ProgramCompany"
 import HomeCompany from "../page/Perusahaan/HomeCompany"
 import DetailProgramCompany from "../page/Perusahaan/DetailProgramCompany"
+import HelpUser from "../page/User/HelpUser"
 
 const AppRoutes = () => {
     return (
@@ -37,6 +38,7 @@ const AppRoutes = () => {
             </Route>
             <Route element={<PrivateRoutes />}>
             </Route>
+                <Route path="/help-user" element={<HelpUser/>}/>
             <Route path='/history' element={<History />} />
             <Route path='/home' element={<Home />} />
             <Route path="/program" element={<Program />} />

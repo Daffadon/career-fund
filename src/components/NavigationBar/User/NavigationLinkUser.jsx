@@ -1,6 +1,6 @@
 import { fontType } from "../../Text/text"
 import { NavLink } from "react-router-dom"
-const NavigationLinkUser = ({flexCol}) => {
+const NavigationLinkUser = ({ flexCol }) => {
     return (
         <div className={flexCol ? "flex flex-col order-2 justify-center items-center gap-2" : " flex gap-3"}>
             <NavLink
@@ -35,7 +35,7 @@ const NavigationLinkUser = ({flexCol}) => {
                 style={({ isActive }) =>
                     isActive ? { color: "#2753BD" } : {}
                 }
-                to="/help"
+                to="/help-user"
             >
                 Bantuan
             </NavLink>

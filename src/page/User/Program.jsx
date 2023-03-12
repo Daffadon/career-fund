@@ -1,4 +1,3 @@
-import Layout from "../../components/Layout/Layout";
 import { fontType } from "../../components/Text/text";
 import BootcampCarousel from "../../container/Program/BootcampCarousel";
 import filter from "../../assets/icons/filter.svg"
@@ -7,10 +6,10 @@ import { listposisi } from "../../container/Program/program";
 import { listProgram } from "../../container/Program/program";
 import { school } from "../../container/account/account";
 import { listCompany } from "../../container/LandingPage/Section4/listCompany";
-import loop from "../../assets/icons/loop.svg"
 import { useState, useEffect } from "react";
 import FilterProgram from "../../container/Program/FilterProgram";
 import ProgramCarouselContainer from "../../container/Program/ProgramCarouselContainer";
+import LayoutUser from "../../components/Layout/LayoutUser";
 const Program = () => {
 	const [width, setWidth] = useState(window.innerWidth);
 	const [isShowMenu, setIsShowMenu] = useState(false)
@@ -27,7 +26,7 @@ const Program = () => {
 	}, []);
 
 	return (
-		<Layout>
+		<LayoutUser>
 			<BootcampCarousel />
 			{width <= 1024 ?
 				<>
@@ -64,7 +63,7 @@ const Program = () => {
 			<div className="w-full rounded-2xl lg:hidden">
 				<ProgramCarouselContainer listProgram={listCompany}/>
 			</div>
-		</Layout >
+		</LayoutUser >
 	);
 };
 
