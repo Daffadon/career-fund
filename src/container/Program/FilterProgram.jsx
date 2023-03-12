@@ -4,12 +4,11 @@ import { school } from "../account/account"
 import { fontType } from "../../components/Text/text"
 import CheckBox from "../../components/CheckBox/CheckBox"
 
-
 const FilterProgram = ({ setIsShowMenu }) => {
     return (
         <div className="fixed top-0 left-0 h-full w-full bg-black bg-opacity-50 z-50">
             <div className="absolute top-0 left-0 h-full w-80 bg-white z-50">
-                <div className="flex flex-col justify-between w-full h-full bg-white rounded-2xl px-4 py-6">
+                <div className="flex flex-col justify-between w-full h-full bg-white rounded-r-xl px-4 py-6">
                     <div className="flex justify-between">
                         <p className={`${fontType["h3"]}`}>Filter</p>
                         <button onClick={() => setIsShowMenu(false)} >

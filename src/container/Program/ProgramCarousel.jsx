@@ -19,11 +19,14 @@ const ProgramCarousel = ({ slide }) => {
       modules={[Scrollbar, FreeMode, Mousewheel]}
       className="h-[35vh] max-h-[45vh] w-full"
       breakpoints={{
+        300:{
+          slidesPerView:1
+        },
         500:{
-          slidesPerView:2
+          slidesPerView:1.5
         },
         900:{
-          slidesPerView: 3
+          slidesPerView: 2.5
         },
         780:{
           slidesPerView:2.5

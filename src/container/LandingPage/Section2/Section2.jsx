@@ -3,7 +3,7 @@ import { row1, row2 } from "./image"
 const Section2 = () => {
     return (
         <div className="mt-[10em] flex justify-center items-center flex-col text-center">
-            <div className="w-6/12 flex justify-center items-center mb-24">
+            <div className="w-10/12 md:w-8/12 lg:w-6/12 flex justify-center items-center mb-24">
                 <p className={`${fontType["h1"]}`}>Perusahaan yang sudah bekerja sama dengan kami</p>
             </div>
             <div>

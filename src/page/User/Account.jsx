@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import Layout from "../../components/Layout/Layout";
 import foto from "../../assets/Account/foto.svg";
 import changePic from "../../assets/Account/changePic.svg";
 import { fontType } from "../../components/Text/text";
@@ -9,6 +8,7 @@ import { countries } from "../../container/account/account";
 import { school } from "../../container/account/account";
 import ConfirmChangeBio from "../../components/PopUp/ConfirmChangeBio";
 import DropdownCountries from "../../components/Dropdown/DropdownCountries";
+import LayoutUser from "../../components/Layout/LayoutUser";
 const Account = () => {
 	const [country,] = useState("Indonesia");
 	const [isShow, setIsShow] = useState(false);
@@ -34,7 +34,7 @@ const Account = () => {
 		// api upload foto
 	}
 	return (
-		<Layout>
+		<LayoutUser>
 			<div className="flex min-h-[70vh] mt-24 mb-20">
 				<div className="w-4/12  rounded-xl  gap-4 flex justify-center items-start h-11/12 ">
 					<div className="w-3/4  bg-white flex flex-col justify-start items-center gap-16 rounded-2xl py-10 ">
@@ -165,7 +165,7 @@ const Account = () => {
 					</div>
 				</div>
 			</div>
-		</Layout>
+		</LayoutUser>
 	);
 };
 

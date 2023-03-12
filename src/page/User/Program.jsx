@@ -8,9 +8,9 @@ import { listProgram } from "../../container/Program/program";
 import { school } from "../../container/account/account";
 import { listCompany } from "../../container/LandingPage/Section4/listCompany";
 import loop from "../../assets/icons/loop.svg"
-import ProgramCarousel from "../../container/Program/ProgramCarousel";
 import { useState, useEffect } from "react";
 import FilterProgram from "../../container/Program/FilterProgram";
+import ProgramCarouselContainer from "../../container/Program/ProgramCarouselContainer";
 const Program = () => {
 	const [width, setWidth] = useState(window.innerWidth);
 	const [isShowMenu, setIsShowMenu] = useState(false)
@@ -57,48 +57,12 @@ const Program = () => {
 						</div>
 					</div>
 					<div className="w-3/4 rounded-2xl">
-						<div className="flex justify-center items-center">
-							<img src={loop} className="relative left-10	" />
-							<input
-								type="text"
-								className="w-full rounded-full px-16 border-none"
-								placeholder="Search" />
-						</div>
-						<div className="mt-10 ml-10">
-							<div className="overflow-x-hidden">
-								<div className="mb-5">
-									<p className={`${fontType["h1"]} mb-5`}>Teknologi</p>
-									<ProgramCarousel slide={listCompany} />
-								</div>
-								<div className="mb-5">
-									<p className={`${fontType["h1"]} mb-5`}>Kesehatan</p>
-									<ProgramCarousel slide={listCompany} />
-								</div>
-							</div>
-						</div>
+						<ProgramCarouselContainer listProgram={listCompany}/>
 					</div>
 				</div>
 			}
-			<div className="w-full rounded-2xl">
-				<div className="flex justify-center items-center">
-					<img src={loop} className="relative left-10	" />
-					<input
-						type="text"
-						className="w-10/12 rounded-full px-16 border-none"
-						placeholder="Search" />
-				</div>
-				<div className="mt-10 ml-10">
-					<div className="overflow-x-hidden">
-						<div className="mb-5">
-							<p className={`${fontType["h1"]} mb-5`}>Teknologi</p>
-							<ProgramCarousel slide={listCompany} />
-						</div>
-						<div className="mb-5">
-							<p className={`${fontType["h1"]} mb-5`}>Kesehatan</p>
-							<ProgramCarousel slide={listCompany} />
-						</div>
-					</div>
-				</div>
+			<div className="w-full rounded-2xl lg:hidden">
+				<ProgramCarouselContainer listProgram={listCompany}/>
 			</div>
 		</Layout >
 	);

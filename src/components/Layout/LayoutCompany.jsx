@@ -1,4 +1,4 @@
-import NavBarCompany from "../NavigationBar/NavBarCompany"
+import NavBarCompany from "../NavigationBar/Company/NavBarCompany"
 
 const LayoutCompany = ({ children }) => {
     return (
