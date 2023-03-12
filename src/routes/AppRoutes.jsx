@@ -1,25 +1,31 @@
 import { Route, Routes } from "react-router-dom"
-import ForgotPassword from "../page/ForgotPassword"
+import ForgotPassword from "../page/Public/ForgotPassword"
 import Home from "../page/User/Home"
-import LandingPage from "../page/LandingPage"
+import LandingPage from "../page/Public/LandingPage"
 import Login from "../page/User/Login"
 import SignUp from "../page/User/SignUp"
 import PrivateRoutes from "./PrivateRoutes"
 import PublicRoutes from "./PublicRoutes"
 import Program from "../page/User/Program"
 import Account from "../page/User/Account"
-import Help from "../page/Help"
 import History from "../page/User/History"
+import HelpUser from "../page/User/HelpUser"
+import NotFound from "../page//Public/NotFound"
+import AboutUs from "../page/Public/AboutUs"
+import Help from "../page/Public/Help"
+import Fund from "../page/Perusahaan/Fund"
 import SignUpCompany from "../page/Perusahaan/SignUpCompany"
 import LoginCompany from "../page/Perusahaan/LoginCompany"
-import NotFound from "../page/NotFound"
-import AboutUs from "../page/AboutUs"
 import Registrar from "../page/Perusahaan/Registrar"
 import AccountCompany from "../page/Perusahaan/AccountCompany"
-import Fund from "../page/Perusahaan/Fund"
 import ProgramCompany from "../page/Perusahaan/ProgramCompany"
 import HomeCompany from "../page/Perusahaan/HomeCompany"
 import DetailProgramCompany from "../page/Perusahaan/DetailProgramCompany"
+import RegisterHistory from "../container/History/RegisterHistory"
+import SelectionHistory from "../container/History/SelectionHistory"
+import AcceptedHistory from "../container/History/AcceptedHistory"
+import RejectedHistory from "../container/History/RejectedHistory"
+import FollowedHistory from "../container/History/FollowedHistory"
 
 const AppRoutes = () => {
     return (
@@ -36,8 +42,18 @@ const AppRoutes = () => {
                 <Route path="/about" element={<AboutUs />} />
             </Route>
             <Route element={<PrivateRoutes />}>
+
+
+
             </Route>
-            <Route path='/history' element={<History />} />
+            <Route path='/history' element={<History />}>
+                <Route path="/history/register" element={<RegisterHistory/>} />
+                <Route path="/history/selection" element={<SelectionHistory />} />
+                <Route path="/history/accepted" element={<AcceptedHistory />} />
+                <Route path="/history/rejected" element={<RejectedHistory />} />
+                <Route path="/history/followed" element={<FollowedHistory />} />
+            </Route>
+            <Route path="/help-user" element={<HelpUser />} />
             <Route path='/home' element={<Home />} />
             <Route path="/program" element={<Program />} />
             <Route path="/home-company" element={<HomeCompany />} />

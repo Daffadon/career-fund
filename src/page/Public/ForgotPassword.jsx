@@ -1,6 +1,6 @@
-import { fontType } from "../components/Text/text";
-import exit from "../assets/icons/exit.svg";
-import hands from "../assets/icons/Hands Show.svg";
+import { fontType } from "../../components/Text/text";
+import exit from "../../assets/icons/exit.svg";
+import hands from "../../assets/icons/Hands Show.svg";
 import { useState } from "react";
 
 const ForgotPassword = () => {
@@ -9,7 +9,6 @@ const ForgotPassword = () => {
 	const newPassChange = () => {
 		// passchange
 	};
-
 	return (
 		<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[#C5C5C5]">
 			<div className="bg-white rounded-2xl w-4/12 py-10 flex flex-col">

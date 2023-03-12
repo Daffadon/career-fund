@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import charcoHi from "../assets/NotFound/Charco Hi.svg";
-import { fontType } from "../components/Text/text";
+import charcoHi from "../../assets/NotFound/Charco Hi.svg";
+import { fontType } from "../../components/Text/text";
 const NotFound = () => {
 	const navigate = useNavigate();
 	return (

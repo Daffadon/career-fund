@@ -8,7 +8,7 @@ import { fontType } from "../../components/Text/text";
 const ProgramCarousel = ({ slide }) => {
   return (
     <Swiper
-      slidesPerView={3}
+      slidesPerView={1.5}
       spaceBetween={30}
       scrollbar={{
         hide: true,
@@ -17,23 +17,29 @@ const ProgramCarousel = ({ slide }) => {
       freeMode={true}
       mousewheel={true}
       modules={[Scrollbar, FreeMode, Mousewheel]}
-      className="h-[40vh] max-h-[45vh] w-[90rem]"
+      className="h-[35vh] max-h-[45vh] w-full"
       breakpoints={{
-        780: {
-          slidesPerView: 4,
+        300:{
+          slidesPerView:1
         },
-        1150: {
-          slidesPerView: 4,
+        500:{
+          slidesPerView:1.5
         },
+        900:{
+          slidesPerView: 2.5
+        },
+        780:{
+          slidesPerView:2.5
+        }
       }}
     >
       {slide.map((item) => {
         return (
-          <SwiperSlide key={item.name}>
+          <SwiperSlide key={item.name} className="bg-white max-h-[23rem] flex flex-initial rounded-xl pt-10">
             <div className={`${card["program"]} `}>
               <div className="flex items-center mb-6">
                 <img src={item.logo} alt="" />
-                <p className={`${fontType["h2"]}`}>
+                <p className={`${fontType["h2"]} ml-2`}>
                   {item.name}
                 </p>
               </div>
@@ -46,7 +52,7 @@ const ProgramCarousel = ({ slide }) => {
               <div className="flex gap-1 mt-5">
                 {item.tag.map((tag) => {
                   return (
-                    <p key={tag} className="bg-secondary10 text-secondary90 py-1 px-3 rounded-full">
+                    <p key={tag} className="bg-warning10 text-warning90 py-1 px-3 rounded-full">
                       {tag}
                     </p>
                   );

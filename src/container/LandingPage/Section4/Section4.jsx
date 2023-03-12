@@ -10,14 +10,12 @@ import { card } from "../../../components/Card/card";
 const Section4 = () => {
 	const navigate = useNavigate();
 	return (
-		<div className="max-h-[75vh] mt-[15em] ml-10">
-			<div className="flex">
-				<p className={`${fontType["h1"]} w-4/12 mb-20`}>
-					Perusahaan Paling Diminati
-				</p>
-			</div>
+		<div className="max-h-[75vh] mt-[10em] ml-10">
+			<p className={`${fontType["h1"]} w-6/12  md:w-4/12 mb-20`}>
+				Perusahaan Paling Diminati
+			</p>
 			<Swiper
-				slidesPerView={2}
+				slidesPerView={1}
 				spaceBetween={30}
 				scrollbar={{
 					hide: true,
@@ -26,36 +24,51 @@ const Section4 = () => {
 				freeMode={true}
 				mousewheel={true}
 				modules={[Scrollbar, FreeMode, Mousewheel]}
-				className="h-[40vh] max-h-[45vh] w-full"
+				className="min-h-[35vh] h-[45vh] max-h-[45vh] w-full"
 				breakpoints={{
-					780: {
+					590: {
+						slidesPerView: 1.5,
+					},
+					690: {
+						slidesPerView: 2,
+					},
+					850: {
+						slidesPerView: 2.5,
+					},
+					1000: {
 						slidesPerView: 3,
 					},
-					1150: {
-						slidesPerView: 4.5,
+					1200: {
+						slidesPerView: 3.5,
 					},
+					1350: {
+						slidesPerView: 4,
+					},
+					1500: {
+						slidesPerView: 4.5,
+					}
 				}}
 			>
 				{listCompany.map((item) => {
 					return (
-						<SwiperSlide key={item.name}>
+						<SwiperSlide key={item.name} className="bg-white max-h-[23rem] flex flex-initial rounded-xl pt-10">
 							<div className={`${card["program"]} `}>
-								<div className="flex items-center mb-6">
+								<div className="flex items-center flex-1 mb-6">
 									<img src={item.logo} alt="" />
-									<p className={`${fontType["h2"]}`}>
+									<p className={`${fontType["h2"]} ml-2`}>
 										{item.name}
 									</p>
 								</div>
 								<p className={`${fontType["h4"]}`}>
 									{item.job}
 								</p>
-								<p className={`${fontType["p3"]} text-neutral30 mt-1`}>
+								<p className={`${fontType["p1"]} text-neutral30 mt-1`}>
 									{item.loc}
 								</p>
 								<div className="flex gap-1 mt-5">
 									{item.tag.map((tag) => {
 										return (
-											<p key={tag} className="bg-secondary10 text-secondary90 py-1 px-3 rounded-full">
+											<p key={tag} className="bg-warning10 text-warning90 py-1 px-3 rounded-full">
 												{tag}
 											</p>
 										);
