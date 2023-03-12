@@ -68,7 +68,7 @@ const Section4 = () => {
 								<div className="flex gap-1 mt-5">
 									{item.tag.map((tag) => {
 										return (
-											<p key={tag} className="bg-secondary10 text-secondary90 py-1 px-3 rounded-full">
+											<p key={tag} className="bg-warning10 text-warning90 py-1 px-3 rounded-full">
 												{tag}
 											</p>
 										);

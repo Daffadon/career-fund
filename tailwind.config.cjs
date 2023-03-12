@@ -33,7 +33,7 @@ module.exports = {
         "success50": "#01C77A",
         "success70": "#01935A",
         "success90": "#00603B",
-        "warning10": "#FF8466",
+        "warning10": "#FFD466",
         "warning30": "#FFC633",
         "warning50": "#FDB600",
         "warning70": "#CC9300",

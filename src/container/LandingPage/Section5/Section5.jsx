@@ -21,22 +21,22 @@ const Section5 = () => {
                         renderBullet: () => 'null',
                     }}
                     breakpoints={{
-                        670: {
+                        690: {
                             slidesPerView: 1.5,
                         },
-                        850: {
+                        920: {
                             slidesPerView: 2
                         },
-                        1050: {
+                        1160: {
                             slidesPerView: 2.5
                         },
-                        1200: {
+                        1400: {
                             slidesPerView: 3
                         },
-                        1490: {
+                        1590: {
                             slidesPerView: 3.5
                         },
-                        1680: {
+                        1820: {
                             slidesPerView: 4
                         }
                     }}
@@ -53,12 +53,12 @@ const Section5 = () => {
                                             <p className={`${fontType["h2"]}`}>
                                                 {item.name}
                                             </p>
-                                            <p className={`${fontType["h4"]} text-neutral50`}>
+                                            <p className={`${fontType["p1"]} text-neutral50`}>
                                                 {item.job}
                                             </p>
                                         </div>
                                     </div>
-                                    <p className={`${fontType["h5"]} text-neutral50 text-center`}>
+                                    <p className={`${fontType[" h5"]} text-neutral50 text-center mt-14`}>
                                         {item.comment}
                                     </p>
                                 </div>

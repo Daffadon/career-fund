@@ -18,10 +18,7 @@ const DetailProgramCompany = ({ setIsAdd }) => {
             <div className="flex justify-center items-center">
                 <div className="bg-white rounded-2xl w-[40rem] py-10">
                     <div className="flex justify-center flex-col gap-4 px-8 overflow-auto">
-                        <label
-                            htmlFor="posisi"
-                            className={`${fontType["h4"]}`}
-                        >
+                        <label htmlFor="posisi" className={`${fontType["h4"]}`}>
                             Posisi
                         </label>
                         <input
@@ -46,10 +43,7 @@ const DetailProgramCompany = ({ setIsAdd }) => {
                                 } />
                             </div>
                         </div>
-                        <label
-                            htmlFor="deskripsi"
-                            className={`${fontType["h4"]}`}
-                        >
+                        <label htmlFor="deskripsi" className={`${fontType["h4"]}`}>
                             Deskripsi
                         </label>
                         <textarea
@@ -59,10 +53,7 @@ const DetailProgramCompany = ({ setIsAdd }) => {
                             className="resize-none border-none bg-[#F9F9F9] rounded-xl"
                             required
                         />
-                        <label
-                            htmlFor="skill"
-                            className={`${fontType["h4"]}`}
-                        >
+                        <label htmlFor="skill" className={`${fontType["h4"]}`} >
                             Skill
                         </label>
                         <textarea
@@ -80,10 +71,7 @@ const DetailProgramCompany = ({ setIsAdd }) => {
                                 setJurusan={setJurusan}
                             />
                         </div>
-                        <label
-                            htmlFor="kegiatan"
-                            className={`${fontType["h4"]}`}
-                        >
+                        <label htmlFor="kegiatan" className={`${fontType["h4"]}`} >
                             Kegiatan Wajib Diikuti
                         </label>
                         <textarea
@@ -95,19 +83,18 @@ const DetailProgramCompany = ({ setIsAdd }) => {
                         />
                         <div className="flex justify-center items-center gap-5">
                             <div className="w-5/12 flex justify-center flex-1">
-                                <p className={`${fontType["button"]} bg-success50 text-white text-center px-10 py-4 rounded-full`}>Mulai Program</p>
+                                <p className={`${fontType["button"]} bg-success50 text-white text-center px-10 py-4 rounded-full flex-1`}>Mulai Program</p>
                             </div>
                             <div className="w-5/12 flex justify-center flex-1">
-                                <p className={`${fontType["button"]} bg-danger50 text-white text-center px-10 py-4 rounded-full`}>Hentikan Program</p>
+                                <p className={`${fontType["button"]} bg-white text-success50 border-2 border-success50 text-center px-10 py-4 rounded-full flex-1`}>Hentikan Program</p>
                             </div>
                         </div>
-                        <div className="flex justify-end mt-8">
+                        <div className="flex justify-center mt-8">
                             <button type="submit" className={`${fontType["button"]} bg-primary50 text-white py-4 px-32 rounded-full text-center mr-7`}>
                                 Simpan
                             </button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </form>

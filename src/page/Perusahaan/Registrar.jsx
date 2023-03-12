@@ -15,15 +15,15 @@ const Registrar = () => {
             </div>
             {listRegistrar.map(item => {
                 return (
-                    <div key={item.nama} className="ml-10 mr-12 h-[5vh] bg-white rounded-xl flex justify-around items-center mt-4 py-8">
-                        <p className={`${fontType["h5"]} flex-1 text-center`}>{item.nama}</p>
-                        <p className={`${fontType["h5"]} flex-1 text-center`}>{item.posisi}</p>
-                        <p className={`${fontType["h5"]} flex-1 text-center`}>{item.status}</p>
-                        <p className={`${fontType["button"]} absolute right-16 bg-warning30 px-10 py-2 rounded-xl cursor-pointer`}
+                    <div key={item.nama} className="ml-10 mr-12 h-[5vh] bg-white rounded-xl flex justify-around items-center mt-4 py-8 relative">
+                        <p className={`${fontType["h5"]} xl:flex-1 text-center`}>{item.nama}</p>
+                        <p className={`${fontType["h5"]} xl:flex-1 text-center`}>{item.posisi}</p>
+                        <p className={`${fontType["h5"]} hidden xl:block xl:flex-1  text-center`}>{item.status}</p>
+                        <p className={`${fontType["button"]} text-center xl:absolute xl:right-7 bg-warning30 px-10 py-2 rounded-xl cursor-pointer`}
                             onClick={() => {
                                 setShowDetail(true);
                             }}>Detail</p>
-                            {showDetail && <CompanyDetailRegistrar setShowDetail={setShowDetail}/>}
+                        {showDetail && <CompanyDetailRegistrar setShowDetail={setShowDetail} />}
                     </div>
                 )
             })}

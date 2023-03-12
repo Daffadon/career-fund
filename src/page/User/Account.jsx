@@ -22,8 +22,13 @@ const Account = () => {
 		kota: "Jakarta",
 		pos: "",
 		negara: country,
+		rekening: "",
+		MetodePembayran:""
 	});
 	const saveBio = e => {
+		e.preventDefault()
+	}
+	const saveRekening = e =>{
 		e.preventDefault()
 	}
 	const uploadFoto = () => {
@@ -59,13 +64,36 @@ const Account = () => {
 								Malang, Indonesia</p>
 						</div>
 						<div className="w-9/12 h-[0.1rem] bg-neutral10"></div>
-						<div className="flex gap-3 justify-center items-center">
-							<img src={dana} />
+						{/* <div className="flex gap-3 items-center justify-center w-full"> */}
+							<form onSubmit={saveRekening} className={`${fontType["h4"]} w-10/12 flex flex-col`}>
+								<p className="">Metode Pengiriman Uang</p>
+								<input
+									type="text"
+									value={user.MetodePembayran}
+									placeholder="BCA"
+									className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
+									onChange={(e) => {
+										setUser({ ...user, namaDepan: e.target.value })
+									}}
+								/>
+								<p className="mt-4">Nomor Rekening</p>
+								<input
+									type="text"
+									value={user.rekening}
+									placeholder="xxx xxx xxx"
+									className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
+									onChange={(e) => {
+										setUser({ ...user, namaDepan: e.target.value })
+									}}
+								/>
+								<button type="submit" className={`${fontType["button"]} mt-5 bg-primary50 text-center text-white py-2 rounded-full cursor-pointer`}>Simpan</button>
+							</form>
+							{/* <img src={dana} />
 							<div className="flex flex-col w-10/12 ml-3 ">
 								<p className={`${fontType["p1"]}`}>Saldo</p>
 								<p className={`${fontType["h3"]} w-8/12`} > RP3.000.000 </p>
-							</div>
-						</div>
+							</div> */}
+						{/* </div> */}
 					</div>
 				</div>
 				<form onSubmit={saveBio} className="w-full md:w-10/12 xl:w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24">

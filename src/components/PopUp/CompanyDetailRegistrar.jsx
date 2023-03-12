@@ -15,15 +15,15 @@ const CompanyDetailRegistrar = ({ setShowDetail }) => {
     return (
         <form onSubmit={saveProgram}>
             <div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.1)]">
-                <div className="bg-white rounded-2xl w-5/12 py-10 px-5">
+                <div className="bg-white rounded-2xl w-11/12 sm:w-10/12 md:w-9/12 lg:w-5/12 py-10 px-5">
                     <div className="flex justify-center gap-10">
                         <div className="w-5/12 flex flex-col justify-center items-center gap-6">
                             <img src={fotoDummy} />
                             <div>
-                                <p className={`${fontType["h2"]}`}>Ahmad Bustomi</p>
+                                <p className={`${fontType["h2"]} text-center`}>Ahmad Bustomi</p>
                                 <p className={`${fontType["p1"]} text-neutral50 text-lg text-center`}>Malang, Indonesia</p>
                             </div>
-                            <p className={`${fontType["h4"]} self-start pl-4`}>CV</p>
+                            <p className={`${fontType["h4"]} self-start pl-3.5`}>CV</p>
                         </div>
                         <div className="w-7/12 flex flex-col gap-2">
                             <img src={exit} className="self-end cursor-pointer" onClick={closeModal} />
