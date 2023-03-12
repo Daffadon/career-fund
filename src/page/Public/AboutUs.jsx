@@ -1,6 +1,6 @@
-import Layout from "../components/Layout/Layout"
-import { fontType } from "../components/Text/text"
-import addIn from "../assets/About/addinfoto.svg"
+import Layout from "../../components/Layout/Layout"
+import { fontType } from "../../components/Text/text"
+import addIn from "../../assets/About/addinfoto.svg"
 
 const AboutUs = () => {
 	return (

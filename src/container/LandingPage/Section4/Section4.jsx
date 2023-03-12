@@ -24,7 +24,7 @@ const Section4 = () => {
 				freeMode={true}
 				mousewheel={true}
 				modules={[Scrollbar, FreeMode, Mousewheel]}
-				className="h-[35vh] max-h-[45vh] w-full"
+				className="min-h-[35vh] h-[45vh] max-h-[45vh] w-full"
 				breakpoints={{
 					590: {
 						slidesPerView: 1.5,

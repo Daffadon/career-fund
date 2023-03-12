@@ -6,7 +6,7 @@ const NavBarHistory = () => (
     <>
         <div>
             <NavLink
-                className={`${fontType["h4"]} text-neutral50 flex-1`}
+                className={`${fontType["p2"]} sm:text-sm md:text-base lg:text-xl xl:text-2xl md:font-bold text-neutral50 flex-1`}
                 to="/history/register"
                 style={({ isActive }) =>
                     isActive ? {
@@ -21,7 +21,7 @@ const NavBarHistory = () => (
         </div>
         <div>
             <NavLink
-                className={`${fontType["h4"]} text-neutral50 flex-1`}
+                className={`${fontType["p2"]} sm:text-sm md:text-base lg:text-xl xl:text-2xl md:font-bold text-neutral50 flex-1`}
                 to="/history/selection"
                 style={({ isActive }) =>
                     isActive ? {
@@ -36,7 +36,7 @@ const NavBarHistory = () => (
         </div>
         <div>
             <NavLink
-                className={`${fontType["h4"]} text-neutral50 flex-1`}
+                className={`${fontType["p2"]} sm:text-sm md:text-base lg:text-xl xl:text-2xl md:font-bold text-neutral50 flex-1`}
                 to="/history/accepted" style={({ isActive }) =>
                     isActive ? {
                         color: "black",
@@ -50,7 +50,7 @@ const NavBarHistory = () => (
         </div>
         <div>
             <NavLink
-                className={`${fontType["h4"]} text-neutral50 flex-1`}
+                className={`${fontType["p2"]} sm:text-sm md:text-base lg:text-xl xl:text-2xl md:font-bold text-neutral50 flex-1`}
                 to="/history/rejected"
                 style={({ isActive }) =>
                     isActive ? {
@@ -65,7 +65,7 @@ const NavBarHistory = () => (
         </div>
         <div>
             <NavLink
-                className={`${fontType["h4"]} text-neutral50 flex-1`}
+                className={`${fontType["p2"]} sm:text-sm md:text-base lg:text-xl xl:text-2xl md:font-bold text-neutral50 flex-1`}
                 to="/history/followed" style={({ isActive }) =>
                     isActive ? {
                         color: "black",
