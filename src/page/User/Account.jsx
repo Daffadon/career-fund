@@ -23,12 +23,12 @@ const Account = () => {
 		pos: "",
 		negara: country,
 		rekening: "",
-		MetodePembayran:""
+		metodePembayaran: ""
 	});
 	const saveBio = e => {
 		e.preventDefault()
 	}
-	const saveRekening = e =>{
+	const saveRekening = e => {
 		e.preventDefault()
 	}
 	const uploadFoto = () => {
@@ -64,39 +64,40 @@ const Account = () => {
 								Malang, Indonesia</p>
 						</div>
 						<div className="w-9/12 h-[0.1rem] bg-neutral10"></div>
-						{/* <div className="flex gap-3 items-center justify-center w-full"> */}
-							<form onSubmit={saveRekening} className={`${fontType["h4"]} w-10/12 flex flex-col`}>
-								<p className="">Metode Pengiriman Uang</p>
-								<input
-									type="text"
-									value={user.MetodePembayran}
-									placeholder="BCA"
-									className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
-									onChange={(e) => {
-										setUser({ ...user, namaDepan: e.target.value })
-									}}
-								/>
-								<p className="mt-4">Nomor Rekening</p>
-								<input
-									type="text"
-									value={user.rekening}
-									placeholder="xxx xxx xxx"
-									className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
-									onChange={(e) => {
-										setUser({ ...user, namaDepan: e.target.value })
-									}}
-								/>
-								<button type="submit" className={`${fontType["button"]} mt-5 bg-primary50 text-center text-white py-2 rounded-full cursor-pointer`}>Simpan</button>
-							</form>
-							{/* <img src={dana} />
+						<form onSubmit={saveRekening} className={`${fontType["h4"]} w-10/12 flex flex-col`}>
+							<p className="">Metode Pengiriman Uang</p>
+							<input
+								type="text"
+								value={user.metodePembayaran}
+								placeholder="BCA"
+								className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
+								onChange={(e) => {
+									setUser({ ...user, metodePembayaran: e.target.value })
+								}}
+							/>
+							<p className="mt-4">Nomor Rekening</p>
+							<input
+								type="text"
+								value={user.rekening}
+								placeholder="xxx xxx xxx"
+								className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
+								onChange={(e) => {
+									setUser({ ...user, rekening: e.target.value })
+								}}
+							/>
+							<button type="submit" className={`${fontType["button"]} mt-5 bg-primary50 text-center text-white py-2 rounded-full cursor-pointer`}>Simpan</button>
+						</form>
+						{/* <div className="flex gap-3 items-center justify-center w-full">
+							<img src={dana} />
 							<div className="flex flex-col w-10/12 ml-3 ">
 								<p className={`${fontType["p1"]}`}>Saldo</p>
 								<p className={`${fontType["h3"]} w-8/12`} > RP3.000.000 </p>
-							</div> */}
-						{/* </div> */}
+							</div>
+						</div> */}
 					</div>
 				</div>
-				<form onSubmit={saveBio} className="w-full md:w-10/12 xl:w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24">
+				<div className="w-full md:w-10/12 xl:w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24">
+
 					<div className={`${fontType["h4"]} w-1/2 flex flex-col gap-10 ml-12 lg:ml-24 mt-5`}>
 						<div>
 							<p>Nama Depan</p>
@@ -183,15 +184,18 @@ const Account = () => {
 						<div>
 							<p>Negara </p>
 							<DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser} user={user} />
-							{isShow && (
-								<ConfirmChangeBio user={user} setIsShow={setIsShow} />
-							)}
 						</div>
-						<button type="submit" className={`${fontType["button"]} bg-primary50 w-[12rem] self-end mr-24 text-center text-white py-2 rounded-full cursor-pointer`}>
+						<p className={`${fontType["button"]} bg-primary50 w-[12rem] self-end mr-24 text-center text-white py-2 rounded-full cursor-pointer`}
+							onClick={()=>{
+								setIsShow(true)
+							}}>
 							Simpan
-						</button>
+						</p>
+						{isShow && (
+							<ConfirmChangeBio user={user} setIsShow={setIsShow} />
+						)}
 					</div>
-				</form>
+				</div>
 			</div>
 		</LayoutUser>
 	);

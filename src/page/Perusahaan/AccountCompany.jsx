@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import Footer from "../../components/Footer/Footer"
 import LayoutCompany from "../../components/Layout/LayoutCompany"
 import foto from "../../assets/Account/bigprofile.svg";
@@ -9,8 +9,9 @@ import ConfirmChangeBio from "../../components/PopUp/ConfirmChangeBio";
 import DropdownCountries from "../../components/Dropdown/DropdownCountries";
 
 const AccountCompany = () => {
-    const [country, setCountry] = useState("Indonesia");
+    const [country, ] = useState("Indonesia");
     const [isShow, setIsShow] = useState(false);
+    const fotoUploading = useRef()
     const [user, setUser] = useState({
         namaPerusahaan: "",
         email: "",
@@ -19,14 +20,28 @@ const AccountCompany = () => {
         pos: "",
         negara: country,
     });
+
+    const uploadFoto = () => {
+		fotoUploading.current.click()
+	}
+	const handleChange = e => {
+		const fotoToUpload = e.target.files[0];
+		uploadFotoToDatabase(fotoToUpload)
+	}
     return (
         <LayoutCompany>
-            <div className="flex min-h-[70vh] mt-24 mb-20">
-                <div className="w-4/12  rounded-xl  gap-4 flex justify-center items-start h-11/12 ">
-                    <div className="w-3/4  bg-white flex flex-col justify-start items-center gap-16 rounded-2xl py-10 ">
+            <div className="flex flex-col xl:flex-row items-center justify-center xl:justify-evenly gap-5 xl-gap-0 mt-24 mb-20">
+                <div className="w-9/12 sm:w-8/12 lg:w-8/12 xl:w-3/12 rounded-xl flex justify-center items-start h-11/12 ">
+                    <div className="w-3/4 md:w-1/2 xl:w-11/12 bg-white flex flex-col justify-start items-center gap-12 rounded-2xl py-10 ">
                         <div className="relative">
                             <img src={foto} />
-                            <img src={changePic} className="absolute left-12 -bottom-4" />
+                            <img src={changePic} className="absolute left-12 -bottom-4 cursor-pointer"onClick={uploadFoto} />
+                            <input
+								type="file"
+								accept="image/*"
+								className="hidden"
+								onChange={handleChange}
+								ref={fotoUploading} />
                         </div>
                         <div>
                             <p className={`${fontType["h1"]} text-center`}>
@@ -37,7 +52,7 @@ const AccountCompany = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24 ">
+                <div className="w-full md:w-10/12 xl:w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24 ">
                     <div className={`${fontType["h4"]}  w-1/2 flex flex-col gap-10 ml-24 mt-5`}>
                         <div>
                             <p>Nama Perusahaan</p>

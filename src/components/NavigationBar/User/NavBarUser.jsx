@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { fontType } from "../../Text/text";
 import NavigationLinkUser from "./NavigationLinkUser";
 import fotoProfile from "../../../assets/Account/NavProfile.svg"
+import logout from "../../../assets/icons/logout.svg"
 const NavBarUser = () => {
     const navigate = useNavigate();
     const [width, setWidth] = useState(window.innerWidth);
@@ -71,6 +72,7 @@ const NavBarUser = () => {
                             <p className={`${fontType["h4"]}`}>Rina Doe</p>
                             <p className={`${fontType["p3"]} text-neutral30`}>Malang, Indonesia</p>
                         </div>
+                        <img src={logout} />
                     </div>
                 </>
             }

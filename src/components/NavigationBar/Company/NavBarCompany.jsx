@@ -4,6 +4,7 @@ import logo from "/logo.svg";
 import fotoProfile from "../../../assets/Account/fotoProfile.svg"
 import { useState, useEffect } from "react";
 import NavigationLinkCompany from "./NavigationLinkCompany";
+import logout from "../../../assets/icons/logout.svg"
 
 const NavBarCompany = () => {
     const [width, setWidth] = useState(window.innerWidth);
@@ -55,6 +56,7 @@ const NavBarCompany = () => {
                             <p className={`${fontType["h4"]}`}>Facebook</p>
                             <p className={`${fontType["p3"]} text-neutral30`}>Malang, Indonesia</p>
                         </div>
+                        <img src={logout} />
                     </div>
                 </>
             }

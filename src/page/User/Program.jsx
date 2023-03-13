@@ -17,9 +17,7 @@ const Program = () => {
 		const handleResize = () => {
 			setWidth(window.innerWidth);
 		};
-
 		window.addEventListener('resize', handleResize);
-
 		return () => {
 			window.removeEventListener('resize', handleResize);
 		};
@@ -56,12 +54,12 @@ const Program = () => {
 						</div>
 					</div>
 					<div className="w-3/4 rounded-2xl">
-						<ProgramCarouselContainer listProgram={listCompany}/>
+						<ProgramCarouselContainer listProgram={listCompany} />
 					</div>
 				</div>
 			}
 			<div className="w-full rounded-2xl lg:hidden">
-				<ProgramCarouselContainer listProgram={listCompany}/>
+				<ProgramCarouselContainer listProgram={listCompany} />
 			</div>
 		</LayoutUser >
 	);

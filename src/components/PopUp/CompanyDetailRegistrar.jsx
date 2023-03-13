@@ -4,8 +4,13 @@ import exit from "../../assets/icons/exit.svg"
 import DropdownStatus from "../Dropdown/DropdownStatus"
 import { useState } from "react"
 import { liststatus } from "../../container/Registrar/listRegistrar"
+import cvicon from "../../assets/icons/cvicon.svg"
 const CompanyDetailRegistrar = ({ setShowDetail }) => {
-    const [status, setStatus] = useState("");
+    const [registrar, setRegistrar] = useState({
+        status: "aktif",
+        scheduleTest: "",
+        placeTest: ""
+    })
     const closeModal = () => {
         setShowDetail(false)
     }
@@ -24,12 +29,16 @@ const CompanyDetailRegistrar = ({ setShowDetail }) => {
                                 <p className={`${fontType["p1"]} text-neutral50 text-lg text-center`}>Malang, Indonesia</p>
                             </div>
                             <p className={`${fontType["h4"]} self-start pl-3.5`}>CV</p>
+                            <div className="self-start pl-3.5 flex items-center">
+                                <img src={cvicon} />
+                                <p className={`${fontType["p1"]} pl-3`}>Rinae Doe CV.pdf</p>
+                            </div>
                         </div>
                         <div className="w-7/12 flex flex-col gap-2">
                             <img src={exit} className="self-end cursor-pointer" onClick={closeModal} />
                             <div>
                                 <p className={`${fontType["h4"]}`}>Status</p>
-                                <DropdownStatus options={liststatus} selectedOption={status} setStatus={setStatus} />
+                                <DropdownStatus options={liststatus} selectedOption={registrar.status} setRegistrar={setRegistrar} registrar={registrar} />
                             </div>
                             <div className="mt-4 flex flex-col">
                                 <label
@@ -43,8 +52,10 @@ const CompanyDetailRegistrar = ({ setShowDetail }) => {
                                     type="text"
                                     placeholder="Jadwal"
                                     name="jadwal"
-                                    // value={email}
-                                    // onChange={}
+                                    value={registrar.scheduleTest}
+                                    onChange={e => {
+                                        setRegistrar({ ...registrar, scheduleTest: e.target.value })
+                                    }}
                                     required
                                 />
                             </div>
@@ -60,8 +71,10 @@ const CompanyDetailRegistrar = ({ setShowDetail }) => {
                                     type="text"
                                     placeholder="Jadwal"
                                     name="jadwal"
-                                    // value={email}
-                                    // onChange={}
+                                    value={registrar.placeTest}
+                                    onChange={e => {
+                                        setRegistrar({ ...registrar, placeTest: e.target.value })
+                                    }}
                                     required
                                 />
                             </div>

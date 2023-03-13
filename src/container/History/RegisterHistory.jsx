@@ -7,7 +7,7 @@ const RegisterHistory = () => {
             {listCompany.map(item => {
                 return (
                     <>
-                        <div key={item.name} className="bg-white w-10/12 lg:w-5/12 min-h-[20vh] rounded-3xl px-7 py-9 flex flex-col gap-8 shadow-[5px_5px_10px_rgba(0,0,0,0.05)]  justify-items-stretch">
+                        <div key={item.name} className="bg-white w-10/12 lg:w-5/12 min-h-[20vh] rounded-3xl px-7 py-9 flex flex-col gap-8 shadow-[5px_5px_10px_rgba(0,0,0,0.05)]  ">
                             <div className="flex 1 ">
                                 <img src={item.logo} />
                                 <p className={`${fontType["h1"]} ml-5`}>{item.name}</p>
@@ -28,7 +28,7 @@ const RegisterHistory = () => {
                                 </div>
                             </div>
                             <p className={`${fontType["h4"]}`}>Deskripsi</p>
-                            <p className={`${fontType["p1"]} text-neutral50 text-justify`}>Kami mencari Desainer Grafis untuk bergabung dengan tim kami yang terus berkembang. Kandidat yang ideal akan memiliki keterampilan kreatif yang kuat dan portofolio pekerjaan yang menunjukkan hasrat mereka terhadap desain dan pembuatan konten.</p>
+                            <p className={`${fontType["p1"]} text-neutral50 text-justify w-11/12`}>Kami mencari Desainer Grafis untuk bergabung dengan tim kami yang terus berkembang. Kandidat yang ideal akan memiliki keterampilan kreatif yang kuat dan portofolio pekerjaan yang menunjukkan hasrat mereka terhadap desain dan pembuatan konten.</p>
                         </div>
                     </>
                 )
