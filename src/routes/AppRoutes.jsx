@@ -43,18 +43,17 @@ const AppRoutes = () => {
                 <Route path="/about" element={<AboutUs />} />
             </Route>
             <Route element={<PrivateRoutes />}>
-                <Route path='/account' element={<Account />} />
-                <Route path="/help-user" element={<HelpUser />} />
-                <Route path='/home' element={<Home />} />
-
-
-                <Route path="/registrar" element={<Registrar />} />
-                <Route path="/home-company" element={<HomeCompany />} />
-                <Route path="/account-company" element={<AccountCompany />} />
 
 
 
             </Route>
+            <Route path='/account' element={<Account />} />
+            <Route path="/help-user" element={<HelpUser />} />
+            <Route path='/home' element={<Home />} />
+
+            <Route path="/registrar" element={<Registrar />} />
+            <Route path="/home-company" element={<HomeCompany />} />
+            <Route path="/account-company" element={<AccountCompany />} />
             <Route path="/program-company" element={<ProgramCompany />} />
             <Route path='/history' element={<History />}>
                 <Route path="/history/register" element={<RegisterHistory />} />

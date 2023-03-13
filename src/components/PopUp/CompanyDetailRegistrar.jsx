@@ -38,7 +38,7 @@ const CompanyDetailRegistrar = ({ setShowDetail }) => {
                             <img src={exit} className="self-end cursor-pointer" onClick={closeModal} />
                             <div>
                                 <p className={`${fontType["h4"]}`}>Status</p>
-                                <DropdownStatus options={liststatus} selectedOption={registrar.status} setRegistrar={setRegistrar} registrar={registrar} />
+                                <DropdownStatus options={liststatus} selectedOption={registrar.status} setRegistrar={setRegistrar} />
                             </div>
                             <div className="mt-4 flex flex-col">
                                 <label

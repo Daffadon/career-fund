@@ -118,7 +118,7 @@ const AccountCompany = () => {
                         </div>
                         <div>
                             <p>Negara </p>
-                            <DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser} user={user} />
+                            <DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser}/>
                         </div>
                         <p className={`${fontType["button"]} bg-primary50 w-4/12 self-end mr-24 text-center text-white py-2 rounded-full cursor-pointer`}
                             onClick={() => {

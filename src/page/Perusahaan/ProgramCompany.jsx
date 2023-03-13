@@ -29,10 +29,13 @@ const ProgramCompany = () => {
                                     <img src={item.logo} />
                                     <p className={`${fontType["h1"]} ml-3`}>{item.name}</p>
                                 </div>
-                                <p className={`${fontType["h5"]} text-neutral50 mt-4`}>Kami mencari Desainer Grafis untuk bergabung dengan tim kami yang terus berkembang. Kandidat yang ideal akan memiliki keterampilan kreatif yang kuat dan portofolio pekerjaan yang menunjukkan hasrat mereka terhadap desain dan pembuatan konten.</p>
+                                <p className={`${fontType["h5"]} text-neutral50 mt-4`}>{item.deskripsi}</p>
                             </div>
                             <div className="w-full md:w-3/12 flex md:flex-col mt-5 gap-3 justify-center items-end mr-10">
-                                <button className={`${fontType["button"]} bg-warning30 w-[10rem] py-3 rounded-xl flex justify-center items-center gap-5`}>
+                                <button className={`${fontType["button"]} bg-warning30 w-[10rem] py-3 rounded-xl flex justify-center items-center gap-5`}
+                                    onClick={() => {
+                                        navigate("/detail-program-company", { state: item })
+                                    }} >
                                     <img src={edit} className="mr-3" />
                                     <p>Edit</p>
                                 </button>
@@ -44,11 +47,11 @@ const ProgramCompany = () => {
                                     <p className="text-white">Hapus</p>
                                 </button>
                             </div>
+                            {isRemove && <DeleteProgram setIsRemove={setIsRemove} itemToDelete={item} />}
                         </div>
                     )
                 })}
             </div>
-            {isRemove && <DeleteProgram setIsRemove={setIsRemove} />}
         </LayoutCompany>
     )
 }

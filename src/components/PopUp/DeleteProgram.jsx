@@ -1,12 +1,13 @@
 import remove from "../../assets/Program/Hands Phone.svg"
 import { fontType } from "../Text/text"
 
-const DeleteProgram = ({ setIsRemove }) => {
+const DeleteProgram = ({ setIsRemove, itemToDelete }) => {
 	const hapus = () => {
+		// delete itemToDelete()
 		location.reload()
 	}
 	return (
-		<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)]">
+		<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.1)]">
 			<div className="bg-white rounded-2xl w-9/12 sm:w-7/12 md:w-6/12 lg:w-5/12 xl:w-4/12 2xl:w-3/12 py-10">
 				<div className="flex justify-center items-center flex-col gap-4 pt ">
 					<img src={remove} className="w-5/12" />

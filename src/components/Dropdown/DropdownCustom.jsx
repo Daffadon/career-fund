@@ -1,12 +1,12 @@
 import { useState } from "react";
-const DropdownCustom = ({ options, selectedOption, setUser, user }) => {
+const DropdownCustom = ({ options, selectedOption, setUser }) => {
 	const [selected, setSelected] = useState(selectedOption);
 	return (
 		<select
 			value={selected}
 			onChange={(e) => {
 				setSelected(e.target.value)
-				setUser({ ...user, pendidikan: e.target.value })
+				setUser(prev => ({ ...prev, pendidikan: e.target.value }))
 			}}
 			className="w-10/12 border-none bg-[#F5F5F5] rounded-full px-4 py-3 mt-4"
 		>

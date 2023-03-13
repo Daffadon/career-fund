@@ -116,7 +116,7 @@ const Account = () => {
 							<DropdownCustom
 								options={school}
 								selectedOption={user.pendidikan}
-								setUser={setUser} user={user}
+								setUser={setUser}
 							/>
 						</div>
 						<div>
@@ -183,7 +183,7 @@ const Account = () => {
 						</div>
 						<div>
 							<p>Negara </p>
-							<DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser} user={user} />
+							<DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser}/>
 						</div>
 						<p className={`${fontType["button"]} bg-primary50 w-[12rem] self-end mr-24 text-center text-white py-2 rounded-full cursor-pointer`}
 							onClick={()=>{

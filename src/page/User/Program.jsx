@@ -11,8 +11,36 @@ import FilterProgram from "../../container/Program/FilterProgram";
 import ProgramCarouselContainer from "../../container/Program/ProgramCarouselContainer";
 import LayoutUser from "../../components/Layout/LayoutUser";
 const Program = () => {
+	const [posisi, setPosisi] = useState({})
+	const [jurusan, setJurusan] = useState({})
+	const [tingkat, setTingkat] = useState({})
+	const [pendidikan, setPendidikan] = useState({})
+	const [filtering, setFiltering] = useState({
+		posisi: {},
+		jurusan: {},
+		tingkat: {},
+		pendidikan: {},
+	});
 	const [width, setWidth] = useState(window.innerWidth);
 	const [isShowMenu, setIsShowMenu] = useState(false)
+
+	useEffect(() => {
+		setFiltering(prev => ({ ...prev, posisi: posisi }))
+	}, [posisi])
+
+	useEffect(() => {
+		setFiltering(prev => ({ ...prev, jurusan: jurusan }))
+	}, [jurusan])
+
+	useEffect(() => {
+		setFiltering(prev => ({ ...prev, tingkat: tingkat }))
+	}, [tingkat])
+
+	useEffect(() => {
+		setFiltering(prev => ({ ...prev, pendidikan: pendidikan }))
+	}, [pendidikan])
+
+
 	useEffect(() => {
 		const handleResize = () => {
 			setWidth(window.innerWidth);
@@ -44,13 +72,13 @@ const Program = () => {
 								<img src={filter} className="w-6" />
 							</div>
 							<p className={`${fontType["h3"]} mt-5`}>Posisi</p>
-							<CheckBox item={listposisi} />
+							<CheckBox item={listposisi} checked={posisi} setChecked={setPosisi} />
 							<p className={`${fontType["h3"]} mt-5`}>Jurusan</p>
-							<CheckBox item={listProgram} />
+							<CheckBox item={listProgram} checked={jurusan} setChecked={setJurusan} />
 							<p className={`${fontType["h3"]} mt-5`}>Tingkat</p>
-							<CheckBox item={["D3", "S1"]} />
+							<CheckBox item={["D3", "S1"]} checked={tingkat} setChecked={setTingkat} />
 							<p className={`${fontType["h3"]} mt-5`}>Pendidikan Terakhir</p>
-							<CheckBox item={school} />
+							<CheckBox item={school} checked={pendidikan} setChecked={setPendidikan} />
 						</div>
 					</div>
 					<div className="w-3/4 rounded-2xl">
