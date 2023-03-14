@@ -1,3 +1,33 @@
+import fotoUser from "../../assets/Account/foto.svg";
+import fotoCompany from "../../assets/Account/bigprofile.svg";
+
+export const userAccount = {
+	foto: fotoUser,
+	namaDepan: "Rinae",
+	namaBelakang: "Doe",
+	lokasi: "Malang, Indonesia",
+	pendidikan: "SMA",
+	email: "RinaDoe@gmail.com",
+	telepon: "082141255123",
+	kota: "Jakarta",
+	pos: "41245",
+	negara: "Indonesia",
+	rekening: "213124124123",
+	metodePembayaran: "BANK BCA",
+	saldo: "8.000.000"
+}
+
+export const companyAccount = {
+	foto: fotoCompany,
+	namaPerusahaan: "Facebook",
+	lokasi: "Malang, Indonesia",
+	email: "facebook.gmail.com",
+	telepon: "12412514123",
+	kota: "New York",
+	pos: "241512",
+	negara: "United Kingdom"
+}
+
 export const school = [
 	"SMA", "SMK", "D3"
 ];

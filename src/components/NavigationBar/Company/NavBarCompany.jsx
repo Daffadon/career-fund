@@ -1,14 +1,17 @@
-import { NavLink } from "react-router-dom";
 import { fontType } from "../../Text/text";
 import logo from "/logo.svg";
 import fotoProfile from "../../../assets/Account/fotoProfile.svg"
 import { useState, useEffect } from "react";
 import NavigationLinkCompany from "./NavigationLinkCompany";
 import logout from "../../../assets/icons/logout.svg"
+import AccountLogout from "../../../container/Navbar/AccountLogout";
+import { useNavigate } from "react-router-dom";
 
 const NavBarCompany = () => {
+    const navigate = useNavigate()
     const [width, setWidth] = useState(window.innerWidth);
     const [isShowMenu, setIsShowMenu] = useState(false)
+    const [showAccount, setShowAccount] = useState(false)
     useEffect(() => {
         const handleResize = () => {
             setWidth(window.innerWidth);
@@ -22,7 +25,7 @@ const NavBarCompany = () => {
     }, []);
     return (
         <div className="flex items-center justify-between h-[13vh] sticky top-0 bg-[#F5F5F5] z-10">
-            <img src={logo} alt="CareerFund" className="ml-10" />
+            <img src={logo} alt="CareerFund" className="ml-10" onClick={() => navigate("/home-company")} />
             {width < 940 ?
                 <>
                     <nav className="p-3 border-gray-200 rounded  dark:bg-gray-800 dark:border-gray-700">
@@ -36,9 +39,22 @@ const NavBarCompany = () => {
                                 <svg className="w-10 h-10 right-10 fixed" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd"></path></svg>
                             </button>
                             {isShowMenu &&
-                                <div className="fixed top-24 right-5 bg-white border-primary50 border-2 w-[16rem] h-[20vh] rounded-xl" >
+                                <div className="fixed top-24 right-5 bg-white border-primary50 border-2 w-[20rem] h-[25vh] rounded-xl" >
                                     <div className="h-full flex flex-col items-center justify-evenly">
-                                        <NavigationLinkCompany />
+                                        <NavigationLinkCompany flexCol={true} />
+                                        <div className="flex gap-3 order-1 cursor-pointer" onClick={() => {
+                                            setShowAccount(!showAccount)
+                                        }}>
+                                            <img src={fotoProfile} />
+                                            <div>
+                                                <p className={`${fontType["h4"]}`}>Facebook</p>
+                                                <p className={`${fontType["p3"]} text-neutral30`}>Malang, Indonesia</p>
+                                            </div>
+                                            <img src={logout} />
+                                        </div>
+                                        {showAccount &&
+                                            <AccountLogout navigate={"/account-company"} lite={true} />
+                                        }
                                     </div>
                                 </div>
                             }
@@ -50,7 +66,9 @@ const NavBarCompany = () => {
                     <nav className="flex gap-4">
                         <NavigationLinkCompany />
                     </nav>
-                    <div className="flex gap-3 px-8 mr-10" >
+                    <div className="flex gap-3 px-8 mr-10 cursor-pointer" onClick={() => {
+                        setShowAccount(!showAccount)
+                    }}>
                         <img src={fotoProfile} />
                         <div>
                             <p className={`${fontType["h4"]}`}>Facebook</p>
@@ -58,6 +76,9 @@ const NavBarCompany = () => {
                         </div>
                         <img src={logout} />
                     </div>
+                    {showAccount &&
+                        <AccountLogout navigate={"/account-company"} lite={false} />
+                    }
                 </>
             }
         </div>

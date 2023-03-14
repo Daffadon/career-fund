@@ -46,7 +46,7 @@ const Section5 = () => {
                     {comments.map((item) => {
                         return (
                             <SwiperSlide key={item.name} className="mt-[5em]">
-                                <div className={`${card["landing-page"]} ml-20 sm:ml-16 md:ml-10 lg:ml-0`}>
+                                <div className={`${card["landing-page"]} sm:ml-12 md:ml-10 lg:ml-0`}>
                                     <div className="flex items-center mb-6">
                                         <img src={item.logo} alt="" />
                                         <div className="ml-3">

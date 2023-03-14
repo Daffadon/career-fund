@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const DropdownStatus = ({ options, selectedOption, setRegistrar }) => {
     const [selected, setSelected] = useState(selectedOption);
     return (

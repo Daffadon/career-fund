@@ -45,12 +45,10 @@ const AppRoutes = () => {
             <Route element={<PrivateRoutes />}>
 
 
-
             </Route>
+            <Route path='/home' element={<Home />} />
             <Route path='/account' element={<Account />} />
             <Route path="/help-user" element={<HelpUser />} />
-            <Route path='/home' element={<Home />} />
-
             <Route path="/registrar" element={<Registrar />} />
             <Route path="/home-company" element={<HomeCompany />} />
             <Route path="/account-company" element={<AccountCompany />} />

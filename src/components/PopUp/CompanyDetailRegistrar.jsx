@@ -2,36 +2,38 @@ import { fontType } from "../Text/text"
 import fotoDummy from "../../assets/Program/dummyFotoProfile.svg"
 import exit from "../../assets/icons/exit.svg"
 import DropdownStatus from "../Dropdown/DropdownStatus"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { liststatus } from "../../container/Registrar/listRegistrar"
 import cvicon from "../../assets/icons/cvicon.svg"
-const CompanyDetailRegistrar = ({ setShowDetail }) => {
+const CompanyDetailRegistrar = ({ showDetail, setShowDetail, userDetail, index }) => {
     const [registrar, setRegistrar] = useState({
-        status: "aktif",
-        scheduleTest: "",
-        placeTest: ""
+        status: userDetail.status,
+        scheduleTest: userDetail.scheduleTest,
+        placeTest: userDetail.placeTest
     })
     const closeModal = () => {
-        setShowDetail(false)
+        const newShowDetail = [...showDetail]
+        newShowDetail[index] = false
+        setShowDetail(newShowDetail)
     }
     const saveProgram = () => {
 
     }
     return (
         <form onSubmit={saveProgram}>
-            <div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.1)]">
+            <div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.1)] z-50">
                 <div className="bg-white rounded-2xl w-11/12 sm:w-10/12 md:w-9/12 lg:w-5/12 py-10 px-5">
                     <div className="flex justify-center gap-10">
                         <div className="w-5/12 flex flex-col justify-center items-center gap-6">
                             <img src={fotoDummy} />
                             <div>
-                                <p className={`${fontType["h2"]} text-center`}>Ahmad Bustomi</p>
+                                <p className={`${fontType["h2"]} text-center`}>{userDetail.nama}</p>
                                 <p className={`${fontType["p1"]} text-neutral50 text-lg text-center`}>Malang, Indonesia</p>
                             </div>
                             <p className={`${fontType["h4"]} self-start pl-3.5`}>CV</p>
                             <div className="self-start pl-3.5 flex items-center">
                                 <img src={cvicon} />
-                                <p className={`${fontType["p1"]} pl-3`}>Rinae Doe CV.pdf</p>
+                                <p className={`${fontType["p1"]} pl-3`}>{`${userDetail.cv}`}</p>
                             </div>
                         </div>
                         <div className="w-7/12 flex flex-col gap-2">

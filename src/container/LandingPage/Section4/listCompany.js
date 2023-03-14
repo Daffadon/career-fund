@@ -6,6 +6,7 @@ import paypal from "../../../assets/Program/PayPal 1 WC.svg"
 
 export const listCompany = [
     {
+        key: 1,
         logo: facebook,
         name: "Facebook",
         job: "Graphic Designer",
@@ -16,10 +17,21 @@ export const listCompany = [
         jurusan: "FILKOM",
         activity: "Kegiatan ini kita buat",
         pendidikan: { "SMA": true, "SMK": true, "D3": false },
-        tingkatan :{"D3":true, "S1":true},
-        posisi: "Graphic Designer"
+        tingkatan: { "D3": true, "S1": true },
+        posisi: "Graphic Designer",
+        semester: [
+            {
+                "name": "Semester 1",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            },
+            {
+                "name": "Semester 2",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            }
+        ]
     },
     {
+        key: 2,
         logo: twitter,
         name: "Twitter",
         job: "Data Science",
@@ -30,10 +42,21 @@ export const listCompany = [
         jurusan: "FILKOM",
         activity: "Kegiatan ini kita buat",
         pendidikan: { "SMA": true, "SMK": true, "D3/S1": true },
-        tingkatan :{"D3":true, "S1":true},
-        posisi: "Graphic Designer"
+        tingkatan: { "D3": true, "S1": true },
+        posisi: "Graphic Designer",
+        semester: [
+            {
+                "name": "Semester 1",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            },
+            {
+                "name": "Semester 2",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            }
+        ]
     },
     {
+        key: 3,
         logo: spotify,
         name: "Spotify",
         job: "Product Manager",
@@ -44,10 +67,21 @@ export const listCompany = [
         jurusan: "FILKOM",
         activity: "Kegiatan ini kita buat",
         pendidikan: { "SMA": true, "SMK": true, "D3/S1": true },
-        tingkatan :{"D3":true, "S1":true},
-        posisi: "Graphic Designer"
+        tingkatan: { "D3": true, "S1": true },
+        posisi: "Graphic Designer",
+        semester: [
+            {
+                "name": "Semester 1",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            },
+            {
+                "name": "Semester 2",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            }
+        ]
     },
     {
+        key: 4,
         logo: google,
         name: "Google",
         job: "Back End Developer",
@@ -58,10 +92,21 @@ export const listCompany = [
         jurusan: "FILKOM",
         activity: "Kegiatan ini kita buat",
         pendidikan: { "SMA": true, "SMK": true, "D3/S1": true },
-        tingkatan :{"D3":true, "S1":true},
-        posisi: "Graphic Designer"
+        tingkatan: { "D3": true, "S1": true },
+        posisi: "Graphic Designer",
+        semester: [
+            {
+                "name": "Semester 1",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            },
+            {
+                "name": "Semester 2",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            }
+        ]
     },
     {
+        key: 5,
         logo: paypal,
         name: "Paypal",
         job: "Graphic Designer",
@@ -72,7 +117,17 @@ export const listCompany = [
         jurusan: "FILKOM",
         activity: "Kegiatan ini kita buat",
         pendidikan: { "SMA": true, "SMK": true, "D3/S1": true },
-        tingkatan :{"D3":true, "S1":true},
-        posisi: "Graphic Designer"
+        tingkatan: { "D3": true, "S1": true },
+        posisi: "Graphic Designer",
+        semester: [
+            {
+                "name": "Semester 1",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            },
+            {
+                "name": "Semester 2",
+                prequisite: ["Sertifikasi", "Kegiatan", "pelatihan"]
+            }
+        ]
     }
 ]

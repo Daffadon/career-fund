@@ -1,24 +1,25 @@
 import { useState,useRef } from "react";
 import Footer from "../../components/Footer/Footer"
 import LayoutCompany from "../../components/Layout/LayoutCompany"
-import foto from "../../assets/Account/bigprofile.svg";
+
 import changePic from "../../assets/Account/changePic.svg";
 import { fontType } from "../../components/Text/text";
 import { countries } from "../../container/account/account";
 import ConfirmChangeBio from "../../components/PopUp/ConfirmChangeBio";
 import DropdownCountries from "../../components/Dropdown/DropdownCountries";
-
+import { companyAccount } from "../../container/account/account";
 const AccountCompany = () => {
-    const [country, ] = useState("Indonesia");
     const [isShow, setIsShow] = useState(false);
     const fotoUploading = useRef()
     const [user, setUser] = useState({
-        namaPerusahaan: "",
-        email: "",
-        telepon: "",
-        kota: "Jakarta",
-        pos: "",
-        negara: country,
+        foto: companyAccount.foto,
+        namaPerusahaan: companyAccount.namaPerusahaan,
+        lokasi:companyAccount.lokasi,
+        email: companyAccount.email,
+        telepon: companyAccount.telepon,
+        kota: companyAccount.kota,
+        pos: companyAccount.pos,
+        negara: companyAccount.negara
     });
 
     const uploadFoto = () => {
@@ -30,11 +31,11 @@ const AccountCompany = () => {
 	}
     return (
         <LayoutCompany>
-            <div className="flex flex-col xl:flex-row items-center justify-center xl:justify-evenly gap-5 xl-gap-0 mt-24 mb-20">
+            <div className="flex flex-col xl:flex-row items-center justify-center xl:justify-evenly gap-5 xl-gap-0 mt-20 mb-20">
                 <div className="w-9/12 sm:w-8/12 lg:w-8/12 xl:w-3/12 rounded-xl flex justify-center items-start h-11/12 ">
                     <div className="w-3/4 md:w-1/2 xl:w-11/12 bg-white flex flex-col justify-start items-center gap-12 rounded-2xl py-10 ">
                         <div className="relative">
-                            <img src={foto} />
+                            <img src={user.foto} />
                             <img src={changePic} className="absolute left-12 -bottom-4 cursor-pointer"onClick={uploadFoto} />
                             <input
 								type="file"
@@ -45,10 +46,10 @@ const AccountCompany = () => {
                         </div>
                         <div>
                             <p className={`${fontType["h1"]} text-center`}>
-                                Facebook
+                                {user.namaPerusahaan}
                             </p>
                             <p className={`${fontType["p1"]} text-center text-neutral50`}>
-                                Malang, Indonesia</p>
+                                {user.lokasi}</p>
                         </div>
                     </div>
                 </div>
