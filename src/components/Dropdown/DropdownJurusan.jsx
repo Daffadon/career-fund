@@ -1,12 +1,12 @@
 import { useState } from "react";
-const DropdownJurusan = ({ options, selectedOption, setJurusan}) => {
+const DropdownJurusan = ({ options, selectedOption, setProgramToAdd}) => {
     const [selected, setSelected] = useState(selectedOption);
     return (
         <select
             value={selected}
             onChange={(e) => {
                 setSelected(e.target.value)
-                setJurusan(e.target.value )
+                setProgramToAdd(prev => ({...prev, jurusan: e.target.value }))
             }}
             className="w-full border-none bg-[#F5F5F5] rounded-full px-4 py-3 mt-4"
         >

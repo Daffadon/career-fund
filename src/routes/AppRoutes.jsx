@@ -26,6 +26,7 @@ import SelectionHistory from "../container/History/SelectionHistory"
 import AcceptedHistory from "../container/History/AcceptedHistory"
 import RejectedHistory from "../container/History/RejectedHistory"
 import FollowedHistory from "../container/History/FollowedHistory"
+import UserDetailProgram from "../page/User/UserDetailProgram"
 
 const AppRoutes = () => {
     return (
@@ -44,24 +45,24 @@ const AppRoutes = () => {
             <Route element={<PrivateRoutes />}>
 
 
-
             </Route>
+            <Route path='/home' element={<Home />} />
+            <Route path='/account' element={<Account />} />
+            <Route path="/help-user" element={<HelpUser />} />
+            <Route path="/registrar" element={<Registrar />} />
+            <Route path="/home-company" element={<HomeCompany />} />
+            <Route path="/account-company" element={<AccountCompany />} />
+            <Route path="/program-company" element={<ProgramCompany />} />
             <Route path='/history' element={<History />}>
-                <Route path="/history/register" element={<RegisterHistory/>} />
+                <Route path="/history/register" element={<RegisterHistory />} />
                 <Route path="/history/selection" element={<SelectionHistory />} />
                 <Route path="/history/accepted" element={<AcceptedHistory />} />
                 <Route path="/history/rejected" element={<RejectedHistory />} />
                 <Route path="/history/followed" element={<FollowedHistory />} />
             </Route>
-            <Route path="/help-user" element={<HelpUser />} />
-            <Route path='/home' element={<Home />} />
             <Route path="/program" element={<Program />} />
-            <Route path="/home-company" element={<HomeCompany />} />
-            <Route path="/program-company" element={<ProgramCompany />} />
-            <Route path="/registrar" element={<Registrar />} />
+            <Route path="/program/:name" element={<UserDetailProgram />} />
             <Route path="/fund" element={< Fund />} />
-            <Route path="/account-company" element={<AccountCompany />} />
-            <Route path='/account' element={<Account />} />
             <Route path="/detail-program-company" element={<DetailProgramCompany />} />
         </Routes>
     )

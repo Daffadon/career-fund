@@ -1,43 +1,59 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import Footer from "../../components/Footer/Footer"
 import LayoutCompany from "../../components/Layout/LayoutCompany"
-import foto from "../../assets/Account/bigprofile.svg";
+
 import changePic from "../../assets/Account/changePic.svg";
 import { fontType } from "../../components/Text/text";
 import { countries } from "../../container/account/account";
 import ConfirmChangeBio from "../../components/PopUp/ConfirmChangeBio";
 import DropdownCountries from "../../components/Dropdown/DropdownCountries";
-
+import { companyAccount } from "../../container/account/account";
 const AccountCompany = () => {
-    const [country, setCountry] = useState("Indonesia");
     const [isShow, setIsShow] = useState(false);
+    const fotoUploading = useRef()
     const [user, setUser] = useState({
-        namaPerusahaan: "",
-        email: "",
-        telepon: "",
-        kota: "Jakarta",
-        pos: "",
-        negara: country,
+        foto: companyAccount.foto,
+        namaPerusahaan: companyAccount.namaPerusahaan,
+        lokasi:companyAccount.lokasi,
+        email: companyAccount.email,
+        telepon: companyAccount.telepon,
+        kota: companyAccount.kota,
+        pos: companyAccount.pos,
+        negara: companyAccount.negara
     });
+
+    const uploadFoto = () => {
+		fotoUploading.current.click()
+	}
+	const handleChange = e => {
+		const fotoToUpload = e.target.files[0];
+		uploadFotoToDatabase(fotoToUpload)
+	}
     return (
         <LayoutCompany>
-            <div className="flex min-h-[70vh] mt-24 mb-20">
-                <div className="w-4/12  rounded-xl  gap-4 flex justify-center items-start h-11/12 ">
-                    <div className="w-3/4  bg-white flex flex-col justify-start items-center gap-16 rounded-2xl py-10 ">
+            <div className="flex flex-col xl:flex-row items-center justify-center xl:justify-evenly gap-5 xl-gap-0 mt-20 mb-20">
+                <div className="w-9/12 sm:w-8/12 lg:w-8/12 xl:w-3/12 rounded-xl flex justify-center items-start h-11/12 ">
+                    <div className="w-3/4 md:w-1/2 xl:w-11/12 bg-white flex flex-col justify-start items-center gap-12 rounded-2xl py-10 ">
                         <div className="relative">
-                            <img src={foto} />
-                            <img src={changePic} className="absolute left-12 -bottom-4" />
+                            <img src={user.foto} />
+                            <img src={changePic} className="absolute left-12 -bottom-4 cursor-pointer"onClick={uploadFoto} />
+                            <input
+								type="file"
+								accept="image/*"
+								className="hidden"
+								onChange={handleChange}
+								ref={fotoUploading} />
                         </div>
                         <div>
                             <p className={`${fontType["h1"]} text-center`}>
-                                Facebook
+                                {user.namaPerusahaan}
                             </p>
                             <p className={`${fontType["p1"]} text-center text-neutral50`}>
-                                Malang, Indonesia</p>
+                                {user.lokasi}</p>
                         </div>
                     </div>
                 </div>
-                <div className=" w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24 ">
+                <div className="w-full md:w-10/12 xl:w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24 ">
                     <div className={`${fontType["h4"]}  w-1/2 flex flex-col gap-10 ml-24 mt-5`}>
                         <div>
                             <p>Nama Perusahaan</p>
@@ -103,7 +119,7 @@ const AccountCompany = () => {
                         </div>
                         <div>
                             <p>Negara </p>
-                            <DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser} user={user} />
+                            <DropdownCountries options={countries} selectedOption={user.negara} setUser={setUser}/>
                         </div>
                         <p className={`${fontType["button"]} bg-primary50 w-4/12 self-end mr-24 text-center text-white py-2 rounded-full cursor-pointer`}
                             onClick={() => {

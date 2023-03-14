@@ -1,9 +1,9 @@
 
 import { NavLink } from "react-router-dom"
 import { fontType } from "../../Text/text"
-const NavigationLinkCompany = () => {
+const NavigationLinkCompany = ({ flexCol }) => {
     return (
-        <>
+        <div className={flexCol ? "flex flex-col order-2 justify-center items-center gap-2" : " flex gap-3"}>
             <NavLink
                 className={`${fontType["link"]} text-neutral50`}
                 style={({ isActive }) =>
@@ -43,7 +43,7 @@ const NavigationLinkCompany = () => {
                 }
                 to="/account-company"
             >Akun</NavLink>
-        </>
+        </div>
     )
 }
 

@@ -28,7 +28,7 @@ module.exports = {
         "danger50": "#F00101",
         "danger70": "#BC0101",
         "danger90": "#890101",
-        "success10": "#4A77E2",
+        "success10": "#2FFEAD",
         "success30": "#01F998",
         "success50": "#01C77A",
         "success70": "#01935A",

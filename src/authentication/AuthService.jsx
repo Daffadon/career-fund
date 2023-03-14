@@ -1,9 +1,20 @@
 import axios from "axios";
 import BASE_URL from '../constants/apiUrl'
+import Cookies from "js-cookie";
 
-export const getToken = () => {
-    return localStorage.getItem('user');
+
+export const setTokenCookies = token => {
+    Cookies.set("token", token, { expires: 2 / 24 });
 }
+
+export const getExpiresCookies = () => {
+    return Cookies.get('expires');
+}
+
+export const getTokenCookies = () => {
+    return Cookies.get('token');
+}
+
 
 export const login = async (email, passwd) => {
     try {
@@ -11,12 +22,12 @@ export const login = async (email, passwd) => {
             email,
             passwd
         })
-        const tokenFetched = response.data.token;
-        localStorage.setItem('user', JSON.stringify(tokenFetched))
-        setTimeout(() => {
-            location.reload()
-        }, 1500)
-        return response.data.token
+        const token = response.data.token;
+        if (!token) {
+            throw new Error("Email atau Password Anda Salah")
+        }
+        setTokenCookies(token)
+        return token
     } catch (e) {
         return e.data
     }
@@ -39,10 +50,10 @@ export const logOut = async () => {
     try {
         await axios.post(`${BASE_URL}/logout`, {}, {
             headers: {
-                Authorization: `Bearer ${getToken()}`
+                Authorization: `Bearer ${getTokenCookies()}`
             }
         })
-        localStorage.removeItem('user');
+        Cookies.remove('token')
         setTimeout(() => {
             location.reload()
         }, 1500)
@@ -51,16 +62,11 @@ export const logOut = async () => {
     }
 }
 
-export const isAuthenticated = async () => {
-    try {
-        await axios.get(`${BASE_URL}/users`, {
-            Headers: {
-                'Authorization': `Bearer ${getToken()}`
-            }
-        })
-        return true
-    } catch (e) {
-        logOut();
-        return false
+export const isAuthenticated = () => {
+    const expires = getExpiresCookies();
+    if (expires && new Date(expires) > new Date()) {
+        return true;
+    } else {
+        return false;
     }
 }

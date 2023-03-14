@@ -10,8 +10,8 @@ const HomeCompany = () => {
         <LayoutCompany>
             <div className="ml-10">
                 <p className={`${fontType["h1"]}`}>Dashboard</p>
-                <div className="flex gap-5">
-                    <div className="flex flex-col mt-10 bg-white w-3/12 rounded-[20px] shadow-[5px_5px_10px_rgba(0,0,0,0.05)] px-7 py-10">
+                <div className="flex gap-5 flex-wrap">
+                    <div className="flex flex-col mt-10 bg-white w-[28rem] rounded-[20px] shadow-[5px_5px_10px_rgba(0,0,0,0.05)] px-7 py-10">
                         <div className="flex items-center">
                             <img src={dana} />
                             <p className={`${fontType["h5"]} w-7/12 ml-5`}>Jumlah Dana yang Dikeluarkan</p>
@@ -20,7 +20,7 @@ const HomeCompany = () => {
                             Rp 80.000.000
                         </div>
                     </div>
-                    <div className="flex flex-col mt-10 bg-white w-3/12 rounded-[20px] shadow-[5px_5px_10px_rgba(0,0,0,0.05)] px-7 py-10">
+                    <div className="flex flex-col mt-10 bg-white w-[28rem] rounded-[20px] shadow-[5px_5px_10px_rgba(0,0,0,0.05)] px-7 py-10">
                         <div className="flex items-center">
                             <img src={peserta} />
                             <p className={`${fontType["h5"]} w-7/12 ml-5`}>Peserta Program Yang Didanai</p>
