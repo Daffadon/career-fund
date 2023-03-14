@@ -42,7 +42,7 @@ const SignUpForm = () => {
 			const response = await signUp(user)
 		} catch (error) {
 			setMsg(error)
-			setError(true)
+			return setError(true)
 		}
 		setShowOtp(true)
 	};

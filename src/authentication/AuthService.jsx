@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import BASE_URL from '../constants/apiUrl'
 import Cookies from "js-cookie";
 
@@ -35,19 +35,17 @@ export const login = async (email, passwd) => {
 
 export const signUp = async ({ name, email, phone, password }) => {
     try {
-        console.log("masuk")
         const response = await axios.post(`${BASE_URL}/register`, {
             name,
             email,
-            telephone : phone,
+            telephone: phone,
             password
         })
-        console.log(response)
         return response
         // await login(email, password)
 
     } catch (e) {
-        return e
+        throw new AxiosError(e.message)
     }
 }
 export const logOut = async () => {
