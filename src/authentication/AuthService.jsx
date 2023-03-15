@@ -35,15 +35,19 @@ export const login = async (email, passwd) => {
 
 export const signUp = async ({ name, email, phone, password }) => {
     try {
-        await axios.post(`${BASE_URL}/signUp`, {
+        console.log("masuk")
+        const response = await axios.post(`${BASE_URL}/register`, {
             name,
             email,
-            phone,
+            telephone : phone,
             password
         })
-        await login(email, password)
+        console.log(response)
+        return response
+        // await login(email, password)
+
     } catch (e) {
-        return e.data
+        return e
     }
 }
 export const logOut = async () => {

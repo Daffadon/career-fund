@@ -4,8 +4,9 @@ import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
-import { signUp } from "../../authentication/AuthService";
 import AlertCustom from "../Alerts/AlertCustom";
+import Otp from "../PopUp/Otp";
+import { signUp } from "../../authentication/AuthService";
 
 const SignUpForm = () => {
 	const [user, setUser] = useState({
@@ -19,12 +20,15 @@ const SignUpForm = () => {
 	const [isRePasswdOpen, setIsRePasswdOpen] = useState(false);
 	const [msg, setMsg] = useState("");
 	const [error, setError] = useState(false)
+	const [showOtp, setShowOtp] = useState(false)
 
 
 	useEffect(() => {
 		if (user.password !== repasswd) {
 			setError(true)
-			setMsg("not match");
+			setMsg("not match. password must contain uppercase,lowercase, and number");
+		} else {
+			setError(false)
 		}
 	}, [repasswd]);
 
@@ -34,7 +38,13 @@ const SignUpForm = () => {
 			setError(true)
 			setMsg("Pastikan format email benar/password benar")
 		}
-		const response = await signUp(user);
+		try {
+			const response = await signUp(user)
+		} catch (error) {
+			setMsg(error)
+			setError(true)
+		}
+		setShowOtp(true)
 	};
 	return (
 		<form className="flex flex-col w-full md:w-[20rem]" onSubmit={signUpHandler}>
@@ -164,6 +174,7 @@ const SignUpForm = () => {
 				</p>
 			</div>
 			{error && <AlertCustom setError={setError} errorMessage={msg} />}
+			{showOtp && <Otp setShowOtp={setShowOtp} />}
 		</form>
 	);
 };

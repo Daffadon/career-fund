@@ -39,7 +39,7 @@ const SignUp = () => {
 					</div>
 				}
 				<div className="w-8/12 md:w-6/12 flex justify-center">
-					<SignUpForm/>
+					<SignUpForm />
 				</div>
 			</div>
 		</>

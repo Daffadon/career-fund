@@ -1,3 +1,3 @@
-const BASE_URL = 'https://fikri.aenzt.tech/'
+const BASE_URL = 'https://fikrirafa.aenzt.tech'
 
 export default BASE_URL
