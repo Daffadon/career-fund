@@ -6,9 +6,23 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import { useNavigate } from "react-router";
 import { card } from "../../../components/Card/card";
+import { useEffect } from "react";
+import axios from "axios";
+import BASE_URL from "../../../constants/apiUrl";
 
 const Section4 = () => {
 	const navigate = useNavigate();
+	// useEffect(() => {
+	// 	const getData = async () => {
+	// 		try {
+	// 			const respons = await axios.get("https://fikrirafa.aenzt.tech/landing")
+	// 			console.log(respons)
+	// 		} catch (error) {
+	// 			console.log(error)
+	// 		}
+	// 	}
+	// 	getData()
+	// })
 	return (
 		<div className="max-h-[75vh] mt-[10em] ml-10">
 			<p className={`${fontType["h1"]} w-6/12  md:w-4/12 mb-20`}>

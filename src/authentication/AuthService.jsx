@@ -4,7 +4,10 @@ import Cookies from "js-cookie";
 
 
 export const setTokenCookies = token => {
-    Cookies.set("token", token, { expires: 2 / 24 });
+    const expires = new Date();
+    expires.setTime(expires.getTime() + 2 * 60 * 60 * 1000);
+    Cookies.set("token", token, { expires});
+    Cookies.set("expires", expires.toUTCString(), { expires })
 }
 
 export const getExpiresCookies = () => {
@@ -16,11 +19,13 @@ export const getTokenCookies = () => {
 }
 
 
-export const login = async (email, passwd) => {
+export const login = async (email, password) => {
     try {
+        console.log(email)
+        console.log(password)
         const response = await axios.post(`${BASE_URL}/login`, {
-            email,
-            passwd
+            username: email,
+            password
         })
         const token = response.data.token;
         if (!token) {
@@ -42,10 +47,39 @@ export const signUp = async ({ name, email, phone, password }) => {
             password
         })
         return response
-        // await login(email, password)
-
     } catch (e) {
-        throw new AxiosError(e.message)
+        throw new AxiosError(e.response.data.message)
+    }
+}
+export const otpVerification = async ({ name, email, phone, password }, otpVerify) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/register/otp`, {
+            name,
+            email,
+            telephone: phone,
+            password,
+            otp: otpVerify
+        })
+        if (response) {
+            setTokenCookies(response.data.csrf_token)
+        }
+        return response
+    } catch (e) {
+        throw new AxiosError(e.response.data.message)
+    }
+}
+export const otpChangePassword = async (email) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/register/otp`, {
+            email,
+            otp: otpVerify
+        })
+        if (response) {
+            setTokenCookies(response.data.csrf_token)
+        }
+        return response
+    } catch (e) {
+        throw new AxiosError(e.response.data.message)
     }
 }
 export const logOut = async () => {

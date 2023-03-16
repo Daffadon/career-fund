@@ -14,7 +14,6 @@ const Home = () => {
             <Section3/>
             <Section4/>
             <Section5/>
-            <Advertisement/>
         </LayoutUser>
     )
 }

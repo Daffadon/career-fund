@@ -1,8 +1,7 @@
 import { fontType } from "../Text/text"
-import fotoDummy from "../../assets/Program/dummyFotoProfile.svg"
 import exit from "../../assets/icons/exit.svg"
 import DropdownStatus from "../Dropdown/DropdownStatus"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { liststatus } from "../../container/Registrar/listRegistrar"
 import cvicon from "../../assets/icons/cvicon.svg"
 const CompanyDetailRegistrar = ({ showDetail, setShowDetail, userDetail, index }) => {
@@ -25,10 +24,10 @@ const CompanyDetailRegistrar = ({ showDetail, setShowDetail, userDetail, index }
                 <div className="bg-white rounded-2xl w-11/12 sm:w-10/12 md:w-9/12 lg:w-5/12 py-10 px-5">
                     <div className="flex justify-center gap-10">
                         <div className="w-5/12 flex flex-col justify-center items-center gap-6">
-                            <img src={fotoDummy} />
+                            <img src={userDetail.foto} />
                             <div>
                                 <p className={`${fontType["h2"]} text-center`}>{userDetail.nama}</p>
-                                <p className={`${fontType["p1"]} text-neutral50 text-lg text-center`}>Malang, Indonesia</p>
+                                <p className={`${fontType["p1"]} text-neutral50 text-lg text-center`}>{userDetail.alamat}</p>
                             </div>
                             <p className={`${fontType["h4"]} self-start pl-3.5`}>CV</p>
                             <div className="self-start pl-3.5 flex items-center">

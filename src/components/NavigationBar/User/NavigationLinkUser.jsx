@@ -39,15 +39,6 @@ const NavigationLinkUser = ({ flexCol }) => {
             >
                 Bantuan
             </NavLink>
-            <NavLink
-                className={`${fontType["h4"]} text-neutral50`}
-                style={({ isActive }) =>
-                    isActive ? { color: "#2753BD" } : {}
-                }
-                to="/account"
-            >
-                Akun
-            </NavLink>
         </div>
     )
 }

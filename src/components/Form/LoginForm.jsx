@@ -6,12 +6,12 @@ import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import ForgetPassword from "../PopUp/ForgetPassword";
-import EmailSent from "../PopUp/EmailSent";
 import AlertCustom from "../Alerts/AlertCustom";
+import OtpForgetPassword from "../PopUp/OtpForgetPassword";
 
 const LoginForm = () => {
 	const [email, setEmail] = useState("");
-	const [passwd, setPasswd] = useState("");
+	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false)
 	const [isOpen, setIsOpen] = useState(false);
@@ -20,11 +20,15 @@ const LoginForm = () => {
 
 	const loginHandler = async (e) => {
 		e.preventDefault();
-		if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+		if (!password.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
 			return setError(true)
 		}
-		setLoading(true);
-		const response = await login(email, passwd);
+		try {
+			setLoading(true);
+			const response = await login(email, password);
+		} catch (error) {
+
+		}
 		setLoading(false);
 	};
 	const showModalHandler = useCallback(
@@ -60,7 +64,7 @@ const LoginForm = () => {
 					/>
 				</div>
 				<div className="flex flex-col mb-4">
-					<label htmlFor="passwd" className={`${fontType["h4"]} mb-5`}>
+					<label htmlFor="password" className={`${fontType["h4"]} mb-5`}>
 						Password
 					</label>
 					<div className="relative">
@@ -68,26 +72,26 @@ const LoginForm = () => {
 							className="rounded-full px-3 py-2 w-11/12 border-none bg-[#F9F9F9]"
 							placeholder="Password"
 							type={isOpen ? "text" : "password"}
-							name="passwd"
-							value={passwd}
+							name="password"
+							value={password}
 							onChange={(e) => {
-								setPasswd(e.target.value);
+								setPassword(e.target.value);
 							}}
 							required
 						/>
 						{isOpen ? (
 							<img src={openEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer"
 								onClick={() => setIsOpen(false)}
-							/>) 
-							: 
+							/>)
+							:
 							(<img src={closeEye} className="absolute -right-3 sm:-right-1 top-3 cursor-pointer"
 								onClick={() => setIsOpen(true)}
 							/>
-						)}
+							)}
 					</div>
 					<div className="self-end">
 						<p className={`${fontType["p2"]} text-primary50 cursor-pointer mt-3`}
-						onClick={showModalHandler} >
+							onClick={showModalHandler} >
 							Lupa Kata Sandi?
 						</p>
 					</div>
@@ -106,9 +110,9 @@ const LoginForm = () => {
 					<Link className={`${fontType["h5"]} text-primary50 mt-2`} to="/companylogin">Masuk Untuk Perusahaan</Link>
 				</div>
 			</form>
-			{isShow && <ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} />}
-			{isSentRec && <EmailSent />}
-			{error && <AlertCustom setError={setError} errorMessage= {"Password atau Email Anda Salah! Silakan Coba Lagi"}/> }
+			{isShow && <ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} email={email} setEmail={setEmail} />}
+			{isSentRec && <OtpForgetPassword email={email} />}
+			{error && <AlertCustom setError={setError} errorMessage={"Password atau Email Anda Salah! Silakan Coba Lagi"} />}
 		</>
 	);
 };

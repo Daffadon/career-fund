@@ -27,6 +27,7 @@ import AcceptedHistory from "../container/History/AcceptedHistory"
 import RejectedHistory from "../container/History/RejectedHistory"
 import FollowedHistory from "../container/History/FollowedHistory"
 import UserDetailProgram from "../page/User/UserDetailProgram"
+import FundDetail from "../page/Perusahaan/FundDetail"
 
 const AppRoutes = () => {
     return (
@@ -44,9 +45,9 @@ const AppRoutes = () => {
             </Route>
             <Route element={<PrivateRoutes />}>
 
+                <Route path='/home' element={<Home />} />
 
             </Route>
-            <Route path='/home' element={<Home />} />
             <Route path='/account' element={<Account />} />
             <Route path="/help-user" element={<HelpUser />} />
             <Route path="/registrar" element={<Registrar />} />
@@ -64,6 +65,7 @@ const AppRoutes = () => {
             <Route path="/program/:name" element={<UserDetailProgram />} />
             <Route path="/fund" element={< Fund />} />
             <Route path="/detail-program-company" element={<DetailProgramCompany />} />
+            <Route path="/detail-fund" element={<FundDetail />} />
         </Routes>
     )
 }
