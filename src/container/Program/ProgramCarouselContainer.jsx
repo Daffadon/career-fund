@@ -4,6 +4,7 @@ import { card } from "../../components/Card/card"
 import { useNavigate } from "react-router-dom"
 const ProgramCarouselContainer = ({ listProgram }) => {
     const navigate = useNavigate()
+    console.log(listProgram)
     return (
         <>
             <div className="flex justify-center items-center">

@@ -1,6 +1,6 @@
 import { useCallback, useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { login } from "../../authentication/AuthService";
+import { companyLogin, login } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";
@@ -8,13 +8,9 @@ import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import ForgetPassword from "../PopUp/ForgetPassword";
 import EmailSent from "../PopUp/EmailSent";
 import AlertCustom from "../Alerts/AlertCustom";
-import { userContext } from "../../context/AuthContext";
-import { userAccount } from "../../container/account/account";
 import Loading from "../Loading/Loading";
-import { getUser } from "../../api/api";
 
 const LoginFormCompany = () => {
-	const { setUser } = useContext(userContext);
 	const navigate = useNavigate()
 	const [email, setEmail] = useState("");
 	const [passwd, setPasswd] = useState("");
@@ -27,16 +23,14 @@ const LoginFormCompany = () => {
 
 	const loginHandler = async (e) => {
 		e.preventDefault();
-		if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
-			setMsg("Format Email/Password Salah")
-			return setError(true)
-		}
+		// if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+		// 	setMsg("Format Email/Password Salah")
+		// 	return setError(true)
+		// }
 		try {
 			setLoading(true);
-			// await login(email, passwd);
-			const userAccout = await getUser()
-			setUser(userAccount)
-			navigate('home-company')
+			await companyLogin(email, passwd);
+			navigate('/home-company')
 		} catch (error) {
 			setMsg(error.massage);
 			setError(true)

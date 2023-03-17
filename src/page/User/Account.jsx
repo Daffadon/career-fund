@@ -38,7 +38,7 @@ const Account = () => {
 		}
 		getProfileContent()
 	}, [])
-	
+
 	const saveRekening = async e => {
 		e.preventDefault()
 		try {
@@ -62,14 +62,13 @@ const Account = () => {
 			<div className="flex flex-col xl:flex-row items-center justify-center xl:justify-evenly gap-5 xl-gap-0 mt-24 mb-20">
 				<div className="w-11/12 lg:w-8/12 xl:w-3/12 rounded-xl flex justify-center items-start h-11/12 ">
 					<div className="w-3/4 md:w-1/2 xl:w-11/12 bg-white flex flex-col justify-start items-center gap-12 rounded-2xl py-10 ">
-						<div className="relative">
+						<div className=" flex flex-col justify-center items-center ">
 							{userAccount.foto ?
-								<img src={userAccount.foto} />
+								<img src={userAccount.foto} className="rounded-full w-7/12 "/>
 								:
-								<div className="w-36 h-36 rounded-full bg-neutral50"></div>
+								<div className="w-52 h-52 rounded-full bg-neutral50"></div>
 							}
-							<img src={userAccount.foto} />
-							<img src={changePic} className="absolute left-12 -bottom-4 cursor-pointer" onClick={uploadFoto} />
+							<img src={changePic} className="relative bottom-5 right-1 cursor-pointer" onClick={uploadFoto} />
 							<input
 								type="file"
 								accept="image/*"

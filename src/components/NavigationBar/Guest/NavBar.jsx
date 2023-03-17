@@ -66,13 +66,13 @@ const NavBar = () => {
 												setShowAccount(!showAccount)
 											}}>
 												{user.data.user.url_icon ?
-													<img src={user.data.user.url_icon} />
+													<img src={user.data.user.url_icon} className="w-1/12 rounded-full" />
 													:
 													<div className="w-4 h-4 rounded-full bg-neutral50"></div>
 												}
 												<div>
-													<p className={`${fontType["h3"]}`}>Rina Doe</p>
-													<p className={`${fontType["p1"]} text-neutral30`}>Malang, Indonesia</p>
+													<p className={`${fontType["h3"]}`}>{user.data.user.name.split(" ").length >= 3 ? `${user.data.user.name.split(" ")[0]} ${user.data.user.name.split(" ")[1]}` : user.data.user.name}</p>
+													<p className={`${fontType["p1"]} text-neutral30`}>{user.data.user.city && user.data.user.region  ? `${user.data.user.city}, ${user.data.user.region}` : "-"}</p>
 												</div>
 												<img src={logout} />
 											</div>
@@ -100,12 +100,12 @@ const NavBar = () => {
 								setShowAccount(!showAccount)
 							}} >
 								{user.data.user.url_icon ?
-									<img src={user.data.user.url_icon} />
+									<img src={user.data.user.url_icon} className=" w-12 rounded-full" />
 									:
 									<div className="w-8 h-8 rounded-full bg-neutral50"></div>
 								}
 								<div>
-									<p className={`${fontType["h4"]}`}>{user.data.user.name.split(" ").length >= 3 ? `${user.data.user.name.split(" ")[0]} ${user.data.user.name.split(" ")[1]}` : user.data.user.name}   </p>
+									<p className={`${fontType["h4"]}`}>{user.data.user.name.split(" ").length >= 3 ? `${user.data.user.name.split(" ")[0]} ${user.data.user.name.split(" ")[1]}` : user.data.user.name}</p>
 									<p className={`${fontType["p3"]} text-neutral30`}>Malang, Indonesia</p>
 								</div>
 								<img src={logout} />

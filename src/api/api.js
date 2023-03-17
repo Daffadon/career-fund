@@ -43,6 +43,18 @@ export const getUser = async () => {
 		throw new AxiosError(error.response.data.message)
 	}
 }
+export const getCompany = async () => {
+	try {
+		const response = await axios.get(`${BASE_URL}/company/profile`, {
+			headers: {
+				'Authorization': `Bearer ${getTokenCookies()}`
+			}
+		})
+		return response
+	} catch (error) {
+		throw new AxiosError(error.response.data.message)
+	}
+}
 export const getProgram = async () => {
 	try {
 		const response = await axios.get(`${BASE_URL}/user/program`, {
@@ -81,7 +93,7 @@ export const updatePayment = async (user) => {
 		await axios.post(`${BASE_URL}/user/payment`, {
 			type: user.metodePembayaran,
 			credit: user.rekening,
-			user_id : user.id,
+			user_id: user.id,
 		}, {
 			headers: {
 				Authorization: `Bearer ${getTokenCookies()}`
@@ -102,7 +114,7 @@ export const sendEmailRecovery = async (email) => {
 		throw new AxiosError(e.response.data.message)
 	}
 }
-export const sendOtop = async (email,otp) => {
+export const sendOtop = async (email, otp) => {
 	try {
 		await axios.post(`${BASE_URL}/resetotp`, {
 			email,
@@ -110,6 +122,42 @@ export const sendOtop = async (email,otp) => {
 		})
 	} catch (e) {
 		console.log(e)
+		throw new AxiosError(e.response.data.message)
+	}
+}
+
+
+
+export const getCompanyProgram = async () => {
+	try {
+		const response = await axios.get(`${BASE_URL}/company/program`, {
+			headers: {
+				'Authorization': `Bearer ${getTokenCookies()}`
+			}
+		})
+		return response.data
+	} catch (error) {
+		console.log(error)
+		throw new AxiosError(error.response.data.message)
+	}
+}
+
+export const updateBioCompany = async (user) => {
+	try {
+		await axios.post(`${BASE_URL}/company/profile/update`, {
+			name: user.name,
+			email: user.email,
+			telephone: user.telepon,
+			region: user.negara,
+			city: user.kota,
+			postal: user.pos,
+			education: user.pendidikan,
+		}, {
+			headers: {
+				Authorization: `Bearer ${getTokenCookies()}`
+			}
+		})
+	} catch (e) {
 		throw new AxiosError(e.response.data.message)
 	}
 }

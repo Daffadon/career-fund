@@ -1,6 +1,6 @@
 import { fontType } from "../../components/Text/text"
 import { useLocation } from "react-router-dom"
-import {  useState } from "react"
+import { useState } from "react"
 import UploadCV from "../../components/PopUp/UploadCV"
 
 
@@ -45,7 +45,11 @@ const UserDetailProgram = () => {
 				<p className={`${fontType["h4"]}`}>Deskripsi</p>
 				<p className={`${fontType["p1"]} text-neutral50 text-justify`}>{item.desc}</p>
 				<p className={`${fontType["h4"]}`}>Skill</p>
-				<p className={`${fontType["p1"]}`}>{item.skill}</p>
+				<ul className="list-disc ml-5">
+					{item.skill.map(itemSkill => {
+						return <li key={itemSkill} className={`${fontType["p1"]}`}>{itemSkill}</li>
+					})}
+				</ul>
 				<div>
 					<p className={`${fontType["h4"]}`}>Jurusan</p>
 					<div className="flex gap-2 mt-4">
@@ -60,9 +64,9 @@ const UserDetailProgram = () => {
 				</div>
 				<p className={`${fontType["h4"]}`}>Kegiatan Wajib Diikuti</p>
 				<ul className={`${fontType["p1"]} text-neutral50 text-justify list-disc pl-5`}>
-					<li>Sertifikasi</li>
-					<li>Mengikuti Bootcamp</li>
-					<li>Magang</li>
+					{item.require.map(req=>{
+						return <li key={req} className={`${fontType["p1"]}`}>{req}</li>
+					}) }
 				</ul>
 				<p className={`${fontType["link"]} text-center bg-primary50 py-3 text-white rounded-full cursor-pointer`}
 					onClick={() => {

@@ -57,15 +57,14 @@ const AppRoutes = () => {
                     <Route path="/history/rejected" element={<RejectedHistory />} />
                     <Route path="/history/followed" element={<FollowedHistory />} />
                 </Route>
+                <Route path="/registrar" element={<Registrar />} />
+                <Route path="/account-company" element={<AccountCompany />} />
+                <Route path="/home-company" element={<HomeCompany />} />
+                <Route path="/fund" element={< Fund />} />
+                <Route path="/program-company" element={<ProgramCompany />} />
+                <Route path="/detail-program-company" element={<DetailProgramCompany />} />
+                <Route path="/detail-fund" element={<FundDetail />} />
             </Route>
-            
-            <Route path="/registrar" element={<Registrar />} />
-            <Route path="/home-company" element={<HomeCompany />} />
-            <Route path="/account-company" element={<AccountCompany />} />
-            <Route path="/program-company" element={<ProgramCompany />} />
-            <Route path="/fund" element={< Fund />} />
-            <Route path="/detail-program-company" element={<DetailProgramCompany />} />
-            <Route path="/detail-fund" element={<FundDetail />} />
         </Routes>
     )
 }
