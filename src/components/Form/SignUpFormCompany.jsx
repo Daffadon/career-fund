@@ -5,6 +5,8 @@ import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";
 import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import AlertCustom from "../Alerts/AlertCustom";
+import Otp from "../PopUp/Otp";
+import Loading from "../Loading/Loading";
 
 const SignUpFormCompany = () => {
       const [user, setUser] = useState({
@@ -18,11 +20,15 @@ const SignUpFormCompany = () => {
       const [isRePasswdOpen, setIsRePasswdOpen] = useState(false);
       const [msg, setMsg] = useState("");
       const [error, setError] = useState(false)
+      const [showOtp, setShowOtp] = useState(false)
+      const [loading, setLoading] = useState(false)
 
       useEffect(() => {
             if (user.password !== repasswd) {
                   setError(true)
                   setMsg("not match");
+            } else {
+                  setError(false)
             }
       }, [repasswd]);
 
@@ -32,13 +38,15 @@ const SignUpFormCompany = () => {
                   setError(true)
                   setMsg("Pastikan format email benar/password benar")
             }
+            try {
+
+            } catch (error) {
+
+            }
             // signupCompany
       }
       return (
-            <form
-                  className="flex flex-col w-full md:w-[20rem]"
-                  onSubmit={signUpHandler}
-            >
+            <form className="flex flex-col w-full md:w-[20rem]" onSubmit={signUpHandler} >
                   <div>
                         <p className={`${fontType["h1"]} mb-7 text-center md:text-left`}>Daftar</p>
                   </div>
@@ -178,6 +186,8 @@ const SignUpFormCompany = () => {
                         </p>
                   </div>
                   {error && <AlertCustom setError={setError} errorMessage={msg} />}
+                  {showOtp && <Otp user={user} />}
+                  {loading && <Loading />}
             </form>
       );
 };

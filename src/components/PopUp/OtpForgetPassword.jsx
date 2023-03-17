@@ -3,7 +3,7 @@ import exit from "../../assets/icons/exit.svg";
 import otpImage from "../../assets/SignUp-Login/otpImage.svg"
 import { otpVerification } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
-const OtpForgetPassword = ({email}) => {
+const OtpForgetPassword = ({ email }) => {
     const [otp, setOtp] = useState(new Array(6).fill(""))
 
     const handleChangeData = async (element, index) => {
@@ -24,7 +24,6 @@ const OtpForgetPassword = ({email}) => {
                         location.reload()
                     }, 1500)
                 } catch (error) {
-                    console.log(`INI ERROR DI OTP ${error.message} `)
                 }
             }
             validating()

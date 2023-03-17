@@ -1,8 +1,19 @@
 import Layout from "../../components/Layout/Layout"
 import { fontType } from "../../components/Text/text"
 import addIn from "../../assets/About/addinfoto.svg"
+import { useEffect, useState } from "react"
+import { getAbout } from "../../api/api"
+import Loading from "../../components/Loading/Loading"
 
 const AboutUs = () => {
+	const [data, setData] = useState(null)
+	useEffect(() => {
+		const getAboutContent = async () => {
+			const response = await getAbout()
+			setData(response)
+		}
+		getAboutContent()
+	}, [])
 	return (
 		<Layout>
 			<div className="flex flex-col justify-evenly my-[10em]">
@@ -18,16 +29,23 @@ const AboutUs = () => {
 				<div className="flex justify-around items-end h-[25vh] md:h-[20vh]">
 					<div className="w-3/12 md:w-2/12">
 						<p className={`${fontType["h5"]} text-neutral50 mb-5`}>Mahasiswa yang sudah terdaftar dan bergabung dengan CareerFund</p>
-						<p className={`${fontType["h1"]} `}>12K+</p>
+						{data ?
+							<p className={`${fontType["h1"]} `}>{data.usercount}</p>
+							:
+							<Loading />}
 					</div>
 					<div className="w-3/12 md:w-2/12">
 						<p className={`${fontType["h5"]} text-neutral50 mb-5`}>Perusahaan telah bergabung menjadi mitra CareerFund</p>
-						<p className={`${fontType["h1"]}`}>5K+</p>
-					</div>
+						{data ?
+							<p className={`${fontType["h1"]} `}>{data.usercount}</p>
+							:
+							<Loading />}</div>
 					<div className="w-3/12 md:w-2/12">
 						<p className={`${fontType["h5"]} text-neutral50 mb-5`}>Mahasiswa maupun siswa yang sudah mengikuti program dari CareerFund  </p>
-						<p className={`${fontType["h1"]}`}>12K+</p>
-					</div>
+						{data ?
+							<p className={`${fontType["h1"]} `}>{data.usercount}</p>
+							:
+							<Loading />}</div>
 				</div>
 			</div>
 			<img src={addIn} className="w-full" />

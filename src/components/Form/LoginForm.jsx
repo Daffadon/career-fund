@@ -1,4 +1,4 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
@@ -32,8 +32,6 @@ const LoginForm = () => {
 		try {
 			setLoading(true);
 			await login(email, password);
-			const userAccount = await getUser()
-			setUser(userAccount)
 			location.reload()
 		} catch (error) {
 			setMsg(error.message)
@@ -122,7 +120,7 @@ const LoginForm = () => {
 			</form>
 			{loading && <Loading />}
 			{isShow && <ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} email={email} setEmail={setEmail} />}
-			{isSentRec && <OtpForgetPassword email={email}  />}
+			{isSentRec && <OtpForgetPassword email={email} />}
 			{error && <AlertCustom setError={setError} errorMessage={msg} />}
 		</>
 	);

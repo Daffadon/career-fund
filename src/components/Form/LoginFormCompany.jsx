@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useCallback, useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
@@ -8,12 +8,19 @@ import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import ForgetPassword from "../PopUp/ForgetPassword";
 import EmailSent from "../PopUp/EmailSent";
 import AlertCustom from "../Alerts/AlertCustom";
+import { userContext } from "../../context/AuthContext";
+import { userAccount } from "../../container/account/account";
+import Loading from "../Loading/Loading";
+import { getUser } from "../../api/api";
 
 const LoginFormCompany = () => {
+	const { setUser } = useContext(userContext);
+	const navigate = useNavigate()
 	const [email, setEmail] = useState("");
 	const [passwd, setPasswd] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false)
+	const [msg, setMsg] = useState("")
 	const [isOpen, setIsOpen] = useState(false);
 	const [isShow, setIsShow] = useState(false);
 	const [isSentRec, setIsSentRec] = useState(false);
@@ -21,12 +28,20 @@ const LoginFormCompany = () => {
 	const loginHandler = async (e) => {
 		e.preventDefault();
 		if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+			setMsg("Format Email/Password Salah")
 			return setError(true)
 		}
-		setLoading(true);
-		const response = await login(email, passwd);
+		try {
+			setLoading(true);
+			// await login(email, passwd);
+			const userAccout = await getUser()
+			setUser(userAccount)
+			navigate('home-company')
+		} catch (error) {
+			setMsg(error.massage);
+			setError(true)
+		}
 		setLoading(false);
-		setMessage(response.massage);
 	};
 	const showModalHandler = useCallback(
 		(value) => {
@@ -118,9 +133,10 @@ const LoginFormCompany = () => {
 
 				<Link className={`${fontType["h5"]} text-primary50 mt-2`} to="/login">Masuk Untuk User</Link>
 			</div>
+			{loading && <Loading />}
 			{isShow && (<ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} />)}
 			{isSentRec && <EmailSent />}
-			{error && <AlertCustom setError={setError} errorMessage={"Password atau Email Anda Salah! Pastikan Password dan Email benar"} />}
+			{error && <AlertCustom setError={setError} errorMessage={msg} />}
 		</form>
 	);
 };

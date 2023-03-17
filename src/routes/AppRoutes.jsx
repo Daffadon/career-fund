@@ -42,24 +42,27 @@ const AppRoutes = () => {
                 <Route path="/companysignup" element={<SignUpCompany />} />
                 <Route path="/about" element={<AboutUs />} />
             </Route>
+
+
+
             <Route element={<PrivateRoutes />}>
                 <Route path="/program" element={<Program />} />
+                <Route path="/program/:name" element={<UserDetailProgram />} />
                 <Route path='/home' element={<Home />} />
-
+                <Route path='/account' element={<Account />} />
+                <Route path='/history' element={<History />}>
+                    <Route path="/history/register" element={<RegisterHistory />} />
+                    <Route path="/history/selection" element={<SelectionHistory />} />
+                    <Route path="/history/accepted" element={<AcceptedHistory />} />
+                    <Route path="/history/rejected" element={<RejectedHistory />} />
+                    <Route path="/history/followed" element={<FollowedHistory />} />
+                </Route>
             </Route>
-            <Route path='/account' element={<Account />} />
+            
             <Route path="/registrar" element={<Registrar />} />
             <Route path="/home-company" element={<HomeCompany />} />
             <Route path="/account-company" element={<AccountCompany />} />
             <Route path="/program-company" element={<ProgramCompany />} />
-            <Route path='/history' element={<History />}>
-                <Route path="/history/register" element={<RegisterHistory />} />
-                <Route path="/history/selection" element={<SelectionHistory />} />
-                <Route path="/history/accepted" element={<AcceptedHistory />} />
-                <Route path="/history/rejected" element={<RejectedHistory />} />
-                <Route path="/history/followed" element={<FollowedHistory />} />
-            </Route>
-            <Route path="/program/:name" element={<UserDetailProgram />} />
             <Route path="/fund" element={< Fund />} />
             <Route path="/detail-program-company" element={<DetailProgramCompany />} />
             <Route path="/detail-fund" element={<FundDetail />} />

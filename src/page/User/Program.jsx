@@ -5,12 +5,14 @@ import CheckBox from "../../components/CheckBox/CheckBox";
 import { listposisi } from "../../container/Program/program";
 import { listProgram } from "../../container/Program/program";
 import { school } from "../../container/account/account";
-import { listCompany } from "../../container/LandingPage/Section4/listCompany";
 import { useState, useEffect } from "react";
 import FilterProgram from "../../container/Program/FilterProgram";
 import ProgramCarouselContainer from "../../container/Program/ProgramCarouselContainer";
 import Layout from "../../components/Layout/Layout";
+import { getProgram } from "../../api/api";
+import Loading from "../../components/Loading/Loading";
 const Program = () => {
+	const [data, setData] = useState(null)
 	const [posisi, setPosisi] = useState({})
 	const [jurusan, setJurusan] = useState({})
 	const [tingkat, setTingkat] = useState({})
@@ -40,6 +42,15 @@ const Program = () => {
 		setFiltering(prev => ({ ...prev, pendidikan: pendidikan }))
 	}, [pendidikan])
 
+	useEffect(() => {
+		const getContentProgram = async () => {
+			try {
+				const response = await getProgram()
+				setData(response)
+			} catch (error) { }
+		}
+		getContentProgram()
+	}, [])
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -82,12 +93,16 @@ const Program = () => {
 						</div>
 					</div>
 					<div className="w-3/4 rounded-2xl">
-						<ProgramCarouselContainer listProgram={listCompany} />
+						{data ?
+							<ProgramCarouselContainer listProgram={data} /> : <Loading />
+						}
 					</div>
 				</div>
 			}
 			<div className="w-full rounded-2xl lg:hidden">
-				<ProgramCarouselContainer listProgram={listCompany} />
+				{data ?
+					<ProgramCarouselContainer listProgram={data} /> : <Loading />
+				}
 			</div>
 		</Layout>
 	);

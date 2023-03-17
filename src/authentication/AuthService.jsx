@@ -31,7 +31,7 @@ export const login = async (email, password) => {
         }
         setTokenCookies(token)
         return token
-} catch (e) {
+    } catch (e) {
         throw new AxiosError(e.response.data.message)
     }
 }

@@ -4,10 +4,12 @@ import { otpVerification } from "../../authentication/AuthService";
 import { userContext } from "../../context/AuthContext";
 import { fontType } from "../Text/text";
 import AlertCustom from "../Alerts/AlertCustom";
+import { signUp } from "../../authentication/AuthService";
+import { getUser } from "../../api/api";
 const Otp = ({ user }) => {
 	const { setUser } = useContext(userContext)
 	const [error, setError] = useState(false)
-	const [msg,setMsg] = useState("")
+	const [msg, setMsg] = useState("")
 	const [otp, setOtp] = useState(new Array(6).fill(""))
 
 	const handleChangeData = async (element, index) => {
@@ -18,16 +20,27 @@ const Otp = ({ user }) => {
 			element.nextSibling.focus();
 		}
 	}
+	const resendCode = async () => {
+		try {
+			const response = await signUp(user)
+		} catch (error) {
+			setMsg(error.message)
+			setError(true)
+		}
+	}
 	useEffect(() => {
 		if (otp[5] !== "") {
 			const validating = async () => {
 				try {
 					const otpVerify = otp.join("")
 					await otpVerification(user, otpVerify)
+					const response = await getUser()
+					setUser(response)
 					setTimeout(() => {
 						location.reload()
-					}, 1000)
+					}, 1500)
 				} catch (error) {
+					setOtp(new Array(6).fill(""));
 					setMsg(error.message)
 					setError(true)
 				}
@@ -35,9 +48,6 @@ const Otp = ({ user }) => {
 			validating()
 		}
 	}, [otp])
-	const resendCode = ()=>{
-
-	}
 	return (
 		<form>
 			<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-40">
