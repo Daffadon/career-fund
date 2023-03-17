@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react";
-import exit from "../../assets/icons/exit.svg";
+import { useContext, useEffect, useState } from "react";
 import otpImage from "../../assets/SignUp-Login/otpImage.svg"
-import { otpVerification } from "../../authentication/AuthService";
+import { companyOtpVerification } from "../../authentication/AuthService";
+import { userContext } from "../../context/AuthContext";
 import { fontType } from "../Text/text";
-const OtpForgetPassword = ({ email }) => {
+import AlertCustom from "../Alerts/AlertCustom";
+import { useNavigate } from "react-router-dom";
+const OtpCompany = ({ user }) => {
+    const navigate = useNavigate();
+    const [error, setError] = useState(false)
+    const [msg, setMsg] = useState("")
     const [otp, setOtp] = useState(new Array(6).fill(""))
 
     const handleChangeData = async (element, index) => {
@@ -14,16 +19,25 @@ const OtpForgetPassword = ({ email }) => {
             element.nextSibling.focus();
         }
     }
+    const resendCode = async () => {
+        try {
+            const response = await companySignUp(user)
+        } catch (error) {
+            setMsg(error.message)
+            setError(true)
+        }
+    }
     useEffect(() => {
         if (otp[5] !== "") {
             const validating = async () => {
                 try {
                     const otpVerify = otp.join("")
-                    const response = await otpVerification(email, otpVerify)
-                    setTimeout(() => {
-                        location.reload()
-                    }, 1500)
+                    await companyOtpVerification(user, otpVerify)
+                    navigate('/home-company')
                 } catch (error) {
+                    setOtp(new Array(6).fill(""));
+                    setMsg(error.message)
+                    setError(true)
                 }
             }
             validating()
@@ -31,11 +45,8 @@ const OtpForgetPassword = ({ email }) => {
     }, [otp])
     return (
         <form>
-            <div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-50">
+            <div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-40">
                 <div className="bg-white rounded-2xl w-[22rem] sm:w-[26rem] py-10 flex flex-col">
-                    <img src={exit} className="w-5 self-end mr-10 cursor-pointer" onClick={() => {
-                        setShowOtp(false)
-                    }} />
                     <div className="flex justify-center items-center flex-col gap-4 pt ">
                         <img src={otpImage} className="w-8/12" />
                         <p className={`${fontType["h3"]} sm:text-4xl`}>
@@ -59,11 +70,13 @@ const OtpForgetPassword = ({ email }) => {
                                 )
                             })}
                         </div>
+                        <p onClick={resendCode} className="hover:text-primary50 font-medium cursor-pointer transition-all">Resend Code</p>
                     </div>
                 </div>
             </div>
+            {error && <AlertCustom setError={setError} errorMessage={msg} />}
         </form>
     )
 }
 
-export default OtpForgetPassword
+export default OtpCompany

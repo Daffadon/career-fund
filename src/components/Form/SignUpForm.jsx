@@ -22,7 +22,7 @@ const SignUpForm = () => {
 	const [msg, setMsg] = useState("");
 	const [error, setError] = useState(false)
 	const [showOtp, setShowOtp] = useState(false)
-	const [loading,setLoading] = useState(false)
+	const [loading, setLoading] = useState(false)
 
 
 	useEffect(() => {
@@ -43,7 +43,6 @@ const SignUpForm = () => {
 		try {
 			setLoading(true)
 			const response = await signUp(user)
-			console.log(response)
 			setShowOtp(true)
 		} catch (error) {
 			setMsg(error.message)
@@ -181,8 +180,8 @@ const SignUpForm = () => {
 				</div>
 			</form>
 			{error && <AlertCustom setError={setError} errorMessage={msg} />}
-			{showOtp && <Otp user={user}/>}
-			{loading && <Loading />}
+			{showOtp && <Otp user={user} />}
+			{loading && <Loading color={"#2753BD"} />}
 		</>
 	);
 };

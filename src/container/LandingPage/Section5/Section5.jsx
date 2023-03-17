@@ -8,7 +8,7 @@ import next from "../../../assets/icons/nextslide.svg"
 import "swiper/css";
 import "swiper/css/navigation";
 
-const Section5 = () => {
+const Section5 = ({data}) => {
     return (
         <div className=" my-[10em] flex items-center justify-center">
             <div className="w-11/12 ml-10 bg-primary50 flex flex-col items-center justify-center rounded-[50px] py-10 overflow-hidden">
@@ -43,9 +43,9 @@ const Section5 = () => {
                     modules={[Navigation]}
                     className=" max-h-[50vh] w-full"
                 >
-                    {comments.map((item) => {
+                    {data.map((item) => {
                         return (
-                            <SwiperSlide key={item.name} className="mt-[5em]">
+                            <SwiperSlide key={item.wts_id} className="mt-[5em]">
                                 <div className={`${card["landing-page"]} sm:ml-12 md:ml-10 lg:ml-0`}>
                                     <div className="flex items-center mb-6">
                                         <img src={item.logo} alt="" />
@@ -54,12 +54,12 @@ const Section5 = () => {
                                                 {item.name}
                                             </p>
                                             <p className={`${fontType["p1"]} text-neutral50`}>
-                                                {item.job}
+                                                {item.position}
                                             </p>
                                         </div>
                                     </div>
                                     <p className={`${fontType[" h5"]} text-neutral50 text-center mt-14`}>
-                                        {item.comment}
+                                        {item.quote}
                                     </p>
                                 </div>
                             </SwiperSlide>
