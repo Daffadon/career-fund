@@ -1,23 +1,24 @@
-import { useState } from "react";
 import checkEmail from "../../assets/SignUp-Login/Hands Point.svg";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX } from "../../constants/regex";
 import exit from "../../assets/icons/exit.svg";
-import axios from "axios";
+import { sendEmailRecovery } from "../../api/api";
+import { useState } from "react";
+import Loading from "../Loading/Loading";
 const ForgetPassword = ({ setIsShow, setIsSentRec, email, setEmail }) => {
-
+	const [loading, setLoading] = useState(false)
 	const sendEmail = async (e) => {
 		e.preventDefault()
 		if (email.match(EMAIL_REGEX)) {
 			try {
-				const response = await axios.post("https://fikrirafa.aenzt.tech/forgotpassword", {
-					email
-				})
+				setLoading(true)
+				const response = await sendEmailRecovery(email)
 				setIsShow(false);
 				setIsSentRec(true);
 			} catch (error) {
 				console.log(error)
 			}
+			setLoading(false)
 		}
 	};
 
@@ -55,6 +56,7 @@ const ForgetPassword = ({ setIsShow, setIsSentRec, email, setEmail }) => {
 					</div>
 				</div>
 			</div>
+			{loading && <Loading />}
 		</form>
 	);
 };

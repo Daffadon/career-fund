@@ -19,7 +19,7 @@ const OtpForgetPassword = ({ email }) => {
             const validating = async () => {
                 try {
                     const otpVerify = otp.join("")
-                    const response = await otpVerification(user, otpVerify)
+                    const response = await otpVerification(email, otpVerify)
                     setTimeout(() => {
                         location.reload()
                     }, 1500)

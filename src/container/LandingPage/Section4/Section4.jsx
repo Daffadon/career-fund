@@ -8,6 +8,7 @@ import { card } from "../../../components/Card/card";
 
 const Section4 = ({ data }) => {
 	const navigate = useNavigate();
+
 	return (
 		<div className="max-h-[75vh] mt-[10em] ml-10">
 			<p className={`${fontType["h1"]} w-6/12  md:w-4/12 mb-20`}>

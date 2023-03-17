@@ -25,7 +25,7 @@ const ProgramCarouselContainer = ({ listProgram }) => {
                                     </p>
                                 </div>
                                 <p className={`${fontType["h4"]}`}>
-                                    Front End Developer
+                                    {item.title}
                                 </p>
                                 <p className={`${fontType["p3"]} text-neutral30 mt-1`}>
                                     {`${item.city}, ${item.region}`}

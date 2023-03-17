@@ -34,8 +34,8 @@ const Otp = ({ user }) => {
 				try {
 					const otpVerify = otp.join("")
 					await otpVerification(user, otpVerify)
-					const response = await getUser()
-					setUser(response)
+					// const response = await getUser()
+					// setUser(response)
 					setTimeout(() => {
 						location.reload()
 					}, 1500)

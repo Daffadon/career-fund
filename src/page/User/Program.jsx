@@ -92,7 +92,7 @@ const Program = () => {
 							<CheckBox item={school} checked={pendidikan} setChecked={setPendidikan} />
 						</div>
 					</div>
-					<div className="w-3/4 rounded-2xl">
+					<div className="w-full rounded-2xl">
 						{data ?
 							<ProgramCarouselContainer listProgram={data} /> : <Loading />
 						}

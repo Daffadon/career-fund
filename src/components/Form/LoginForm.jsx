@@ -22,7 +22,6 @@ const LoginForm = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isShow, setIsShow] = useState(false);
 	const [isSentRec, setIsSentRec] = useState(false);
-
 	const loginHandler = async (e) => {
 		e.preventDefault();
 		if (!password.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
@@ -32,6 +31,8 @@ const LoginForm = () => {
 		try {
 			setLoading(true);
 			await login(email, password);
+			const response = await getUser()
+			setUser(response)
 			location.reload()
 		} catch (error) {
 			setMsg(error.message)

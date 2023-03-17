@@ -9,7 +9,7 @@ import AccountLogout from "../../../container/Navbar/AccountLogout";
 import { getUser } from "../../../api/api";
 const NavBar = () => {
 	const navigate = useNavigate()
-	const { user,setUser } = useContext(userContext);
+	const { user, setUser } = useContext(userContext);
 	const [width, setWidth] = useState(window.innerWidth);
 	const [isShowMenu, setIsShowMenu] = useState(false)
 	const [showAccount, setShowAccount] = useState(false)
@@ -23,15 +23,15 @@ const NavBar = () => {
 			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
-	useEffect(()=>{
-		const getProfileContent = async ()=>{
+	useEffect(() => {
+		const getProfileContent = async () => {
 			try {
 				const response = await getUser()
 				setUser(response)
-			} catch (error) {	}
+			} catch (error) { }
 		}
 		getProfileContent()
-	},[])
+	}, [])
 	return (
 
 		<div className="flex items-center justify-between h-[13vh] sticky top-0 bg-[#F5F5F5] z-10">

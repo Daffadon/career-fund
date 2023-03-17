@@ -1,9 +1,17 @@
 import { fontType } from "../Text/text";
 import confirmEmail from "../../assets/SignUp-Login/Hands Phone.svg";
+import { updateBio } from "../../api/api";
+import { useNavigate } from "react-router-dom";
 
 const ConfirmChangeBio = ({ user, setIsShow }) => {
-    const changeBio = () => {
-        // changeBio
+    const navigate = useNavigate()
+    const changeBio = async() => {
+        try {
+            await updateBio(user)
+            navigate('/home')
+        } catch (error) {
+
+        }
     };
     const closeModal = () => {
         setIsShow(false);

@@ -6,13 +6,13 @@ import Section5 from "../../container/LandingPage/Section5/Section5"
 import Layout from "../../components/Layout/Layout"
 import { useEffect,useState} from "react"
 import Loading from "../../components/Loading/Loading"
-import { getLanding } from "../../api/api"
+import { getHome} from "../../api/api"
 const Home = () => {
     const [data, setData] = useState(null);
     useEffect(() => {
         const getContent = async () => {
             try {
-                const response = await getLanding();
+                const response = await getHome();
                 setData(response);
             } catch (error) {
             }

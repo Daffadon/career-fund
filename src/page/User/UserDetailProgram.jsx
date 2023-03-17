@@ -1,16 +1,12 @@
 import { fontType } from "../../components/Text/text"
 import { useLocation } from "react-router-dom"
-import { listCompany } from "../../container/LandingPage/Section4/listCompany"
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import UploadCV from "../../components/PopUp/UploadCV"
 
 
 const UserDetailProgram = () => {
 	const item = useLocation().state
 	const [showCvForm, setShowCvForm] = useState(false)
-	useEffect(() => {
-		console.log(item)
-	})
 	return (
 		<div className="flex justify-center items-center min-h-screen">
 			<div key={item.id} className="bg-white w-10/12 lg:w-7/12 xl:w-5/12 rounded-3xl px-7 py-9 flex flex-col gap-6 shadow-[5px_5px_10px_rgba(0,0,0,0.05)] ">
@@ -53,12 +49,13 @@ const UserDetailProgram = () => {
 				<div>
 					<p className={`${fontType["h4"]}`}>Jurusan</p>
 					<div className="flex gap-2 mt-4">
-						<p className="w-max bg-success10 text-success90 py-1 px-2 rounded-full  h-max">
-							Fakultas Ilmu Komputer
-						</p>
-						<p className="w-max bg-success10 text-success90 py-1 px-2 rounded-full  h-max">
-							Fakultas Pertanian
-						</p>
+						{item.jurusan.map(name => {
+							return (
+								<p key={name} className="w-max bg-success10 text-success90 py-1 px-2 rounded-full  h-max">
+									{name}
+								</p>
+							)
+						})}
 					</div>
 				</div>
 				<p className={`${fontType["h4"]}`}>Kegiatan Wajib Diikuti</p>
