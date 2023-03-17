@@ -9,7 +9,7 @@ import { listCompany } from "../../container/LandingPage/Section4/listCompany";
 import { useState, useEffect } from "react";
 import FilterProgram from "../../container/Program/FilterProgram";
 import ProgramCarouselContainer from "../../container/Program/ProgramCarouselContainer";
-import LayoutUser from "../../components/Layout/LayoutUser";
+import Layout from "../../components/Layout/Layout";
 const Program = () => {
 	const [posisi, setPosisi] = useState({})
 	const [jurusan, setJurusan] = useState({})
@@ -52,7 +52,7 @@ const Program = () => {
 	}, []);
 
 	return (
-		<LayoutUser>
+		<Layout>
 			<BootcampCarousel />
 			{width <= 1024 ?
 				<>
@@ -89,7 +89,7 @@ const Program = () => {
 			<div className="w-full rounded-2xl lg:hidden">
 				<ProgramCarouselContainer listProgram={listCompany} />
 			</div>
-		</LayoutUser >
+		</Layout>
 	);
 };
 

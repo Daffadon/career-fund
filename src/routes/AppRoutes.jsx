@@ -9,7 +9,6 @@ import PublicRoutes from "./PublicRoutes"
 import Program from "../page/User/Program"
 import Account from "../page/User/Account"
 import History from "../page/User/History"
-import HelpUser from "../page/User/HelpUser"
 import NotFound from "../page//Public/NotFound"
 import AboutUs from "../page/Public/AboutUs"
 import Help from "../page/Public/Help"
@@ -27,6 +26,7 @@ import AcceptedHistory from "../container/History/AcceptedHistory"
 import RejectedHistory from "../container/History/RejectedHistory"
 import FollowedHistory from "../container/History/FollowedHistory"
 import UserDetailProgram from "../page/User/UserDetailProgram"
+import FundDetail from "../page/Perusahaan/FundDetail"
 
 const AppRoutes = () => {
     return (
@@ -44,11 +44,11 @@ const AppRoutes = () => {
             </Route>
             <Route element={<PrivateRoutes />}>
 
+                <Route path='/home' element={<Home />} />
 
             </Route>
-            <Route path='/home' element={<Home />} />
+                <Route path="/program" element={<Program />} />
             <Route path='/account' element={<Account />} />
-            <Route path="/help-user" element={<HelpUser />} />
             <Route path="/registrar" element={<Registrar />} />
             <Route path="/home-company" element={<HomeCompany />} />
             <Route path="/account-company" element={<AccountCompany />} />
@@ -60,10 +60,10 @@ const AppRoutes = () => {
                 <Route path="/history/rejected" element={<RejectedHistory />} />
                 <Route path="/history/followed" element={<FollowedHistory />} />
             </Route>
-            <Route path="/program" element={<Program />} />
             <Route path="/program/:name" element={<UserDetailProgram />} />
             <Route path="/fund" element={< Fund />} />
             <Route path="/detail-program-company" element={<DetailProgramCompany />} />
+            <Route path="/detail-fund" element={<FundDetail />} />
         </Routes>
     )
 }

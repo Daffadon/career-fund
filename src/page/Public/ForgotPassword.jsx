@@ -27,8 +27,7 @@ const ForgotPassword = () => {
 					<p
 						className={`${fontType["p1"]} text-neutral50 text-center w-7/12`}
 					>
-						Hampir selesai, Masukan kata
-						sandi baru dan kamu sudah siap
+						Hampir selesai, Masukan kata sandi baru dan kamu sudah siap
 					</p>
 					<label
 						htmlFor="pass"

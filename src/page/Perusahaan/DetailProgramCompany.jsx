@@ -39,7 +39,7 @@ const DetailProgramCompany = () => {
     }
     return (
         <form onSubmit={addNewProgram}>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center ">
                 <div className="bg-white rounded-2xl w-[40rem] py-10">
                     <div className="flex justify-center flex-col gap-4 px-8 overflow-auto">
                         <div className="flex justify-between items-center" onClick={() => {

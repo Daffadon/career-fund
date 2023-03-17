@@ -20,7 +20,7 @@ module.exports = {
         "secondary90": "#81DC05",
         "neutral10": "#E5E5E5",
         "neutral30": "#B3B3B3",
-        "neutral50": "#808080",
+        "neutral50": "#666666",
         "neutral70": "#4D4D4D",
         "neutral90": "#000000",
         "danger10": "#FE5757",

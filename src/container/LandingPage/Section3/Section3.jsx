@@ -5,7 +5,7 @@ import { layanan } from "./layanan"
 
 const Section3 = () => {
     return (
-        <div className="flex flex-col lg:flex-row w-full justify-center items-center mt-[8rem] lg:gap-16"  id="serves">
+        <div className="flex flex-col lg:flex-row w-full justify-center items-center mt-[8rem] lg:gap-16" id="serves">
             <div className="w-6/12 flex justify-center lg:justify-end">
                 <img src={sec3} alt="" />
             </div>
@@ -15,7 +15,7 @@ const Section3 = () => {
                     {layanan.map(item => {
                         return (
                             <div key={item.key} className="flex gap-3 items-center justify-center lg:justify-start w-full">
-                                <img src={item.img}/>
+                                <img src={item.img} />
                                 <div className="flex flex-col justify-center w-3/4 md:w-1/2">
                                     <p className={`${fontType["h4"]}`}>{item.title}</p>
                                     <p className={`${fontType["p1"]} text-neutral50 `}>{item.desc}</p>

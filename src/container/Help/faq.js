@@ -1,17 +1,27 @@
 export const faq = [
     {
-        key:1,
-        question: "lorem ipsum1",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+        key: 1,
+        question: "Bagaimana cara mendaftarkan diri ke program yang saya pilih?",
+        answer: "Pastikan data diri kamu lengkap di profil, lalu pilih program yang kamu minati, tekan button daftar dan upload cv semenarik mungkin"
     },
     {
-        key:2,
-        question: "lorem ipsum2",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+        key: 2,
+        question: "Berkas apa saja yang dibutuhkan untuk mendaftar?",
+        answer: "Untuk Berkas pendaftaran yang dibutuhkan hanya cv yang menarik, setelah terpilih untuk mengikuti program baru siapkna materai untuk menandatangani kontrak kerja"
     },
     {
-        key:3,
-        question: "lorem ipsum3",
-        answer: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"
+        key: 3,
+        question: "Apakah ada seleksi dalam suatu program?",
+        answer: "Pasti nya terdapat seleksi untuk memilih peserta peserta yang terbaik, seleksinya sendiri dibagi menjadi tulis dan wawancara, namun seleksi juga bisa berubah tergantung kebijakan perusahan"
+    },
+    {
+        key: 4,
+        question: "Apa saja tugas yang diberikan dan bagaimana cara melihatnya?",
+        answer: "Tugas yang diberikan bisa berupa kegiatan yang diselenggarakan oleh perusahan, sertifikasi, magang, dll. namun dapat berubah sesuai dengan ketentuan perusahaan. untuk melihat bisa dipage riwayat di bagian section mengikuti"
+    },
+    {
+        key: 5,
+        question: "Bagaimana sistem pembayaran yang akan saya terima?",
+        answer: "Lengkapi metode pengiriman uang dan nomer rekening pada akun page. lalu pihak careefund akan meneruskan kepada pihak penerima setiap awal semester. namun ada beberapa hal yang harus diperhatikan, jika tugas kamu pada semester sebelumnya belum selesai. maka pihak careerfund bisa mengurangi maupun memberhentikan program"
     },
 ]

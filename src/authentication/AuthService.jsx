@@ -1,10 +1,13 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import BASE_URL from '../constants/apiUrl'
 import Cookies from "js-cookie";
 
 
 export const setTokenCookies = token => {
-    Cookies.set("token", token, { expires: 2 / 24 });
+    const expires = new Date();
+    expires.setTime(expires.getTime() + 2 * 60 * 60 * 1000);
+    Cookies.set("token", token, { expires });
+    Cookies.set("expires", expires.toUTCString(), { expires })
 }
 
 export const getExpiresCookies = () => {
@@ -16,11 +19,11 @@ export const getTokenCookies = () => {
 }
 
 
-export const login = async (email, passwd) => {
+export const login = async (email, password) => {
     try {
         const response = await axios.post(`${BASE_URL}/login`, {
-            email,
-            passwd
+            username: email,
+            password
         })
         const token = response.data.token;
         if (!token) {
@@ -29,21 +32,52 @@ export const login = async (email, passwd) => {
         setTokenCookies(token)
         return token
     } catch (e) {
-        return e.data
+        return new AxiosError(e.response.data.message)
     }
 }
 
 export const signUp = async ({ name, email, phone, password }) => {
     try {
-        await axios.post(`${BASE_URL}/signUp`, {
+        const response = await axios.post(`${BASE_URL}/register`, {
             name,
             email,
-            phone,
+            telephone: phone,
             password
         })
-        await login(email, password)
+        return response
     } catch (e) {
-        return e.data
+        throw new AxiosError(e.response.data.message)
+    }
+}
+export const otpVerification = async ({ name, email, phone, password }, otpVerify) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/otp`, {
+            name,
+            email,
+            telephone: phone,
+            password,
+            otp: otpVerify
+        })
+        if (response) {
+            setTokenCookies(response.data.token)
+        }
+        return response
+    } catch (e) {
+        throw new AxiosError(e.response.data.message)
+    }
+}
+export const otpChangePassword = async (email) => {
+    try {
+        const response = await axios.post(`${BASE_URL}/register/otp`, {
+            email,
+            otp: otpVerify
+        })
+        if (response) {
+            setTokenCookies(response.data.csrf_token)
+        }
+        return response
+    } catch (e) {
+        throw new AxiosError(e.response.data.message)
     }
 }
 export const logOut = async () => {
@@ -54,11 +88,9 @@ export const logOut = async () => {
             }
         })
         Cookies.remove('token')
-        setTimeout(() => {
-            location.reload()
-        }, 1500)
+        Cookies.remove('expires')
     } catch (e) {
-        return e.data
+        throw new AxiosError(e.response.data.message)
     }
 }
 

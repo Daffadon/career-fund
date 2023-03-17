@@ -7,7 +7,7 @@ import { countries } from "../../container/account/account";
 import { school } from "../../container/account/account";
 import ConfirmChangeBio from "../../components/PopUp/ConfirmChangeBio";
 import DropdownCountries from "../../components/Dropdown/DropdownCountries";
-import LayoutUser from "../../components/Layout/LayoutUser";
+import Layout from "../../components/Layout/Layout";
 import { userAccount } from "../../container/account/account";
 const Account = () => {
 	const [isShow, setIsShow] = useState(false);
@@ -44,7 +44,7 @@ const Account = () => {
 		// api upload foto
 	}
 	return (
-		<LayoutUser>
+		<Layout>
 			<div className="flex flex-col xl:flex-row items-center justify-center xl:justify-evenly gap-5 xl-gap-0 mt-24 mb-20">
 				<div className="w-11/12 lg:w-8/12 xl:w-3/12 rounded-xl flex justify-center items-start h-11/12 ">
 					<div className="w-3/4 md:w-1/2 xl:w-11/12 bg-white flex flex-col justify-start items-center gap-12 rounded-2xl py-10 ">
@@ -66,39 +66,29 @@ const Account = () => {
 								{user.lokasi}</p>
 						</div>
 						<div className="w-9/12 h-[0.1rem] bg-neutral10"></div>
-						{user.rekening && user.metodePembayaran ?
-							<div className="flex gap-3 items-center justify-center">
-								<img src={dana} />
-								<div className="flex flex-col w-10/12 ml-3 ">
-									<p className={`${fontType["p1"]}`}>Saldo</p>
-									<p className={`${fontType["h3"]} w-8/12`} >{user.saldo}</p>
-								</div>
-							</div>
-							:
-							<form onSubmit={saveRekening} className={`${fontType["h4"]} w-10/12 flex flex-col`}>
-								<p className="">Metode Pengiriman Uang</p>
-								<input
-									type="text"
-									value={user.metodePembayaran}
-									placeholder="BCA"
-									className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
-									onChange={(e) => {
-										setUser({ ...user, metodePembayaran: e.target.value })
-									}}
-								/>
-								<p className="mt-4">Nomor Rekening</p>
-								<input
-									type="text"
-									value={user.rekening}
-									placeholder="xxx xxx xxx"
-									className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
-									onChange={(e) => {
-										setUser({ ...user, rekening: e.target.value })
-									}}
-								/>
-								<button type="submit" className={`${fontType["button"]} mt-5 bg-primary50 text-center text-white py-2 rounded-full cursor-pointer`}>Simpan</button>
-							</form>}
-
+						<form onSubmit={saveRekening} className={`${fontType["h4"]} w-10/12 flex flex-col`}>
+							<p className="">Metode Pengiriman Uang</p>
+							<input
+								type="text"
+								value={user.metodePembayaran}
+								placeholder="BCA"
+								className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
+								onChange={(e) => {
+									setUser({ ...user, metodePembayaran: e.target.value })
+								}}
+							/>
+							<p className="mt-4">Nomor Rekening</p>
+							<input
+								type="text"
+								value={user.rekening}
+								placeholder="xxx xxx xxx"
+								className="w-11/12 rounded-full border-none bg-[#F9F9F9] px-4 py-3 mt-4"
+								onChange={(e) => {
+									setUser({ ...user, rekening: e.target.value })
+								}}
+							/>
+							<button type="submit" className={`${fontType["button"]} mt-5 bg-primary50 text-center text-white py-2 rounded-full cursor-pointer`}>Simpan</button>
+						</form>
 					</div>
 				</div>
 				<div className="w-full md:w-10/12 xl:w-3/5 bg-white rounded-3xl flex justify-center h-max pt-7 pb-24">
@@ -201,7 +191,7 @@ const Account = () => {
 					</div>
 				</div>
 			</div>
-		</LayoutUser>
+		</Layout>
 	);
 };
 

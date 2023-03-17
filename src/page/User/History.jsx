@@ -1,10 +1,10 @@
-import LayoutUser from "../../components/Layout/LayoutUser"
 import imgHeader from "../../assets/History/imgHeaderHistory.svg"
 import NavBarHistory from "../../components/NavigationBar/History/NavBarHistory"
 import { Outlet } from "react-router-dom"
+import Layout from "../../components/Layout/Layout"
 const History = () => {
     return (
-        <LayoutUser>
+        <Layout>
             <div className="flex justify-center items-center">
                 <img src={imgHeader} className="max-w-full h-auto" />
             </div>
@@ -18,7 +18,7 @@ const History = () => {
                     <Outlet />
                 </div>
             </div>
-        </LayoutUser>
+        </Layout>
     )
 }
 

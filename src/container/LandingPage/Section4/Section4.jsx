@@ -6,6 +6,9 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import { useNavigate } from "react-router";
 import { card } from "../../../components/Card/card";
+import { useEffect } from "react";
+import axios from "axios";
+import BASE_URL from "../../../constants/apiUrl";
 
 const Section4 = () => {
 	const navigate = useNavigate();
@@ -75,7 +78,7 @@ const Section4 = () => {
 									})}
 								</div>
 								<p
-									className="text-center bg-primary50 text-white rounded-full py-2 mt-8 cursor-pointer hover:bg-white hover:border-primary50 border-2 hover:text-primary50"
+									className="text-center bg-primary50 text-white rounded-full py-2 mt-8 cursor-pointer hover:bg-white hover:border-primary50 border-2 hover:text-primary50 transition"
 									onClick={() => {
 										navigate("/program");
 									}}
