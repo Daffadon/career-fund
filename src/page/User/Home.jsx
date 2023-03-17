@@ -5,14 +5,17 @@ import Section4 from "../../container/LandingPage/Section4/Section4"
 import Section5 from "../../container/LandingPage/Section5/Section5"
 import Layout from "../../components/Layout/Layout"
 import { getUser } from "../../api/api"
-import { useEffect } from "react"
+import { useEffect,useContext } from "react"
+import { userContext } from "../../context/AuthContext"
+
 const Home = () => {
+    const {setUser} = useContext(userContext)
     useEffect(()=>{
         const getUserProfile = async()=>{
             try {
                 const response = await getUser()
+                setUser(response)
             } catch (error) {
-                console.log(1)
                 console.log(error)
             }
         }

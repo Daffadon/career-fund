@@ -31,23 +31,22 @@ import FundDetail from "../page/Perusahaan/FundDetail"
 const AppRoutes = () => {
     return (
         <Routes>
+            <Route path="/help" element={<Help />} />
             <Route path="*" element={<NotFound />} />
             <Route element={<PublicRoutes />}>
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
-                <Route path="/help" element={<Help />} />
                 <Route path="/companylogin" element={<LoginCompany />} />
                 <Route path="/companysignup" element={<SignUpCompany />} />
                 <Route path="/about" element={<AboutUs />} />
             </Route>
             <Route element={<PrivateRoutes />}>
-
+                <Route path="/program" element={<Program />} />
                 <Route path='/home' element={<Home />} />
 
             </Route>
-                <Route path="/program" element={<Program />} />
             <Route path='/account' element={<Account />} />
             <Route path="/registrar" element={<Registrar />} />
             <Route path="/home-company" element={<HomeCompany />} />

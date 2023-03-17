@@ -7,6 +7,7 @@ import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import AlertCustom from "../Alerts/AlertCustom";
 import Otp from "../PopUp/Otp";
 import { signUp } from "../../authentication/AuthService";
+import Loading from "../Loading/Loading";
 
 const SignUpForm = () => {
 	const [user, setUser] = useState({
@@ -21,6 +22,7 @@ const SignUpForm = () => {
 	const [msg, setMsg] = useState("");
 	const [error, setError] = useState(false)
 	const [showOtp, setShowOtp] = useState(false)
+	const [loading,setLoading] = useState(false)
 
 
 	useEffect(() => {
@@ -39,6 +41,7 @@ const SignUpForm = () => {
 			setMsg("Pastikan format email benar/password benar")
 		}
 		try {
+			setLoading(true)
 			const response = await signUp(user)
 			console.log(response)
 			setShowOtp(true)
@@ -46,6 +49,7 @@ const SignUpForm = () => {
 			setMsg(error.message)
 			return setError(true)
 		}
+		setLoading(false)
 	};
 	return (
 		<>
@@ -178,6 +182,7 @@ const SignUpForm = () => {
 			</form>
 			{error && <AlertCustom setError={setError} errorMessage={msg} />}
 			{showOtp && <Otp user={user}/>}
+			{loading && <Loading />}
 		</>
 	);
 };

@@ -10,32 +10,31 @@ import AlertCustom from "../Alerts/AlertCustom";
 import OtpForgetPassword from "../PopUp/OtpForgetPassword";
 import { userContext } from "../../context/AuthContext";
 import { getUser } from "../../api/api";
+import Loading from "../Loading/Loading";
 
 const LoginForm = () => {
-	const {setUser} = useContext(userContext);
+	const { setUser } = useContext(userContext);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false)
-	const [msg,setMsg] = useState("")
+	const [msg, setMsg] = useState("")
 	const [isOpen, setIsOpen] = useState(false);
 	const [isShow, setIsShow] = useState(false);
 	const [isSentRec, setIsSentRec] = useState(false);
 
 	const loginHandler = async (e) => {
 		e.preventDefault();
-		// if (!password.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
-		// 	setMsg("Pastikan email dan password benar")
-		// 	return setError(true)
-		// }
+		if (!password.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+			setMsg("Pastikan email dan password benar")
+			return setError(true)
+		}
 		try {
 			setLoading(true);
-			const response = await login(email, password);
+			await login(email, password);
 			const userAccount = await getUser()
 			setUser(userAccount)
-			setTimeout(()=>{
-				location.reload()
-			},1000)
+			location.reload()
 		} catch (error) {
 			setMsg(error.message)
 			setError(true)
@@ -121,8 +120,9 @@ const LoginForm = () => {
 					<Link className={`${fontType["h5"]} text-primary50 mt-2`} to="/companylogin">Masuk Untuk Perusahaan</Link>
 				</div>
 			</form>
+			{loading && <Loading />}
 			{isShow && <ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} email={email} setEmail={setEmail} />}
-			{isSentRec && <OtpForgetPassword email={email} />}
+			{isSentRec && <OtpForgetPassword email={email}  />}
 			{error && <AlertCustom setError={setError} errorMessage={msg} />}
 		</>
 	);

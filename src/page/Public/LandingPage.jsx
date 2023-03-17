@@ -14,9 +14,8 @@ const LandingPage = () => {
     useEffect(()=>{
         const getContent = async()=>{
             try {
-                // const response = await getLanding();
-                const response = await getUser()
-                // setData(response);
+                const response = await getLanding();
+                setData(response);
             } catch (error) {
                 console.log(error)
             }
