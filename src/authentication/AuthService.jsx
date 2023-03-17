@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 export const setTokenCookies = token => {
     const expires = new Date();
     expires.setTime(expires.getTime() + 2 * 60 * 60 * 1000);
-    Cookies.set("token", token, { expires});
+    Cookies.set("token", token, { expires });
     Cookies.set("expires", expires.toUTCString(), { expires })
 }
 
@@ -21,8 +21,6 @@ export const getTokenCookies = () => {
 
 export const login = async (email, password) => {
     try {
-        console.log(email)
-        console.log(password)
         const response = await axios.post(`${BASE_URL}/login`, {
             username: email,
             password
@@ -34,7 +32,7 @@ export const login = async (email, password) => {
         setTokenCookies(token)
         return token
     } catch (e) {
-        return e.data
+        return new AxiosError(e.response.data.message)
     }
 }
 
@@ -53,15 +51,16 @@ export const signUp = async ({ name, email, phone, password }) => {
 }
 export const otpVerification = async ({ name, email, phone, password }, otpVerify) => {
     try {
-        const response = await axios.post(`${BASE_URL}/register/otp`, {
+        const response = await axios.post(`${BASE_URL}/otp`, {
             name,
             email,
             telephone: phone,
             password,
             otp: otpVerify
         })
+        console.log(response.data)
         if (response) {
-            setTokenCookies(response.data.csrf_token)
+            setTokenCookies(response.data.token)
         }
         return response
     } catch (e) {
@@ -90,11 +89,9 @@ export const logOut = async () => {
             }
         })
         Cookies.remove('token')
-        setTimeout(() => {
-            location.reload()
-        }, 1500)
+        Cookies.remove('expires')
     } catch (e) {
-        return e.data
+        return new AxiosError(e.response.data.message)
     }
 }
 

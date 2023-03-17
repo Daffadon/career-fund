@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
@@ -8,12 +8,16 @@ import closeEye from "../../assets/SignUp-Login/closeEye.svg";
 import ForgetPassword from "../PopUp/ForgetPassword";
 import AlertCustom from "../Alerts/AlertCustom";
 import OtpForgetPassword from "../PopUp/OtpForgetPassword";
+import { userContext } from "../../context/AuthContext";
+import { getUser } from "../../api/api";
 
 const LoginForm = () => {
+	const {setUser} = useContext(userContext);
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false)
+	const [msg,setMsg] = useState("")
 	const [isOpen, setIsOpen] = useState(false);
 	const [isShow, setIsShow] = useState(false);
 	const [isSentRec, setIsSentRec] = useState(false);
@@ -21,13 +25,20 @@ const LoginForm = () => {
 	const loginHandler = async (e) => {
 		e.preventDefault();
 		if (!password.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+			setMsg("Pastikan email dan password benar")
 			return setError(true)
 		}
 		try {
 			setLoading(true);
 			const response = await login(email, password);
+			const userAccount = await getUser()
+			setUser(userAccount)
+			setTimeout(()=>{
+				location.reload()
+			},1000)
 		} catch (error) {
-
+			setMsg(error.message)
+			setError(true)
 		}
 		setLoading(false);
 	};
@@ -112,7 +123,7 @@ const LoginForm = () => {
 			</form>
 			{isShow && <ForgetPassword setIsShow={setIsShow} setIsSentRec={setIsSentRec} email={email} setEmail={setEmail} />}
 			{isSentRec && <OtpForgetPassword email={email} />}
-			{error && <AlertCustom setError={setError} errorMessage={"Password atau Email Anda Salah! Silakan Coba Lagi"} />}
+			{error && <AlertCustom setError={setError} errorMessage={msg} />}
 		</>
 	);
 };

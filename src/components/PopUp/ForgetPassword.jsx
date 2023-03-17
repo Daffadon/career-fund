@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { sendEmailPasswordRecovery } from "../../api/api";
 import checkEmail from "../../assets/SignUp-Login/Hands Point.svg";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX } from "../../constants/regex";

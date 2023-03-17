@@ -54,12 +54,12 @@ const FollowedHistory = () => {
 							<div className="w-6/12 flex flex-col">
 								{item.semester.map(preList => {
 									return (
-										<>
+										<div key={preList.name}>
 											<p key={preList.name} className={`${fontType["h3"]} mt-1`}>{preList.name}</p>
 											{preList.prequisite.map((pre) => {
 												return <p key={pre} className={`${fontType["p1"]} ml-10 mt-4 text-neutral50`}>{pre}</p>
 											})}
-										</>
+										</div>
 									)
 								})}
 							</div>

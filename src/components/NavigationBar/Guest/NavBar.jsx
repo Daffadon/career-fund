@@ -1,12 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import { fontType } from "../../Text/text";
 import logo from "/logo.svg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import NavigationLinkGuest from "./NavigationLinkGuest";
+import { userContext } from "../../../context/AuthContext";
+import fotoProfile from "../../../assets/Account/NavProfile.svg"
+import logout from "../../../assets/icons/logout.svg"
 const NavBar = () => {
 	const navigate = useNavigate()
+	const { user } = useContext(userContext);
 	const [width, setWidth] = useState(window.innerWidth);
 	const [isShowMenu, setIsShowMenu] = useState(false)
+	const [showAccount, setShowAccount] = useState(false)
 	useEffect(() => {
 		const handleResize = () => {
 			setWidth(window.innerWidth);
@@ -44,12 +49,34 @@ const NavBar = () => {
 								</svg>
 							</button>
 							{isShowMenu &&
-								<div className="fixed top-24 right-5 bg-white border-primary50 border-2 w-[16rem] h-[20vh] rounded-xl" >
+								<div className="fixed top-24 right-5 bg-white border-none border-2 w-[16rem] h-[20vh] rounded-xl" >
 									<div className="h-full flex flex-col items-center justify-evenly">
 										<NavigationLinkGuest />
-										<Link className={`${fontType["button"]} bg-secondary50 py-2 px-8 rounded-full`}
-											to="/login"
-										>Masuk / Daftar</Link>
+										{user ?
+											<>
+												<div className="flex gap-3 order-1" onClick={() => {
+													setShowAccount(!showAccount)
+												}}>
+													{user.foto ?
+														<img src={fotoProfile} />
+														:
+														<div className="w-4 h-4 rounded-full bg-neutral50"></div>
+													}
+													<div>
+														<p className={`${fontType["h3"]}`}>Rina Doe</p>
+														<p className={`${fontType["p1"]} text-neutral30`}>Malang, Indonesia</p>
+													</div>
+													<img src={logout} />
+												</div>
+												{showAccount &&
+													<AccountLogout navigate={"/account"} lite={true} />
+												}
+											</>
+											:
+											<Link className={`${fontType["button"]} bg-secondary50 py-2 px-8 rounded-full`}
+												to="/login"
+											>Masuk / Daftar</Link>
+										}
 									</div>
 								</div>
 							}
@@ -61,12 +88,27 @@ const NavBar = () => {
 					<nav className="flex gap-4">
 						<NavigationLinkGuest />
 					</nav>
-					<Link
-						className={`${fontType["button"]} bg-secondary50 mr-10 py-2 px-8 rounded-full`}
-						to="/login"
-					>
-						Masuk / Daftar
-					</Link>
+					{user ?
+						<>
+							<div className="flex gap-3 px-8 mr-10" onClick={() => {
+								setShowAccount(!showAccount)
+							}} >
+								<img src={fotoProfile} />
+								<div>
+									<p className={`${fontType["h4"]}`}>Rina Doe</p>
+									<p className={`${fontType["p3"]} text-neutral30`}>Malang, Indonesia</p>
+								</div>
+								<img src={logout} />
+							</div>
+							{showAccount &&
+								<AccountLogout navigate={"/account"} lite={false} />
+							}
+						</>
+						:
+						<Link className={`${fontType["button"]} bg-secondary50 mr-10 py-2 px-8 rounded-full`}
+							to="/login"
+						>Masuk / Daftar</Link>
+					}
 				</>
 			}
 		</div>

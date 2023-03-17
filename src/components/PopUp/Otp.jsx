@@ -22,9 +22,9 @@ const Otp = ({ user, setShowOtp }) => {
 					const response = await otpVerification(user, otpVerify )
 					setTimeout(()=>{
 						location.reload()
-					},1500)
+					},1000)
 				} catch (error) {
-					console.log(`INI ERROR DI OTP ${error.message} `)
+					console.log(error.message)
 				}
 			}
 			validating()
