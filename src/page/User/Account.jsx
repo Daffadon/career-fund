@@ -1,8 +1,7 @@
 import { useRef, useState } from "react";
 import changePic from "../../assets/Account/changePic.svg";
 import { fontType } from "../../components/Text/text";
-import dana from "../../assets/LandingPage/Dana.svg";
-import DropdownCustom from "../../components/Dropdown/DropdownCustom";
+import DropdownPendidikan from "../../components/Dropdown/DropdownPendidikan";
 import { countries } from "../../container/account/account";
 import { school } from "../../container/account/account";
 import ConfirmChangeBio from "../../components/PopUp/ConfirmChangeBio";
@@ -107,7 +106,7 @@ const Account = () => {
 						</div>
 						<div>
 							<p>Pendidikan</p>
-							<DropdownCustom
+							<DropdownPendidikan
 								options={school}
 								selectedOption={"SMA"}
 								setUser={setUser}
@@ -161,6 +160,7 @@ const Account = () => {
 								onChange={(e) => {
 									setUser({ ...user, email: e.target.value })
 								}}
+								disabled
 							/>
 						</div>
 						<div>

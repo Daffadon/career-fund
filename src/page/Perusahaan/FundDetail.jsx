@@ -1,12 +1,16 @@
-import { useLocation, Link } from "react-router-dom"
-import { useRef } from "react"
+import { useLocation, Link, useNavigate } from "react-router-dom"
+import { useRef, useState } from "react"
 import exit from "../../assets/icons/exit.svg"
 import { fontType } from "../../components/Text/text"
 import cvIcon from "../../assets/icons/cvicon.svg"
 import dana from "../../assets/LandingPage/Dana.svg"
 import edit from "../../assets/icons/edit.svg"
+import file from "../../assets/icons/file.svg"
+import AddFund from "../../components/PopUp/AddFund"
 const FundDetail = () => {
     const funded = useLocation().state
+    const navigate = useNavigate()
+    const [showAddFund, setShowAddFund] = useState(false);
     const kontrakUpload = useRef()
     const handlechange = e => {
         const file = e.target.files[0]
@@ -23,9 +27,15 @@ const FundDetail = () => {
                         <img src={funded.foto} className="w-3/12" />
                         <p className={`${fontType["h2"]}`}>{funded.nama}</p>
                     </div>
-                    <img src={exit} />
+                    <img src={exit} className="cursor-pointer" onClick={() => {
+                        navigate('/fund')
+                    }} />
                 </div>
-                <p className={`${fontType["button"]} px-8 py-2 rounded-lg w-max bg-primary50 text-white`}>+ Tambah</p>
+                <p className={`${fontType["button"]} px-8 py-2 rounded-lg w-max bg-primary50 text-white`}
+                    onClick={() => {
+                        setShowAddFund(true)
+                    }}
+                >+ Tambah</p>
                 <div className="flex gap-8">
                     <div className="w-1/4 flex flex-col gap-5">
                         <div className="flex flex-col xl:flex-row justify-between">
@@ -60,10 +70,9 @@ const FundDetail = () => {
                         {funded.semester.map(smt => {
                             return (
                                 <>
-                                    {console.log(smt)}
                                     <p key={smt.key} className={`${fontType["h4"]}`}>{smt.nama}</p>
                                     <div className="flex">
-                                        <div className="flex gap-3 items-center justify-center lg:justify-start w-8/12">
+                                        <div className="flex gap-3 mt-4 items-center justify-center lg:justify-start w-8/12">
                                             <img src={dana} className="rounded-full w-1/12" />
                                             <div className="flex flex-col justify-center w-3/4 md:w-1/2 gap-2">
                                                 <p className={`${fontType["h4"]}`}>Biaya</p>
@@ -75,11 +84,25 @@ const FundDetail = () => {
                                             <p className="bg-primary50 w-max h-max text-white px-8 py-2 rounded-xl text-center">Kirim Uang</p>
                                         </div>
                                     </div>
+                                    <div className="mb-5">
+                                        {smt.prequisite.map(pre => {
+                                            return (
+                                                <div className="flex mt-4 items-center justify-around">
+                                                    <p >{pre.nama}</p>
+                                                    <div className="flex gap-5">
+                                                        <img src={file} alt="" />
+                                                        <p>{pre.cv}</p>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
                                 </>
                             )
                         })}
                     </div>
                 </div>
+                {showAddFund && <AddFund personToAdd={funded} setIsShow={setShowAddFund} />}
             </div>
         </div>
     )

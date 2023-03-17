@@ -31,8 +31,8 @@ export const login = async (email, password) => {
         }
         setTokenCookies(token)
         return token
-    } catch (e) {
-        return new AxiosError(e.response.data.message)
+} catch (e) {
+        throw new AxiosError(e.response.data.message)
     }
 }
 
@@ -82,7 +82,7 @@ export const otpChangePassword = async (email) => {
 }
 export const logOut = async () => {
     try {
-        await axios.post(`${BASE_URL}/logout`, {}, {
+        await axios.get(`${BASE_URL}/user/logout`, {
             headers: {
                 Authorization: `Bearer ${getTokenCookies()}`
             }

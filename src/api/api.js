@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import BASE_URL from "../constants/apiUrl";
 import { getTokenCookies } from "../authentication/AuthService";
 
-export const getLanding = async()=>{
+export const getLanding = async () => {
       try {
             const response = await axios.get(`${BASE_URL}/landing`)
             return response.data
@@ -11,10 +11,12 @@ export const getLanding = async()=>{
       }
 }
 
-export const getUser = async ()=>{
+export const getUser = async () => {
       try {
-            const response = await axios.get(`${BASE_URL}/user/profile`,{
-                  'Authorization': `Bearer ${getTokenCookies()}`
+            const response = await axios.get(`${BASE_URL}/user/profile`, {
+                  headers: {
+                        'Authorization': `Bearer ${getTokenCookies()}`
+                  }
             })
             return response
       } catch (error) {

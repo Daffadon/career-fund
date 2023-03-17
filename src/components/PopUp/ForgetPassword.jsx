@@ -28,7 +28,7 @@ const ForgetPassword = ({ setIsShow, setIsSentRec, email, setEmail }) => {
 					<img src={exit} className="w-5 self-end mr-10 cursor-pointer" onClick={() => {
 						setIsShow(false)
 					}} />
-					<div className="flex justify-center items-center flex-col gap-4 pt ">
+					<div className="flex justify-center items-center flex-col gap-4">
 						<img src={checkEmail} className="w-8/12" />
 						<p className={`${fontType["h3"]} sm:text-4xl`}>
 							Lupa Kata Sandi

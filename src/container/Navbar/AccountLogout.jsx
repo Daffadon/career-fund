@@ -1,18 +1,22 @@
 
+import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import toAkun from "../../assets/Account/toAkun.svg"
 import toLogout from "../../assets/Account/toLogout.svg"
 import { logOut } from "../../authentication/AuthService"
+import { userContext } from "../../context/AuthContext"
 const AccountLogout = ({ navigate, lite }) => {
     const navigation = useNavigate()
+    const {setUser} = useContext(userContext)
     const logOutHandler = async() =>{
         try {
             const response =  await logOut()
-            setTimeout(() => {
+            setUser(null)
+            setTimeout(()=>{
                 location.reload()
-            }, 1500)
+            },700)
         } catch (error) {
-            console.log(error.message)
+            
         }
     }
     return (

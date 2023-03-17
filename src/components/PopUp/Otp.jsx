@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-import { getUser } from "../../api/api";
-import exit from "../../assets/icons/exit.svg";
 import otpImage from "../../assets/SignUp-Login/otpImage.svg"
 import { otpVerification } from "../../authentication/AuthService";
 import { userContext } from "../../context/AuthContext";
 import { fontType } from "../Text/text";
-const Otp = ({ user}) => {
-	const {setUser} = useContext(userContext)
+import AlertCustom from "../Alerts/AlertCustom";
+const Otp = ({ user }) => {
+	const { setUser } = useContext(userContext)
+	const [error, setError] = useState(false)
+	const [msg,setMsg] = useState("")
 	const [otp, setOtp] = useState(new Array(6).fill(""))
 
 	const handleChangeData = async (element, index) => {
@@ -22,22 +23,24 @@ const Otp = ({ user}) => {
 			const validating = async () => {
 				try {
 					const otpVerify = otp.join("")
-					const response = await otpVerification(user, otpVerify)
-					// const user = await getUser()
-					// setUser(user)
-					setTimeout(()=>{
+					await otpVerification(user, otpVerify)
+					setTimeout(() => {
 						location.reload()
-					},1000)
+					}, 1000)
 				} catch (error) {
-					console.log(error.message)
+					setMsg(error.message)
+					setError(true)
 				}
 			}
 			validating()
 		}
 	}, [otp])
+	const resendCode = ()=>{
+
+	}
 	return (
 		<form>
-			<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-50">
+			<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-40">
 				<div className="bg-white rounded-2xl w-[22rem] sm:w-[26rem] py-10 flex flex-col">
 					<div className="flex justify-center items-center flex-col gap-4 pt ">
 						<img src={otpImage} className="w-8/12" />
@@ -62,9 +65,11 @@ const Otp = ({ user}) => {
 								)
 							})}
 						</div>
+						<p onClick={resendCode} className="hover:text-primary50 font-medium cursor-pointer transition-all">Resend Code</p>
 					</div>
 				</div>
 			</div>
+			{error && <AlertCustom setError={setError} errorMessage={msg} />}
 		</form>
 	)
 }

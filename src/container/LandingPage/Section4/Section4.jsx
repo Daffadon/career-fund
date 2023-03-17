@@ -6,9 +6,6 @@ import "swiper/css";
 import "swiper/css/scrollbar";
 import { useNavigate } from "react-router";
 import { card } from "../../../components/Card/card";
-import { useEffect } from "react";
-import axios from "axios";
-import BASE_URL from "../../../constants/apiUrl";
 
 const Section4 = () => {
 	const navigate = useNavigate();

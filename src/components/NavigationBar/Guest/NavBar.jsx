@@ -4,8 +4,8 @@ import logo from "/logo.svg";
 import { useState, useEffect, useContext } from "react";
 import NavigationLinkGuest from "./NavigationLinkGuest";
 import { userContext } from "../../../context/AuthContext";
-import fotoProfile from "../../../assets/Account/NavProfile.svg"
 import logout from "../../../assets/icons/logout.svg"
+import AccountLogout from "../../../container/Navbar/AccountLogout";
 const NavBar = () => {
 	const navigate = useNavigate()
 	const { user } = useContext(userContext);
@@ -18,7 +18,6 @@ const NavBar = () => {
 		};
 
 		window.addEventListener('resize', handleResize);
-
 		return () => {
 			window.removeEventListener('resize', handleResize);
 		};
@@ -57,8 +56,8 @@ const NavBar = () => {
 												<div className="flex gap-3 order-1" onClick={() => {
 													setShowAccount(!showAccount)
 												}}>
-													{user.foto ?
-														<img src={fotoProfile} />
+													{user.data.user.url_icon ?
+														<img src={user.data.user.url_icon} />
 														:
 														<div className="w-4 h-4 rounded-full bg-neutral50"></div>
 													}
@@ -89,12 +88,16 @@ const NavBar = () => {
 					</nav>
 					{user ?
 						<>
-							<div className="flex gap-3 px-8 mr-10" onClick={() => {
+							<div className="flex gap-3 px-8 mr-10 cursor-pointer justify-center items-center" onClick={() => {
 								setShowAccount(!showAccount)
 							}} >
-								<img src={fotoProfile} />
+								{user.data.user.url_icon ?
+									<img src={user.data.user.url_icon} />
+									:
+									<div className="w-8 h-8 rounded-full bg-neutral50"></div>
+								}
 								<div>
-									<p className={`${fontType["h4"]}`}>Rina Doe</p>
+									<p className={`${fontType["h4"]}`}>{user.data.user.name}</p>
 									<p className={`${fontType["p3"]} text-neutral30`}>Malang, Indonesia</p>
 								</div>
 								<img src={logout} />
@@ -104,7 +107,7 @@ const NavBar = () => {
 							}
 						</>
 						:
-						<Link className={`${fontType["button"]} bg-secondary50 mr-10 py-2 px-8 rounded-full`}
+						<Link className={`${fontType["button"]} cursor-pointer bg-secondary50 mr-10 py-2 px-8 rounded-full`}
 							to="/login"
 						>Masuk / Daftar</Link>
 					}
