@@ -33,7 +33,7 @@ const FollowedHistory = () => {
 									<p className={`${fontType["h4"]}`}>Kontrak Kerja</p>
 									<div className="flex gap-3 items-center mt-3">
 										<img src={cvIcon} />
-										<Link to="/src/assets/File/kontrak.pdf" download className={`${fontType["p1"]}`} target="_blank">
+										<Link to="https://res.cloudinary.com/dzv0ki3hh/image/upload/v1679056608/careerfund/contract/kontrak_kerja_w6limi.pdf" download className={`${fontType["p1"]}`} target="_blank">
 											Kontrak Kerja.pdf
 										</Link>
 									</div>

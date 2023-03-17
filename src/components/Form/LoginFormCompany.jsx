@@ -1,6 +1,6 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { companyLogin, login } from "../../authentication/AuthService";
+import { companyLogin } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";
@@ -23,10 +23,10 @@ const LoginFormCompany = () => {
 
 	const loginHandler = async (e) => {
 		e.preventDefault();
-		// if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
-		// 	setMsg("Format Email/Password Salah")
-		// 	return setError(true)
-		// }
+		if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+			setMsg("Format Email/Password Salah")
+			return setError(true)
+		}
 		try {
 			setLoading(true);
 			await companyLogin(email, passwd);
