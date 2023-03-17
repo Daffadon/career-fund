@@ -177,7 +177,7 @@ const SignUpForm = () => {
 				</div>
 			</form>
 			{error && <AlertCustom setError={setError} errorMessage={msg} />}
-			{showOtp && <Otp user={user} setShowOtp={setShowOtp} />}
+			{showOtp && <Otp user={user}/>}
 		</>
 	);
 };

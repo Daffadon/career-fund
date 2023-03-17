@@ -12,17 +12,6 @@ import BASE_URL from "../../../constants/apiUrl";
 
 const Section4 = () => {
 	const navigate = useNavigate();
-	// useEffect(() => {
-	// 	const getData = async () => {
-	// 		try {
-	// 			const respons = await axios.get("https://fikrirafa.aenzt.tech/landing")
-	// 			console.log(respons)
-	// 		} catch (error) {
-	// 			console.log(error)
-	// 		}
-	// 	}
-	// 	getData()
-	// })
 	return (
 		<div className="max-h-[75vh] mt-[10em] ml-10">
 			<p className={`${fontType["h1"]} w-6/12  md:w-4/12 mb-20`}>
@@ -89,7 +78,7 @@ const Section4 = () => {
 									})}
 								</div>
 								<p
-									className="text-center bg-primary50 text-white rounded-full py-2 mt-8 cursor-pointer hover:bg-white hover:border-primary50 border-2 hover:text-primary50"
+									className="text-center bg-primary50 text-white rounded-full py-2 mt-8 cursor-pointer hover:bg-white hover:border-primary50 border-2 hover:text-primary50 transition"
 									onClick={() => {
 										navigate("/program");
 									}}

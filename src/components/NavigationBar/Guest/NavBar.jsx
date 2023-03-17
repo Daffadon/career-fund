@@ -26,7 +26,7 @@ const NavBar = () => {
 	return (
 
 		<div className="flex items-center justify-between h-[13vh] sticky top-0 bg-[#F5F5F5] z-10">
-			<img src={logo} alt="CareerFund" className="ml-10" onClick={() => navigate("/")} />
+			<img src={logo} alt="CareerFund" className="ml-10 cursor-pointer" onClick={() => navigate(user ? '/home' : '/')} />
 			{width <= 870 ?
 				<>
 					<nav className="p-3 border-gray-200 rounded  dark:bg-gray-800 dark:border-gray-700">
@@ -73,9 +73,8 @@ const NavBar = () => {
 												}
 											</>
 											:
-											<Link className={`${fontType["button"]} bg-secondary50 py-2 px-8 rounded-full`}
-												to="/login"
-											>Masuk / Daftar</Link>
+											<Link className={`${fontType["button"]} bg-secondary50 py-2 px-8 rounded-full hover:scale-150`} to="/login">
+												Masuk / Daftar</Link>
 										}
 									</div>
 								</div>

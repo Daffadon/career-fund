@@ -4,7 +4,20 @@ import Section3 from "../../container/LandingPage/Section3/Section3"
 import Section4 from "../../container/LandingPage/Section4/Section4"
 import Section5 from "../../container/LandingPage/Section5/Section5"
 import Layout from "../../components/Layout/Layout"
+import { getUser } from "../../api/api"
+import { useEffect } from "react"
 const Home = () => {
+    useEffect(()=>{
+        const getUserProfile = async()=>{
+            try {
+                const response = await getUser()
+            } catch (error) {
+                console.log(1)
+                console.log(error)
+            }
+        }
+        getUserProfile()
+    },[])
     return (
         <Layout>
             <Section1/>

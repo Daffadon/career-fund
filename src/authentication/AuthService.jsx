@@ -58,7 +58,6 @@ export const otpVerification = async ({ name, email, phone, password }, otpVerif
             password,
             otp: otpVerify
         })
-        console.log(response.data)
         if (response) {
             setTokenCookies(response.data.token)
         }
@@ -91,7 +90,7 @@ export const logOut = async () => {
         Cookies.remove('token')
         Cookies.remove('expires')
     } catch (e) {
-        return new AxiosError(e.response.data.message)
+        throw new AxiosError(e.response.data.message)
     }
 }
 

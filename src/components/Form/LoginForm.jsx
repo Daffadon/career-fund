@@ -24,10 +24,10 @@ const LoginForm = () => {
 
 	const loginHandler = async (e) => {
 		e.preventDefault();
-		if (!password.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
-			setMsg("Pastikan email dan password benar")
-			return setError(true)
-		}
+		// if (!password.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+		// 	setMsg("Pastikan email dan password benar")
+		// 	return setError(true)
+		// }
 		try {
 			setLoading(true);
 			const response = await login(email, password);

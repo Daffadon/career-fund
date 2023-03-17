@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext} from "react"
 import { NavLink } from "react-router-dom"
 import { userContext } from "../../../context/AuthContext"
 import { fontType } from "../../Text/text"
@@ -7,7 +7,7 @@ const NavigationLinkGuest = () => {
     return (
         <>
             <NavLink
-                className={`${fontType["h4"]} text-neutral50`}
+                className={`${fontType["h4"]} text-neutral50 hover:text-primary50 transition-all`}
                 style={({ isActive }) =>
                     isActive ? { color: "#2753BD" } : {}
                 }
@@ -17,7 +17,7 @@ const NavigationLinkGuest = () => {
             </NavLink>
             {!user &&
                 <NavLink
-                    className={`${fontType["h4"]} text-neutral50`}
+                    className={`${fontType["h4"]} text-neutral50 hover:text-primary50 transition-all`}
                     style={({ isActive }) =>
                         isActive ? { color: "#2753BD" } : {}
                     }
@@ -27,7 +27,7 @@ const NavigationLinkGuest = () => {
                 </NavLink>
             }
             <NavLink
-                className={`${fontType["h4"]} text-neutral50`}
+                className={`${fontType["h4"]} text-neutral50 hover:text-primary50 transition-all`}
                 style={({ isActive }) =>
                     isActive ? { color: "#2753BD" } : {}
                 }
@@ -37,7 +37,7 @@ const NavigationLinkGuest = () => {
             </NavLink>
             {user &&
                 <NavLink
-                    className={`${fontType["h4"]} text-neutral50`}
+                    className={`${fontType["h4"]} text-neutral50 hover:text-primary50 transition-all`}
                     style={({ isActive }) =>
                         isActive ? { color: "#2753BD" } : {}
                     }
@@ -47,7 +47,7 @@ const NavigationLinkGuest = () => {
                 </NavLink>
             }
             <NavLink
-                className={`${fontType["h4"]} text-neutral50`}
+                className={`${fontType["h4"]} text-neutral50 hover:text-primary50 transition-all`}
                 style={({ isActive }) =>
                     isActive ? { color: "#2753BD" } : {}
                 }

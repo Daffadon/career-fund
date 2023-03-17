@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { getUser } from "../../api/api";
 import exit from "../../assets/icons/exit.svg";
 import otpImage from "../../assets/SignUp-Login/otpImage.svg"
 import { otpVerification } from "../../authentication/AuthService";
+import { userContext } from "../../context/AuthContext";
 import { fontType } from "../Text/text";
-const Otp = ({ user, setShowOtp }) => {
+const Otp = ({ user}) => {
+	const {setUser} = useContext(userContext)
 	const [otp, setOtp] = useState(new Array(6).fill(""))
 
 	const handleChangeData = async (element, index) => {
@@ -19,7 +22,9 @@ const Otp = ({ user, setShowOtp }) => {
 			const validating = async () => {
 				try {
 					const otpVerify = otp.join("")
-					const response = await otpVerification(user, otpVerify )
+					const response = await otpVerification(user, otpVerify)
+					// const user = await getUser()
+					// setUser(user)
 					setTimeout(()=>{
 						location.reload()
 					},1000)
@@ -34,9 +39,6 @@ const Otp = ({ user, setShowOtp }) => {
 		<form>
 			<div className="fixed left-0 right-0 bottom-0 top-0 flex items-center justify-center bg-[rgba(0,0,0,0.5)] z-50">
 				<div className="bg-white rounded-2xl w-[22rem] sm:w-[26rem] py-10 flex flex-col">
-					<img src={exit} className="w-5 self-end mr-10 cursor-pointer" onClick={() => {
-						setShowOtp(false)
-					}} />
 					<div className="flex justify-center items-center flex-col gap-4 pt ">
 						<img src={otpImage} className="w-8/12" />
 						<p className={`${fontType["h3"]} sm:text-4xl`}>

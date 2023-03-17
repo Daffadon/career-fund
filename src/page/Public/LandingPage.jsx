@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getLanding } from "../../api/api"
+import { getUser } from "../../api/api"
 import Layout from "../../components/Layout/Layout"
 import Section1 from "../../container/LandingPage/Section1/Section1"
 import Section2 from "../../container/LandingPage/Section2/Section2"
@@ -13,9 +14,9 @@ const LandingPage = () => {
     useEffect(()=>{
         const getContent = async()=>{
             try {
-                const response = await getLanding();
-                console.log(response)
-                setData(response);
+                // const response = await getLanding();
+                const response = await getUser()
+                // setData(response);
             } catch (error) {
                 console.log(error)
             }
