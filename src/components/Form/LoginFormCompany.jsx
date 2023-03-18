@@ -23,10 +23,10 @@ const LoginFormCompany = () => {
 
 	const loginHandler = async (e) => {
 		e.preventDefault();
-		if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
-			setMsg("Format Email/Password Salah")
-			return setError(true)
-		}
+		// if (!passwd.match(PASSWORD_REGEX) || !email.match(EMAIL_REGEX)) {
+		// 	setMsg("Format Email/Password Salah")
+		// 	return setError(true)
+		// }
 		try {
 			setLoading(true);
 			await companyLogin(email, passwd);
