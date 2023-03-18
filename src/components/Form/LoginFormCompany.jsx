@@ -1,6 +1,6 @@
-import { useCallback, useContext, useState } from "react";
+import { useCallback, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { companyLogin, login } from "../../authentication/AuthService";
+import { companyLogin } from "../../authentication/AuthService";
 import { fontType } from "../Text/text";
 import { EMAIL_REGEX, PASSWORD_REGEX } from "../../constants/regex";
 import openEye from "../../assets/icons/openeye.svg";

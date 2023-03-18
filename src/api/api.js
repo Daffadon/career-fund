@@ -55,6 +55,21 @@ export const getCompany = async () => {
 		throw new AxiosError(error.response.data.message)
 	}
 }
+
+export const getHistorySuccess= async () => {
+	try {
+		const response = await axios.get(`${BASE_URL}/user/history/success`, {
+			headers: {
+				'Authorization': `Bearer ${getTokenCookies()}`
+			}
+		})
+		return response
+	} catch (error) {
+		throw new AxiosError(error.response.data.message)
+	}
+}
+
+
 export const getProgram = async () => {
 	try {
 		const response = await axios.get(`${BASE_URL}/user/program`, {
@@ -141,6 +156,8 @@ export const getCompanyProgram = async () => {
 		throw new AxiosError(error.response.data.message)
 	}
 }
+
+
 
 export const updateBioCompany = async (user) => {
 	try {
