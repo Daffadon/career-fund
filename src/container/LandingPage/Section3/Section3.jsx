@@ -2,7 +2,6 @@ import sec3 from "../../../assets/LandingPage/dummysec3.svg"
 import { fontType } from "../../../components/Text/text"
 import { layanan } from "./layanan"
 
-
 const Section3 = () => {
     return (
         <div className="flex flex-col lg:flex-row w-full justify-center items-center mt-[8rem] lg:gap-16" id="serves">

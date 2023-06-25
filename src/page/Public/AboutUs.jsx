@@ -6,14 +6,16 @@ import { getAbout } from "../../api/api"
 import Loading from "../../components/Loading/Loading"
 
 const AboutUs = () => {
-	const [data, setData] = useState(null)
-	useEffect(() => {
-		const getAboutContent = async () => {
-			const response = await getAbout()
-			setData(response)
-		}
-		getAboutContent()
-	}, [])
+	const [data, setData] = useState({
+		usercount: "12K+",
+	})
+	// useEffect(() => {
+	// 	const getAboutContent = async () => {
+	// 		const response = await getAbout()
+	// 		setData(response)
+	// 	}
+	// 	getAboutContent()
+	// }, [])
 	return (
 		<Layout>
 			<div className="flex flex-col justify-evenly my-[10em]">

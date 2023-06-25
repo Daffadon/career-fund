@@ -7,39 +7,37 @@ import samsung from "../../../assets/LandingPage/Samsung.svg"
 import meta from "../../../assets/LandingPage/Meta.svg"
 import uber from "../../../assets/LandingPage/Uber.svg"
 
-export const row1 = [
+export const imageList = [
     {
         key: 1,
-        img: apple
+        url_icon: apple
     },
     {
         key: 2,
-        img: amazon
+        url_icon: amazon
     },
     {
         key: 3,
-        img: google
+        url_icon: google
     },
     {
         key: 4,
-        img: microsoft
-    }
-]
-export const row2 = [
+        url_icon: microsoft
+    },
     {
         key: 5,
-        img: tesla
+        url_icon: tesla
     },
     {
         key: 6,
-        img: samsung
+        url_icon: samsung
     },
     {
         key: 7,
-        img: meta
+        url_icon: meta
     },
     {
         key: 8,
-        img: uber
+        url_icon: uber
     }
 ]

@@ -51,7 +51,7 @@ const Section4 = ({ data }) => {
 			>
 				{data.map((item) => {
 					return (
-						<SwiperSlide key={item.id} className="bg-white max-h-[23rem] flex flex-initial rounded-xl pt-10">
+						<SwiperSlide key={item.key} className="bg-white max-h-[23rem] flex flex-initial rounded-xl pt-10">
 							<div className={`${card["program"]} `}>
 								<div className="flex items-center flex-1 mb-6">
 									<img src={item.url} alt={item.company} />
@@ -63,7 +63,7 @@ const Section4 = ({ data }) => {
 									Front End Developer
 								</p>
 								<p className={`${fontType["p1"]} text-neutral30 mt-1`}>
-									{`${item.city}, ${item.region}`}
+									{`${item.loc}`}
 								</p>
 								<div className="flex gap-1 mt-5">
 									{item.education.map((tag) => {
