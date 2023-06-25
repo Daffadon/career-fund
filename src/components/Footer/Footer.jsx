@@ -18,7 +18,11 @@ const Footer = () => {
                 <div className="w-6/12">
                     <p className={`${fontType["h3"]} text-white mb-10`}>Navigasi</p>
                     {nav.map(item => {
-                        return <p key={item.key} className={`${fontType["h5"]} text-white mb-1`}>{item.title}</p>
+                        return (
+                            <a href={item.to}>
+                                <p key={item.key} className={`${fontType["h5"]} text-white mb-1 hover:text-gray-500 duration-300`}>{item.title}</p>
+                            </a>
+                        )
                     })}
                 </div>
             </div>
