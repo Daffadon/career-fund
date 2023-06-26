@@ -10,34 +10,36 @@ import Layout from "../../components/Layout/Layout";
 import { userContext } from "../../context/AuthContext";
 import { getUser, updatePayment } from "../../api/api";
 import { useNavigate } from "react-router-dom";
+import { userAccountData } from "../../container/account/account";
 const Account = () => {
 	const navigate = useNavigate()
 	const [isShow, setIsShow] = useState(false);
 	const { user, setUser } = useContext(userContext);
 	const fotoUploading = useRef()
-	const [userAccount, setUserAccount] = useState({
-		id: user.data.user.user_id !== null ? user.data.user.user_id : "",
-		foto: user.data.user.url_icon !== null ? user.data.user.url_icon : "",
-		namaDepan: user.data.user.name !== null ? user.data.user.name : "",
-		namaBelakang: user.data.user.second_name !== null ? user.data.user.second_name : "",
-		pendidikan: user.data.user.education !== null ? user.data.user.education : "",
-		email: user.data.user.email !== null ? user.data.user.email : "",
-		telepon: user.data.user.telephone !== null ? user.data.user.telephone : "",
-		kota: user.data.user.city !== null ? user.data.user.city : "",
-		pos: user.data.user.postal !== null ? user.data.user.postal : "",
-		negara: user.data.user.region !== null ? user.data.user.region : "Indonesia",
-		rekening: user.data.user.credit_number !== null ? user.data.user.credit_number : "",
-		metodePembayaran: user.data.user.payment !== null ? user.data.user.payment : "",
-	});
-	useEffect(() => {
-		const getProfileContent = async () => {
-			try {
-				const response = await getUser()
-				setUser(response)
-			} catch (error) { }
-		}
-		getProfileContent()
-	}, [])
+	// const [userAccount, setUserAccount] = useState({
+	// 	id: user.data.user.user_id ?? "",
+	// 	foto: user.data.user.url_icon ?? "",
+	// 	namaDepan: user.data.user.name ?? "",
+	// 	namaBelakang: user.data.user.second_name ?? "",
+	// 	pendidikan: user.data.user.education ?? "",
+	// 	email: user.data.user.email ?? "",
+	// 	telepon: user.data.user.telephone ?? "",
+	// 	kota: user.data.user.city ?? "",
+	// 	pos: user.data.user.postal ?? "",
+	// 	negara: user.data.user.region ?? "Indonesia",
+	// 	rekening: user.data.user.credit_number ?? "",
+	// 	metodePembayaran: user.data.user.payment ?? "",
+	// });
+	const [userAccount, setUserAccount] = useState(userAccountData);
+	// useEffect(() => {
+	// 		const getProfileContent = async () => {
+	// 			try {
+	// 				const response = await getUser()
+	// 				setUser(response)
+	// 			} catch (error) { }
+	// 		}
+	// 		getProfileContent()
+	// 	}, [])
 
 	const saveRekening = async e => {
 		e.preventDefault()
@@ -64,7 +66,7 @@ const Account = () => {
 					<div className="w-3/4 md:w-1/2 xl:w-11/12 bg-white flex flex-col justify-start items-center gap-12 rounded-2xl py-10 ">
 						<div className=" flex flex-col justify-center items-center ">
 							{userAccount.foto ?
-								<img src={userAccount.foto} className="rounded-full w-7/12 "/>
+								<img src={userAccount.foto} className="rounded-full w-7/12 " />
 								:
 								<div className="w-52 h-52 rounded-full bg-neutral50"></div>
 							}

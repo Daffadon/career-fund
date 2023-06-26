@@ -7,16 +7,20 @@ import { logOut } from "../../authentication/AuthService"
 import { userContext } from "../../context/AuthContext"
 const AccountLogout = ({ navigate, lite }) => {
     const navigation = useNavigate()
-    const {setUser} = useContext(userContext)
-    const logOutHandler = async() =>{
+    const { setUser } = useContext(userContext)
+    const logOutHandler = async () => {
         try {
-            const response =  await logOut()
-            setUser(null)
-            setTimeout(()=>{
+            localStorage.removeItem('token')
+            setTimeout(() => {
                 location.reload()
-            },700)
+            }, 500)
+            // const response = await logOut()
+            // setUser(null)
+            // setTimeout(() => {
+            //     location.reload()
+            // }, 700)
         } catch (error) {
-            
+
         }
     }
     return (
@@ -25,7 +29,7 @@ const AccountLogout = ({ navigate, lite }) => {
                 <img src={toAkun} className="cursor-pointer" onClick={() => {
                     navigation(navigate)
                 }} />
-                <img src={toLogout} className="cursor-pointer" onClick={logOutHandler}/>
+                <img src={toLogout} className="cursor-pointer" onClick={logOutHandler} />
             </div>
         </div>
     )

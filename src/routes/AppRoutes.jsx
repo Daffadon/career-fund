@@ -44,8 +44,6 @@ const AppRoutes = () => {
                 <Route path="/about" element={<AboutUs />} />
             </Route>
 
-
-
             <Route element={<PrivateRoutes />}>
                 {/* !!! DISABLED FOR DUMMY ONLY */}
                 <Route path="/program" element={<Program />} />

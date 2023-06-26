@@ -9,7 +9,7 @@ import AccountLogout from "../../../container/Navbar/AccountLogout";
 import { getUser } from "../../../api/api";
 const NavBar = () => {
 	const navigate = useNavigate()
-	const { user, setUser } = useContext(userContext);
+	// const { user, setUser } = useContext(userContext);
 	const [width, setWidth] = useState(window.innerWidth);
 	const [isShowMenu, setIsShowMenu] = useState(false)
 	const [showAccount, setShowAccount] = useState(false)
@@ -72,7 +72,7 @@ const NavBar = () => {
 							<div className="fixed top-24 right-5 bg-white border-none border-2 w-[16rem] h-[20vh] rounded-xl" >
 								<div className="h-full flex flex-col items-center justify-evenly">
 									<NavigationLinkGuest />
-									{user ?
+									{localStorage.getItem('token') ?
 										<>
 											<div className="flex gap-3 order-1 items-center" onClick={() => {
 												setShowAccount(!showAccount)
@@ -109,19 +109,20 @@ const NavBar = () => {
 					<nav className="flex gap-4">
 						<NavigationLinkGuest />
 					</nav>
-					{user ?
+					{localStorage.getItem('token') ?
 						<>
 							<div className="flex gap-3 px-8 mr-10 cursor-pointer justify-center items-center" onClick={() => {
 								setShowAccount(!showAccount)
 							}} >
-								{user.data.user.url_icon ?
+								{/* {user.data.user.url_icon ?
 									<img src={user.data.user.url_icon} className=" w-12 rounded-full" />
-									:
-									<div className="w-8 h-8 rounded-full bg-neutral50"></div>
-								}
+									: */}
+								<div className="w-8 h-8 rounded-full bg-neutral50"></div>
+								{/* } */}
 								<div>
-									<p className={`${fontType["h4"]}`}>{user.data.user.name.split(" ").length >= 3 ? `${user.data.user.name.split(" ")[0]} ${user.data.user.name.split(" ")[1]}` : user.data.user.name}</p>
-									<p className={`${fontType["p3"]} text-neutral30`}>Malang, Indonesia</p>
+									{/* <p className={`${fontType["h4"]}`}>{user.data.user.name.split(" ").length >= 3 ? `${user.data.user.name.split(" ")[0]} ${user.data.user.name.split(" ")[1]}` : user.data.user.name}</p> */}
+									<p className={`${fontType["h4"]}`}>Rina Doe</p>
+									<p className={`${fontType["p3"]} text-neutral30`}>Jakarta, Indonesia</p>
 								</div>
 								<img src={logout} />
 							</div>
