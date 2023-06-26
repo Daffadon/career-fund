@@ -42,7 +42,7 @@ const NavigationLinkGuest = () => {
                     style={({ isActive }) =>
                         isActive ? { color: "#2753BD" } : {}
                     }
-                    to="/history"
+                    to="/history/register"
                 >
                     Riwayat
                 </NavLink>

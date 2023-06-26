@@ -16,9 +16,9 @@ const FollowedHistory = () => {
 		<>
 			{listCompany.map(item => {
 				return (
-					<div key={item.name} className="bg-white w-10/12 lg:w-6/12 xl:w-5/12 2xl:w-5/12 min-h-[20vh] rounded-3xl px-7 py-9 flex flex-col gap-8 shadow-[5px_5px_10px_rgba(0,0,0,0.05)]" >
+					<div key={item.key} className="bg-white w-10/12 lg:w-6/12 xl:w-5/12 2xl:w-5/12 min-h-[20vh] rounded-3xl px-7 py-9 flex flex-col gap-8 shadow-[5px_5px_10px_rgba(0,0,0,0.05)]" >
 						<div className="flex 1 ">
-							<img src={item.logo} />
+							<img src={item.url} />
 							<p className={`${fontType["h1"]} ml-5`}>{item.name}</p>
 						</div>
 						<div className="flex">

@@ -17,9 +17,9 @@ const Footer = () => {
             <div className="w-6/12 flex flex-col justify-center items-center">
                 <div className="w-6/12">
                     <p className={`${fontType["h3"]} text-white mb-10`}>Navigasi</p>
-                    {nav.map(item => {
+                    {nav.map((item, index) => {
                         return (
-                            <a href={item.to}>
+                            <a key={index} href={item.to}>
                                 <p key={item.key} className={`${fontType["h5"]} text-white mb-1 hover:text-gray-500 duration-300`}>{item.title}</p>
                             </a>
                         )

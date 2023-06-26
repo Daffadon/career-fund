@@ -33,40 +33,40 @@ const AppRoutes = () => {
         <Routes>
             <Route path="/help" element={<Help />} />
             <Route path="*" element={<NotFound />} />
-            {/* <Route element={<PublicRoutes />}> */}
-            {/* !!! DISABLED FOR DUMMY ONLY */}
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/companylogin" element={<LoginCompany />} />
-            <Route path="/companysignup" element={<SignUpCompany />} />
-            <Route path="/about" element={<AboutUs />} />
-            {/* </Route> */}
-
-
-
-            {/* <Route element={<PrivateRoutes />}> */}
-            {/* !!! DISABLED FOR DUMMY ONLY */}
-            <Route path="/program" element={<Program />} />
-            <Route path="/program/:name" element={<UserDetailProgram />} />
-            <Route path='/home' element={<Home />} />
-            <Route path='/account' element={<Account />} />
-            <Route path='/history' element={<History />}>
-                <Route path="/history/register" element={<RegisterHistory />} />
-                <Route path="/history/selection" element={<SelectionHistory />} />
-                <Route path="/history/accepted" element={<AcceptedHistory />} />
-                <Route path="/history/rejected" element={<RejectedHistory />} />
-                <Route path="/history/followed" element={<FollowedHistory />} />
+            <Route element={<PublicRoutes />}>
+                {/* !!! DISABLED FOR DUMMY ONLY */}
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
+                <Route path="/companylogin" element={<LoginCompany />} />
+                <Route path="/companysignup" element={<SignUpCompany />} />
+                <Route path="/about" element={<AboutUs />} />
             </Route>
-            <Route path="/registrar" element={<Registrar />} />
-            <Route path="/account-company" element={<AccountCompany />} />
-            <Route path="/home-company" element={<HomeCompany />} />
-            <Route path="/fund" element={< Fund />} />
-            <Route path="/program-company" element={<ProgramCompany />} />
-            <Route path="/detail-program-company" element={<DetailProgramCompany />} />
-            <Route path="/detail-fund" element={<FundDetail />} />
-            {/* </Route> */}
+
+
+
+            <Route element={<PrivateRoutes />}>
+                {/* !!! DISABLED FOR DUMMY ONLY */}
+                <Route path="/program" element={<Program />} />
+                <Route path="/program/:name" element={<UserDetailProgram />} />
+                <Route path='/home' element={<Home />} />
+                <Route path='/account' element={<Account />} />
+                <Route path='/history' element={<History />}>
+                    <Route path="/history/register" element={<RegisterHistory />} />
+                    <Route path="/history/selection" element={<SelectionHistory />} />
+                    <Route path="/history/accepted" element={<AcceptedHistory />} />
+                    <Route path="/history/rejected" element={<RejectedHistory />} />
+                    <Route path="/history/followed" element={<FollowedHistory />} />
+                </Route>
+                <Route path="/registrar" element={<Registrar />} />
+                <Route path="/account-company" element={<AccountCompany />} />
+                <Route path="/home-company" element={<HomeCompany />} />
+                <Route path="/fund" element={< Fund />} />
+                <Route path="/program-company" element={<ProgramCompany />} />
+                <Route path="/detail-program-company" element={<DetailProgramCompany />} />
+                <Route path="/detail-fund" element={<FundDetail />} />
+            </Route>
         </Routes>
     )
 }
