@@ -23,15 +23,27 @@ const NavBar = () => {
 			window.removeEventListener('resize', handleResize);
 		};
 	}, []);
-	useEffect(() => {
-		const getProfileContent = async () => {
-			try {
-				const response = await getUser()
-				setUser(response)
-			} catch (error) { }
-		}
-		getProfileContent()
-	}, [])
+	const setToken = () => {
+		localStorage.setItem('token', '123')
+		setTimeout(() => {
+			location.reload()
+		}, 500);
+	}
+	const unsetToken = () => {
+		localStorage.removeItem('token')
+		setTimeout(() => {
+			location.reload()
+		}, 500);
+	}
+	// useEffect(() => {
+	// 	const getProfileContent = async () => {
+	// 		try {
+	// 			const response = await getUser()
+	// 			setUser(response)
+	// 		} catch (error) { }
+	// 	}
+	// 	getProfileContent()
+	// }, [])
 	return (
 
 		<div className="flex items-center justify-between h-[13vh] sticky top-0 bg-[#F5F5F5] z-10">
@@ -72,7 +84,7 @@ const NavBar = () => {
 												}
 												<div>
 													<p className={`${fontType["h3"]}`}>{user.data.user.name.split(" ").length >= 3 ? `${user.data.user.name.split(" ")[0]} ${user.data.user.name.split(" ")[1]}` : user.data.user.name}</p>
-													<p className={`${fontType["p1"]} text-neutral30`}>{user.data.user.city && user.data.user.region  ? `${user.data.user.city}, ${user.data.user.region}` : "-"}</p>
+													<p className={`${fontType["p1"]} text-neutral30`}>{user.data.user.city && user.data.user.region ? `${user.data.user.city}, ${user.data.user.region}` : "-"}</p>
 												</div>
 												<img src={logout} />
 											</div>
@@ -81,8 +93,11 @@ const NavBar = () => {
 											}
 										</>
 										:
-										<Link className={`${fontType["button"]} bg-secondary50 py-2 px-8 rounded-full hover:scale-150`} to="/login">
-											Masuk / Daftar</Link>
+										<>
+											<button>Set Token to view auth mode</button>
+											<Link className={`${fontType["button"]} bg-secondary50 py-2 px-8 rounded-full hover:scale-150`} to="/login">
+												Masuk / Daftar</Link>
+										</>
 									}
 								</div>
 							</div>
@@ -115,9 +130,16 @@ const NavBar = () => {
 							}
 						</>
 						:
-						<Link className={`${fontType["button"]} cursor-pointer bg-secondary50 mr-10 py-2 px-8 rounded-full`}
-							to="/login"
-						>Masuk / Daftar</Link>
+						<div className="flex justify-center items-center">
+							{localStorage.getItem('token') ?
+								<button onClick={unsetToken} className="mr-5 bg-blue-500 px-5 py-2 rounded-xl text-white">Unset Token</button>
+								:
+								<button onClick={setToken} className="mr-5 bg-blue-500 px-5 py-2 rounded-xl text-white">Set Token</button>
+							}
+							<Link className={`${fontType["button"]} cursor-pointer bg-secondary50 mr-10 py-2 px-8 rounded-full`}
+								to="/login"
+							>Masuk / Daftar</Link>
+						</div>
 					}
 				</>
 			}

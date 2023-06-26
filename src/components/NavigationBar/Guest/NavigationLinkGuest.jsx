@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom"
 import { userContext } from "../../../context/AuthContext"
 import { fontType } from "../../Text/text"
 const NavigationLinkGuest = () => {
-    const { user } = useContext(userContext)
+    // const { user } = useContext(userContext)
+    const user = localStorage.getItem('token')
     return (
         <>
             <NavLink
