@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div id="footer" className="min-h-[60vh] py-16 bg-neutral90 flex justify-around items-center">
       <div className="w-6/12 flex flex-col justify-end items-end">
-        <div className="w-10/12 md:w-6/12 lg:w-5/12">
+        <div className="w-10/12 md:w-9/12 lg:w-5/12">
           <div className="flex w-full items-center justify-start gap-3">
             <img src={footerlogo} alt="" className="w-5 sm:w-[15%]" />
             <p className={`${fontType['h1']} text-white`}>CareerFund</p>
