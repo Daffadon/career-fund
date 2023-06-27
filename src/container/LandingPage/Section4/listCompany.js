@@ -17,8 +17,8 @@ export const listCompany = [
     jurusan: "FILKOM",
     activity: "Kegiatan ini kita buat",
     pendidikan: { "SMA": true, "SMK": true, "D3": false },
-    tingkatan: { "D3": true, "S1": true },
-    posisi: "Graphic Designer",
+    tingkatan: ["D3", "S1"],
+    kegiatan: ["Sertifikasi", "Kegiatan", "pelatihan"],
     semester: [
       {
         "name": "Semester 1",
