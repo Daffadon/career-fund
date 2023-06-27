@@ -8,12 +8,12 @@ const Section2 = ({ data }) => {
             <div>
                 <div className="flex flex-wrap justify-center w-full gap-3  mt-[2em]">
                     {data.slice(0, 4).map(item => {
-                        return <img key={item.name} src={item.url_icon} alt="" />
+                        return <img key={item.key} src={item.url_icon} alt="" />
                     })}
                 </div>
                 <div className=" flex flex-wrap justify-center w-full gap-3  mt-[2em]">
                     {data.slice(4, 8).map(item => {
-                        return <img key={item.name} src={item.url_icon} alt="" />
+                        return <img key={item.key} src={item.url_icon} alt="" />
                     })}
                 </div>
             </div>

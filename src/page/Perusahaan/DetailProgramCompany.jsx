@@ -30,7 +30,7 @@ const DetailProgramCompany = () => {
 
     const addNewProgram = e => {
         e.preventDefault()
-        console.log(programToAdd)
+        // console.log(programToAdd)
         if (itemToUpdate !== null) {
             // put with id
             return

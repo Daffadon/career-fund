@@ -5,9 +5,9 @@ const SelectionHistory = () => {
         <>
             {listCompany.map(item => {
                 return (
-                    <div key={item.name} className="bg-white w-10/12 lg:w-5/12 min-h-[20vh] rounded-3xl px-7 py-9 flex flex-col gap-8 shadow-[5px_5px_10px_rgba(0,0,0,0.05)]  justify-items-stretch">
+                    <div key={item.key} className="bg-white w-10/12 lg:w-5/12 min-h-[20vh] rounded-3xl px-7 py-9 flex flex-col gap-8 shadow-[5px_5px_10px_rgba(0,0,0,0.05)]  justify-items-stretch">
                         <div className="flex 1 ">
-                            <img src={item.logo} />
+                            <img src={item.url} />
                             <p className={`${fontType["h1"]} ml-5`}>{item.name}</p>
                         </div>
                         <div className="flex flex-col xl:flex-row justify-between">
@@ -16,7 +16,7 @@ const SelectionHistory = () => {
                                 <p className={`${fontType["p1"]} text-neutral30`}>{item.loc}</p>
                             </div>
                             <div className="flex gap-2 mt-3">
-                                {item.tag.map((tag) => {
+                                {item.education.map((tag) => {
                                     return (
                                         <p key={tag} className="bg-warning10 text-warning90 py-1 px-5 rounded-full  h-max">
                                             {tag}

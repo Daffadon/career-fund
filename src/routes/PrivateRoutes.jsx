@@ -3,7 +3,8 @@ import { isAuthenticated } from "../authentication/AuthService"
 import { useContext, useEffect, useState } from "react";
 import { userContext } from "../context/AuthContext";
 const PrivateRoutes = () => {
-    const [isLogin, setIsLogin] = useState(isAuthenticated());
+    // const [isLogin, setIsLogin] = useState(isAuthenticated());
+    const [isLogin, setIsLogin] = useState(localStorage.getItem('token'))
     // const { setUser } = useContext(userContext)
     // useEffect(() => {
     //     if (!isLogin) {

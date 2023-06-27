@@ -1,25 +1,25 @@
-export const nav= [
+export const nav = [
     {
-        key:1,
+        key: 1,
         title: "Beranda",
-        to:"/home"
+        to: "/"
     },
     {
-        key:2,
+        key: 2,
         title: "Tentang Kami",
-        to:"/home"
+        to: "/"
     },
     {
-        key:3,
+        key: 3,
         title: "Program",
-        to:"/program"
+        to: "/program"
     },
     {
-        key:4,
-        title: "FAQ",
-        to:"/faq"
+        key: 4,
+        title: "Bantuan",
+        to: "/help"
     },
 ]
 export const desc = {
-    desc : "CareerFund adalah platform yang menyediakan pinjaman bagi individu yang ingin melanjutkan studi ke perguruan tinggi. Dalam kerjasama yang saling menguntungkan, perusahaan memberikan pinjaman dan individu berkomitmen bekerja di perusahaan tersebut setelah lulus. CareerFund membantu memfasilitasi pendidikan dan membantu perusahaan menemukan karyawan potensial."
+    desc: "CareerFund adalah platform yang menyediakan pinjaman bagi individu yang ingin melanjutkan studi ke perguruan tinggi. Dalam kerjasama yang saling menguntungkan, perusahaan memberikan pinjaman dan individu berkomitmen bekerja di perusahaan tersebut setelah lulus. CareerFund membantu memfasilitasi pendidikan dan membantu perusahaan menemukan karyawan potensial."
 }

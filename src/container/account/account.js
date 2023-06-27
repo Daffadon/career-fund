@@ -1,7 +1,7 @@
 import fotoUser from "../../assets/Account/foto.svg";
 import fotoCompany from "../../assets/Account/bigprofile.svg";
 
-export const userAccount = {
+export const userAccountData = {
 	foto: fotoUser,
 	namaDepan: "Rinae",
 	namaBelakang: "Doe",

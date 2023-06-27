@@ -34,6 +34,7 @@ const AppRoutes = () => {
             <Route path="/help" element={<Help />} />
             <Route path="*" element={<NotFound />} />
             <Route element={<PublicRoutes />}>
+                {/* !!! DISABLED FOR DUMMY ONLY */}
                 <Route path="/" element={<LandingPage />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<SignUp />} />
@@ -43,9 +44,8 @@ const AppRoutes = () => {
                 <Route path="/about" element={<AboutUs />} />
             </Route>
 
-
-
             <Route element={<PrivateRoutes />}>
+                {/* !!! DISABLED FOR DUMMY ONLY */}
                 <Route path="/program" element={<Program />} />
                 <Route path="/program/:name" element={<UserDetailProgram />} />
                 <Route path='/home' element={<Home />} />
