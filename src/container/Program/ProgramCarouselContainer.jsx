@@ -10,10 +10,10 @@ const ProgramCarouselContainer = ({ listProgram }) => {
 				<img src={loop} className="relative left-10	" />
 				<input type="text" className="w-full rounded-full px-16 border-none" placeholder="Search" />
 			</div>
-			<div className="mt-10 ml-10 flex flex-wrap justify-center items-center gap-5">
+			<div className="mt-10 ml-10 min-h-0 flex flex-wrap justify-center items-center gap-5">
 				{listProgram.map((item) => {
 					return (
-						<div key={item.key} className=" flex-nowrap">
+						<div key={item.key} className="flex-nowrap">
 							<div className={`${card['program']} py-5 px-5`}>
 								<div className="flex items-center mb-6">
 									<img src={item.url} alt={item.name} />
